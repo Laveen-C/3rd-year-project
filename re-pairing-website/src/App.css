@@ -1,0 +1,100 @@
+.App {
+  text-align: center;
+}
+
+.h-20{
+  height: 20px;
+}
+
+.h-56{
+  height: 56px;
+}
+
+.h-40{
+  height: 40px;
+}
+
+.w-15{
+  width: 15px;
+}
+
+.inline{
+  display: inline-block;
+}
+
+.input-field{
+  height: 30px;
+  width: 80%;
+  margin: auto;
+}
+
+.input-field-textbox{
+  width: 70%;
+  display: inline-block;
+  vertical-align: top;
+}
+
+
+.padding {
+  margin: 0px;
+  padding: 20px;
+}
+
+.buttonP { 
+  padding: 10px 5px;
+  display: block;
+
+}
+
+.div-20{
+  height: 20px;
+}
+
+.plane-title{
+  /* margin: 20px; */
+  margin: 0px;
+  padding: 20px;
+}
+
+.displayWindow {
+  display: inline-block;
+  /*background-color: rgb(255, 219, 219);*/
+  width: 70%;
+  height: 100vh;
+  vertical-align: middle;
+  font-family:'Courier New', Courier, monospace;
+  font-size: 1200%;
+  word-wrap: break-word;
+
+  /* border-radius: 4%;
+  border: 2px solid #000000; */
+}
+
+/* .div2 {
+  margin: auto;
+  width: 100%;
+  vertical-align: middle;
+  position: absolute;
+} */
+
+.controlWindow {
+  display: inline-block;
+  /* background-color: rgb(255, 219, 219); */
+  width: 30%;
+  height: 100vh;
+  vertical-align: middle;
+}
+
+#input-plane{
+  width: 100%;
+  height: 50vh;
+  /* background-color: rgb(219, 219, 255); */
+  text-align: center;
+  
+}
+
+#tree-display-plane{
+  width: 100%;
+  height: 50vh;
+  /* background-color: rgb(219, 255, 219); */
+}

@@ -1,2 +1,2 @@
 # 3rd-year-project
-3rd year project work
+My 3rd year project work on the topic of the re-pairing game.

@@ -1,0 +1,13 @@
+To-Do for proj:
+- Have algorithms be in a select menu
+  * Placed into a select menu!
+  * Create a separate button for actually working out the re-pairing steps according to the selected algorithm
+  * Another button for actually running the generated steps! (Grey this out unless steps have been generated (if steps array empty then inactive?)
+  * 
+- Implement a slider for step/instant options with a text field for time between steps (0 for manual stepping)
+- Display result of algorithms on the webpage
+- Display corresponding tree for dyck word
+- Come up with algorithm to generate dyck words efficiently, and efficient brute forcing techniques to find optimal width
+- Compare greedy recursive approach (smallest length and width, but width would require hashing? Unsure how to approach this)
+- Fix layout of website
+- Manual re-pairing option? Turning each bracket into a button etc. 
