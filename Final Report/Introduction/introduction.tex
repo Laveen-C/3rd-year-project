@@ -1,0 +1,54 @@
+\section{Introduction}
+
+We start with a simple one-player game. Take any Dyck word (a balanced sequence of opening and closing brackets), for example:
+
+\null
+\begin{center}
+    \texttt{\large (()())}
+\end{center}
+\null
+
+\noindent A move in this game consists of pairing any opening bracket with any closing bracket to its right, and replacing the two with a blank space, denoted with the \texttt{\string_} symbol. This process is repeated until there are no more brackets to pair up, resulting in the empty string, and the sequence of moves made is called a re-pairing. An example of a re-pairing is as follows:
+
+\null
+\begin{center}
+    \texttt{\large (()())}\\
+    \texttt{\large (\string_)(\string_)}\\
+    \texttt{\large \string_\string_\string_(\string_)}\\
+    \texttt{\large \string_\string_\string_\string_\string_\string_}\\
+\end{center}
+\null
+
+\noindent Note that our first move pairs up two brackets that are not matched to each other in the initial word. We allow such moves in a re-pairing. 
+
+Finding any re-pairing following these rules is a trivial task, but we want to measure how good a re-pairing is. For this we introduce a property called the width, defined as the maximum number of non-empty segments of brackets seen during the re-pairing. We can see that the previous re-pairing had width 2. A natural question then arises; can we obtain a re-pairing with a smaller width? The answer for this particular string is yes, and such a re-pairing is shown below:
+
+\null
+\begin{center}
+    \texttt{\large (()())}\\
+    \texttt{\large \string_()()\string_}\\
+    \texttt{\large \string_()\string_\string_\string_}\\
+    \texttt{\large \string_\string_\string_\string_\string_\string_}\\
+\end{center}
+\null
+
+\noindent Here we see this re-pairing has width 1. Our goal is to try and minimise this width as much as possible. 
+
+
+\subsection{Objectives}
+
+This project aims to take both a theoretical and practical approach to this game. It aims to assess the current literature available on the game and expand on their results. This allows us to get a broader picture of the research landscape on the game, as well as a deeper and more intuitive grasp on certain results. The project also aims to implement these strategies in a practical way that allows for visualisation and experimentation. Finally, the project aims to attack the goal of minimising width with a practical approach, by analysing certain strategies and subcases of Dyck words. More specifically, the objectives of the project can be outlined as follows:
+
+\begin{enumerate}
+    \item An introduction to the relevant definitions and content to lay out relevant background knowledge.
+    \item Expanding on and providing potential novel insights on well established results.
+    \item Establishing the research landscape on the re-pairing game and relevant topics.
+    \item Creating software to demonstrate re-pairing strategies from literature and allow manual experimentation on Dyck word re-pairings.
+    \item Using software to analyse subcases of Dyck words and exhaustively find their width in an attempt to pin down the formula of a general Dyck word.
+\end{enumerate}
+
+\subsection{Related work}
+This project builds on the work from Chistikov and Vyalyi \cite{chistikov2020re}, whose paper serves as a basis for this project. The paper introduces this game as a way to prove a lower bound on translating one-counter automata (OCA) into Parikh-equivalent nondeterministic finite automata (NFA). It provides lower bounds on the width for simple and non-simple re-pairings, which is then used to prove lower bounds on these translations.
+
+Due to the specialised nature of this game's origins, there are no other works on this game at the time of writing.
+

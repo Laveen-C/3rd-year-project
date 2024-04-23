@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2024.3.5)  22 APR 2024 22:48
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2024.3.5)  23 APR 2024 22:57
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -98,23 +98,23 @@ Document Style - pseudocode environments for use with the `algorithmicx' style
 File: l3backend-pdftex.def 2024-02-20 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count274
 \l__pdf_internal_box=\box53
-) (./report.aux (./Preamble/titlepage.aux) (./Preamble/abstract.aux) (./Preamble/contents.aux) (./Chapter1/introduction.aux))
+) (./report.aux (./Preamble/titlepage.aux) (./Preamble/abstract.aux) (./Preamble/contents.aux) (./Introduction/introduction.aux) (./Background/background.aux) (./LitReview/litReview.aux))
 \openout1 = `report.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 7.
-LaTeX Font Info:    ... okay on input line 7.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 7.
-LaTeX Font Info:    ... okay on input line 7.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 7.
-LaTeX Font Info:    ... okay on input line 7.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 7.
-LaTeX Font Info:    ... okay on input line 7.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 7.
-LaTeX Font Info:    ... okay on input line 7.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 7.
-LaTeX Font Info:    ... okay on input line 7.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 7.
-LaTeX Font Info:    ... okay on input line 7.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 8.
+LaTeX Font Info:    ... okay on input line 8.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 8.
+LaTeX Font Info:    ... okay on input line 8.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 8.
+LaTeX Font Info:    ... okay on input line 8.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 8.
+LaTeX Font Info:    ... okay on input line 8.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 8.
+LaTeX Font Info:    ... okay on input line 8.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 8.
+LaTeX Font Info:    ... okay on input line 8.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 8.
+LaTeX Font Info:    ... okay on input line 8.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -124,15 +124,15 @@ LaTeX Font Info:    ... okay on input line 7.
 * layout: <same size as paper>
 * layoutoffset:(h,v)=(0.0pt,0.0pt)
 * modes: 
-* h-part:(L,W,R)=(72.26999pt, 452.9679pt, 72.26999pt)
-* v-part:(T,H,B)=(72.26999pt, 700.50687pt, 72.26999pt)
+* h-part:(L,W,R)=(108.405pt, 380.69788pt, 108.405pt)
+* v-part:(T,H,B)=(108.405pt, 628.23685pt, 108.405pt)
 * \paperwidth=597.50787pt
 * \paperheight=845.04684pt
-* \textwidth=452.9679pt
-* \textheight=700.50687pt
-* \oddsidemargin=0.0pt
-* \evensidemargin=0.0pt
-* \topmargin=-37.0pt
+* \textwidth=380.69788pt
+* \textheight=628.23685pt
+* \oddsidemargin=36.13501pt
+* \evensidemargin=36.13501pt
+* \topmargin=-0.86499pt
 * \headheight=12.0pt
 * \headsep=25.0pt
 * \topskip=12.0pt
@@ -183,19 +183,21 @@ Package pdftex.def Info: ./images/WarwickCrest.pdf  used on input line 6.
 {c:/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./images/WarwickCrest.pdf>]
 \openout2 = `./Preamble/abstract.aux'.
 
- (./Preamble/abstract.tex
-Overfull \hbox (5.28882pt too wide) in paragraph at lines 7--8
-\OT1/cmr/bx/n/12 Keywords: \OT1/cmr/m/it/12 Dyck lan-guage, Re-pairing brack-ets, Com-bi-na-torics, Web ap-pli-ca-tion, Python,
- []
-
-) [2
+ (./Preamble/abstract.tex) [2
 
 
 
 ]
 \openout2 = `./Preamble/contents.aux'.
 
- (./Preamble/contents.tex (./report.toc)
+ (./Preamble/contents.tex (./report.toc
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <12> on input line 2.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 2.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 2.
+)
 \tf@toc=\write3
 \openout3 = `report.toc'.
 
@@ -204,31 +206,48 @@ Overfull \hbox (5.28882pt too wide) in paragraph at lines 7--8
 
 
 ]
-\openout2 = `./Chapter1/introduction.aux'.
+\openout2 = `./Introduction/introduction.aux'.
 
- (./Chapter1/introduction.tex) [2
+ (./Introduction/introduction.tex [2
 
 
 
-] (./report.aux (./Preamble/titlepage.aux) (./Preamble/abstract.aux) (./Preamble/contents.aux) (./Chapter1/introduction.aux))
+]) [3]
+\openout2 = `./Background/background.aux'.
+
+ (./Background/background.tex) [4
+
+
+
+]
+\openout2 = `./LitReview/litReview.aux'.
+
+ (./LitReview/litReview.tex) [5
+
+
+
+] (./report.bbl) [6
+
+
+] (./report.aux (./Preamble/titlepage.aux) (./Preamble/abstract.aux) (./Preamble/contents.aux) (./Introduction/introduction.aux) (./Background/background.aux) (./LitReview/litReview.aux))
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 2655 strings out of 474116
- 44457 string characters out of 5747718
- 1928190 words of memory out of 5000000
- 24994 multiletter control sequences out of 15000+600000
- 560539 words of font info for 44 fonts, out of 8000000 for 9000
+ 2740 strings out of 474116
+ 46859 string characters out of 5747718
+ 1932190 words of memory out of 5000000
+ 25052 multiletter control sequences out of 15000+600000
+ 563315 words of font info for 54 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 57i,5n,65p,721b,214s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on report.pdf (4 pages, 90375 bytes).
+ 57i,5n,65p,811b,214s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
+Output written on report.pdf (8 pages, 105260 bytes).
 PDF statistics:
- 41 PDF objects out of 1000 (max. 8388607)
- 25 compressed objects within 1 object stream
+ 60 PDF objects out of 1000 (max. 8388607)
+ 38 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  6 words of extra memory for PDF output out of 10000 (max. 10000000)
 
