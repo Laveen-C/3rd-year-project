@@ -26,7 +26,7 @@ function App() {
   
   // // BACKEND TEST CODE
   // const testBackend = async () => {
-  //   const response = await axios.get("http://localhost:5000/api/test")
+  //   const response = await axios.get("http://localhost:8080/api/test")
   //   console.log(response.data.test);
   // }
 
