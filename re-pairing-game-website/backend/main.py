@@ -1,5 +1,6 @@
 from flask import Flask, jsonify
 from flask_cors import CORS
+import platform
 
 app = Flask(__name__)
 cors = CORS(app, origins = '*')
@@ -14,26 +15,33 @@ cors = CORS(app, origins = '*')
 #         }
 #     )
 
+@app.route('/check') #Verifies flask is running on pypy (for bruteforce efficiency)
+def check_pypy():
+    return f"Running on {platform.python_implementation()}"
+
 def is_dyck_word(s):
     count = 0
+    pos = 0
     for char in s:
+        pos += 1
         if char == '(':
             count += 1
         elif char == ')':
             count -= 1
             if count < 0:
-                return False
-    return count == 0
+                return pos
+    return True
 
 @app.route('/api/validate', methods=['POST'])
 def validate_input():
     data = request.get_json()
     input_value = data.get('input', '')
+    result = is_dyck_word(input_value)
 
-    if is_dyck_word(input_value):
+    if result == True:
         return jsonify({'isValid': True, 'message': input_value})
     else:
-        return jsonify({'isValid': False, 'message': 'INVALID INPUT'})
+        return jsonify({'isValid': False, 'message': f'INVALID INPUT at {result}'})
 
 if __name__ == '__main__':
     app.run(debug=True, port=8080)

@@ -72,8 +72,8 @@ function App() {
           </Box>
         </Box>
         <Box style={{ flexGrow: 1, padding: '2vmin' }}>
-          <Typography variant="h6">Binary Tree Visualization</Typography>
-          {/* This is where the binary tree visualization will be displayed */}
+          <Typography variant="h6">Re-Pairing moves</Typography>
+          {/* This is where the steps of the game so far will be displayed */}
         </Box>
       </Grid>
     </Grid>
