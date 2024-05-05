@@ -27,34 +27,35 @@
 \noindent These words have interesting combinatorial properties, one of which is their unsurprising link to Lattice Walks:
 
 \begin{definition}
-    A \textbf{North-East Lattice Walk} is a sequence of vectors $(a, b)$ starting at $(0, 0)$ and finishing at $(n, n)$, such that every step on the walk goes from some $(a, b)$ to either $(a+1, b)$ or $(a, b+1)$.
+    A \textbf{North-East lattice walk} is a sequence of vectors $(a, b)$ starting at $(0, 0)$ and finishing at $(n, n)$, such that every step on the walk goes from some $(a, b)$ to either $(a+1, b)$ or $(a, b+1)$.
 \end{definition}
-In other words, every step is exactly one unit vector right or one unit vector up.
+\noindent In other words, every step is exactly one unit vector right or one unit vector up.
 
 \begin{theorem}
-    Every Dyck word of length $2n$ corresponds to a unique north-east lattice walk from $(0, 0)$ to $(n, n)$ that does not cross above the line $y = x$. 
+    Every Dyck word of length $2n$ corresponds to a unique North-East lattice walk from $(0, 0)$ to $(n, n)$ that does not cross above the line $y = x$. 
 \end{theorem}
 
 \noindent This is a trivial mapping, as we can take a move east to be ``\texttt{(}'', and a move north to be ``\texttt{)}''. This works out as expected since we have $2n$ brackets to match, and $n$ moves east and north each during such lattice walks. Our restriction on Dyck words that ensures there are never more ``\texttt{)}'' brackets than ``\texttt{(}'' brackets corresponds to the restriction of the walk being below (or on) the line $y = x$. This connection gives us another result:
 
 \begin{theorem}[{\cite{rukavicka2011dp}}]
-    The number of Dyck words of length $2n$ corresponds to the n\textsuperscript{th} Catalan number $C_{n}$.
+    The number of Dyck words of length $2n$ corresponds to the n\textsuperscript{th} Catalan number $C_{n}=\sum_{i=1}^{n-1}C_{i}C_{n-1-i}$.
 \end{theorem}
 \begin{proof}
-    We can count the number of north-east lattice walks from $(0, 0)$ to $(n, n)$ that do not cross above the line $y=x$ by the n\textsuperscript{th} catalan number $C_{n} = \frac{1}{n+1} {2n \choose n}$. 
+    Let $W_{n}$ be the number of North-East lattice walks from $(0,0)$ to $(n,n)$ that do not cross above the line $y = x$. Given any such walk, it may touch this line at any $(i, i)$ where $0 \leq i \leq n-1$. This gives us a natural recursion; every such North-East lattice walk can be broken down into a North-East lattice walk from $(0, 0)$ to $(i, i)$, and from $(i, i)$ to $(n, n)$. Using this idea, we see that $W_{n}=\sum_{i=0}^{n-1}W_{i}W_{n-1-i}$. This is precisely the recursion for the $n\textsuperscript{th}$ Catalan number.
 \end{proof}
 
 \subsubsection{Binary Trees}
-\noindent However, we can also relate this result to the concept of binary trees as well. Suppose we had four factors of a number $x = x_{1}x_{2}x_{3}x_{4}$. How many ways could we place brackets around this to order which factors are multiplied first?
+\noindent However, we can also relate this result to the concept of binary trees as well. Suppose we had four factors of a number $x = x_{1}x_{2}x_{3}x_{4}$. How many ways can we \textit{completely parenthesize} this expression of factors (i.e. place brackets around this to group factors)?
 \begin{enumerate}
-    \item $x_{1}(x_{2}(x_{3}x_{4}))$
-    \item $x_{1}((x_{2}x_{3})x_{4})$
     \item $(x_{1}(x_{2}x_{3}))x_{4}$
     \item $((x_{1}x_{2})x_{3})x_{4}$
+    \item $x_{1}(x_{2}(x_{3}x_{4}))$
+    \item $x_{1}((x_{2}x_{3})x_{4})$
     \item $(x_{1}x_{2})(x_{3}x_{4})$
 \end{enumerate}
-There are 5 ways, but this happens to be the same as $C_3 = \frac{1}{3+1} {2(3) \choose 3} = 5$. We formalise this below:
-
+There are 5 ways, but this is the same as $C_3 = \frac{1}{3+1} {2(3) \choose 3} = 5$. To understand why, let $G_{n}$ be the number of ways to place brackets around $x = x_{1}\dots x_{n}$. Note that the outermost factor will not be within any pair of brackets.
+\par\null
+\noindent We look at the leftmost ``\texttt{(}'', and its matching ``\texttt{)}''. Suppose this surrounds $0 \leq i \leq n-1$ factors. We can completely parenthesize this expression of factors in $G_{i}$ ways. Since the outermost factor will not be within any pair of brackets, this leaves a further $n-i-1$ factors to completely parenthesize, which can be done in $G_{n-i-1}$ ways. Therefore the number of ways to completely parenthesize an expression of $n$ factors is ${G_{n}=\sum_{i=0}^{n-1}G_{i}G_{n-1-i}}$, which is precisely the $n\textsuperscript{th}$ Catalan number.
 \begin{theorem}
     The number of proper binary trees with $n+1$ leaves is $C_n$.
 \end{theorem}

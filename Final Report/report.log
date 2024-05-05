@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2022.3.14)  5 MAY 2024 03:56
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2022.3.14)  5 MAY 2024 20:53
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -225,22 +225,22 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 ]) [3] (./LitReview/litReview.tex) (./LitReview/Background/background.tex [4
 
 
-]) [5] (/Users/laveen/Documents/Uni Work/Year 3/3rd-year-project/Final Report/report.bbl) [6
+] [5]) [6] (/Users/laveen/Documents/Uni Work/Year 3/3rd-year-project/Final Report/report.bbl) [7
 
 ] (/Users/laveen/Documents/Uni Work/Year 3/3rd-year-project/Final Report/report.aux (/Users/laveen/Documents/Uni Work/Year 3/3rd-year-project/Final Report/./Preamble/titlepage.aux) (/Users/laveen/Documents/Uni Work/Year 3/3rd-year-project/Final Report/./Preamble/abstract.aux) (/Users/laveen/Documents/Uni Work/Year 3/3rd-year-project/Final Report/./Preamble/contents.aux) (/Users/laveen/Documents/Uni Work/Year 3/3rd-year-project/Final Report/./Introduction/introduction.aux)) ) 
 Here is how much of TeX's memory you used:
  2542 strings out of 478994
  40679 string characters out of 5858184
- 337655 words of memory out of 5000000
+ 339655 words of memory out of 5000000
  19977 multiletter control sequences out of 15000+600000
  409555 words of font info for 48 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 68i,5n,74p,702b,208s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 68i,5n,74p,730b,208s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmitt10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmti8.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on "/Users/laveen/Documents/Uni Work/Year 3/3rd-year-project/Final Report/report.pdf" (8 pages, 181904 bytes).
+Output written on "/Users/laveen/Documents/Uni Work/Year 3/3rd-year-project/Final Report/report.pdf" (9 pages, 184998 bytes).
 PDF statistics:
- 92 PDF objects out of 1000 (max. 8388607)
- 65 compressed objects within 1 object stream
+ 95 PDF objects out of 1000 (max. 8388607)
+ 67 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  6 words of extra memory for PDF output out of 10000 (max. 10000000)
 
