@@ -5,48 +5,46 @@ A level-1 auxiliary file: ./Preamble/titlepage.aux
 A level-1 auxiliary file: ./Preamble/abstract.aux
 A level-1 auxiliary file: ./Preamble/contents.aux
 A level-1 auxiliary file: ./Introduction/introduction.aux
-A level-1 auxiliary file: ./Background/background.aux
-A level-1 auxiliary file: ./LitReview/litReview.aux
 The style file: ieeetr.bst
 Database file #1: bibliography.bib
-You've used 1 entry,
+You've used 2 entries,
             1876 wiz_defined-function locations,
-            489 strings with 3788 characters,
-and the built_in function-call counts, 368 in all, are:
-= -- 36
-> -- 8
+            493 strings with 3837 characters,
+and the built_in function-call counts, 504 in all, are:
+= -- 48
+> -- 12
 < -- 0
-+ -- 3
-- -- 2
-* -- 22
-:= -- 52
-add.period$ -- 1
-call.type$ -- 1
-change.case$ -- 1
++ -- 5
+- -- 3
+* -- 31
+:= -- 75
+add.period$ -- 2
+call.type$ -- 2
+change.case$ -- 2
 chr.to.int$ -- 0
-cite$ -- 1
-duplicate$ -- 21
-empty$ -- 38
-format.name$ -- 2
-if$ -- 89
+cite$ -- 2
+duplicate$ -- 30
+empty$ -- 55
+format.name$ -- 3
+if$ -- 121
 int.to.chr$ -- 0
-int.to.str$ -- 1
-missing$ -- 1
-newline$ -- 6
-num.names$ -- 1
-pop$ -- 7
+int.to.str$ -- 2
+missing$ -- 2
+newline$ -- 9
+num.names$ -- 2
+pop$ -- 10
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 16
+skip$ -- 17
 stack$ -- 0
 substring$ -- 32
-swap$ -- 9
+swap$ -- 10
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 0
-while$ -- 4
-width$ -- 2
-write$ -- 11
+while$ -- 5
+width$ -- 3
+write$ -- 20

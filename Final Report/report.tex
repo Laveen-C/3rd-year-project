@@ -4,6 +4,7 @@
 \graphicspath{ {./images/} }
 \usepackage{setspace} %For title page spacing
 \usepackage{algorithm, algpseudocode}
+\usepackage{amsthm} %For proofs
 
 \begin{document}
 
@@ -12,9 +13,10 @@
 \include{./Preamble/abstract}
 \include{./Preamble/contents}
 \include{./Introduction/introduction}
-\include{./Background/background}
-\include{./LitReview/litReview}
+\input{./LitReview/litReview}
+\input{./LitReview/Background/background}
 
+\clearpage
 \bibliography{bibliography}
 \bibliographystyle{ieeetr}
 

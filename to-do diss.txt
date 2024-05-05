@@ -1,0 +1,11 @@
+Objectives:
+1. An introduction to the relevant deﬁnitions and content to lay out background knowledge.
+
+2. Expanding on and providing potential novel insights on well established results.
+
+3. Establishing the research landscape on the re-pairing game and relevant topics.
+
+4. Creating software to demonstrate re-pairing strategies from literature and allow manual experimentation on Dyck word re-pairings.
+
+5. Using software to analyse subcases of Dyck words and exhaustively ﬁdn their width in an attempt to pin down the formula of a genreal Dyck word
+
