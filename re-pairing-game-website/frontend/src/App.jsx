@@ -8,10 +8,31 @@ import axios from "axios";
 function App() {
   const [input, setInput] = useState('');
   const [display, setDisplay] = useState([]);
+  const [error, setError] = useState('');
+  const [manual, setManual] = useState(false); // By default manual mode is off
+  const [width, setWidth] = useState(1);
 
-  const handleSubmit = () => {
-    const charArray = input.split('').map((char) => ({ char, selected: false }));
-    setDisplay(charArray);
+  useEffect(() => { // For displaying errors (if there is one)
+    if (error != ''){
+      setDisplay(["Error: ", error]);
+    }
+  } ,[error]);
+
+  const handleSubmit = async () => {
+      const response = await axios.post('http://localhost:8080/api/validate', { input }); // Error msg returned from validation
+      // console.log(response.data.isValid);
+      if (response.data.isValid) {
+        setError('');
+        setManual(true);
+        const charArray = input.split('').map((char) => ({ char, selected: false }));
+        setDisplay(charArray);
+        console.log("yippee");
+      }
+      else {
+        setError(response.data.message);
+        setManual(false)
+        setDisplay([]);
+      }
   };
 
   const handleInput = (event) => {
@@ -19,9 +40,11 @@ function App() {
   };
 
   const toggleSelect = (index) => {
-    const newDisplay = [...display];
-    newDisplay[index].selected = !newDisplay[index].selected;
-    setDisplay(newDisplay);
+    if (manual) {
+      const newDisplay = [... display];
+      newDisplay[index].selected = !newDisplay[index].selected;
+      setDisplay(newDisplay);
+    }
   };
   
   // // BACKEND TEST CODE
@@ -37,24 +60,40 @@ function App() {
   return (
     <Grid container style={{ height: '100vh', width: '100vw' }}>
       <Grid item xs={8} style={{ display: 'flex', flexDirection: 'column', maxHeight: '100vh'}}>
-        <Box style={{ padding: '2vmin', display: 'flex', alignItems: 'center', justifyContent: 'center', flexGrow: 1, flexWrap: 'wrap', overflowY: 'auto' }}>
-          {display.map((item, index) => (
-            <span
-              key={index}
-              onClick={() => {toggleSelect(index); console.log(display);}} // Printing char array for test! Currently a dictionary from char to bool (true if char selected by user)
-              className={`displayText ${item.selected ? 'selected' : ''}`}
-              // style={{ cursor: 'pointer', fontFamily: "'Courier New', Courier, monospace", fontSize: '8vw' }}
-            >
-              {item.char}
-            </span>
-          ))}
+        <Box style={{ padding: '2vmin', display: 'flex', textAlign: 'center', alignItems: 'center', justifyContent: 'center', flexGrow: 1, flexWrap: 'wrap', overflowY: 'auto' }}>
+          {error != '' ? (
+            <Typography variant="h6" style={{ color: 'red', fontFamily: "'Courier New', Courier, monospace", fontSize: '5vw' }}>
+              {error}
+            </Typography>
+            ) : (
+            display.map((item, index) => (
+              <span
+                key={index}
+                className={`character ${item.selected ? 'selected': '' }`}
+                onClick={() => {toggleSelect(index); console.log(display);}}
+                style={{ cursor: manual ? 'pointer' : 'not-allowed', fontFamily: "'Courier New', Courier, monospace", fontSize: '8vw'}}
+              >
+                {item.char}
+              </span>
+            )))
+          }
         </Box>
         <Box style={{ padding: '2vmin', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-          <Typography variant="h6" style={{ textAlign: 'center', justifyContent: 'center' }}>
-            Width Counter: {/* Display width calculation here */}
-          </Typography>
+          {display.length != 0 ? (
+            <Typography variant="h6" style={{ textAlign: 'center', justifyContent: 'center' }}>
+              Width Counter: {width}
+              {console.log(display)}
+            </Typography>
+          ) : (
+            <Typography variant="h6" style={{ textAlign: 'center', justifyContent: 'center' }}>
+              Submit a Dyck word to begin playing the game!
+            </Typography>
+          )
+          }
         </Box>
       </Grid>
+
+      {/* I/O, strategies, and moves */}
       <Grid item xs={4}>
         <Box style={{ padding: '2vmin' }}>
           <Typography variant="h6">Input and Algorithms</Typography>
@@ -76,6 +115,7 @@ function App() {
           {/* This is where the steps of the game so far will be displayed */}
         </Box>
       </Grid>
+
     </Grid>
   )
 }

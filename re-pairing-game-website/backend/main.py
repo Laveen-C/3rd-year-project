@@ -1,4 +1,4 @@
-from flask import Flask, jsonify
+from flask import Flask, jsonify, request
 from flask_cors import CORS
 import platform
 
@@ -22,14 +22,19 @@ def check_pypy():
 def is_dyck_word(s):
     count = 0
     pos = 0
+    s = str(s)
     for char in s:
         pos += 1
         if char == '(':
             count += 1
         elif char == ')':
             count -= 1
-            if count < 0:
-                return pos
+        else: #Not a bracket
+            return 'Input contains non-bracket character'
+        if count < 0:
+            return f'Unmatched ")" at position {pos}'
+    if count > 0:
+        return f'Unmatched "("'
     return True
 
 @app.route('/api/validate', methods=['POST'])
@@ -41,7 +46,7 @@ def validate_input():
     if result == True:
         return jsonify({'isValid': True, 'message': input_value})
     else:
-        return jsonify({'isValid': False, 'message': f'INVALID INPUT at {result}'})
+        return jsonify({'isValid': False, 'message': f'INVALID INPUT: {result}'})
 
 if __name__ == '__main__':
     app.run(debug=True, port=8080)
