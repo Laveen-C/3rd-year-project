@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { Grid, Box, Button, TextField, Typography } from '@mui/material';
+import { Grid, Box, Button, TextField, Typography, FormControl, InputLabel, Select, MenuItem } from '@mui/material';
 import './App.css'
 import axios from "axios";
 // import reactLogo from './assets/react.svg'
@@ -7,10 +7,19 @@ import axios from "axios";
 
 function App() {
   const [input, setInput] = useState('');
-  const [display, setDisplay] = useState([]);
-  const [error, setError] = useState('');
+  const [display, setDisplay] = useState([]); // Dyck words held as an array of dicts, grouping char and selection state
+  const [error, setError] = useState(''); 
   const [manual, setManual] = useState(false); // By default manual mode is off
-  const [width, setWidth] = useState(1);
+  const [width, setWidth] = useState(1); // All Dyck words start with width 1
+  const [strategy, setStrategy] = useState('');
+  const [steps, setSteps] = useState([]); // Steps to re-pair the current word 
+
+  const strategies = [
+    { value: 'bruteForce', label: 'Brute Force' },
+    { value: 'simple', label: 'Simple' },
+    { value: 'non-simple', label: 'Non-Simple Recursive'},
+    { value: 'greedy', label: 'Greedy' }
+  ];
 
   useEffect(() => { // For displaying errors (if there is one)
     if (error != ''){
@@ -18,33 +27,42 @@ function App() {
     }
   } ,[error]);
 
-  const handleSubmit = async () => {
-      const response = await axios.post('http://localhost:8080/api/validate', { input }); // Error msg returned from validation
-      // console.log(response.data.isValid);
-      if (response.data.isValid) {
-        setError('');
-        setManual(true);
-        const charArray = input.split('').map((char) => ({ char, selected: false }));
-        setDisplay(charArray);
-        console.log("yippee");
-      }
-      else {
-        setError(response.data.message);
-        setManual(false)
-        setDisplay([]);
-      }
+  const handleSubmit = async () => { // When the submit button is pressed, this is called
+    const response = await axios.post('http://localhost:8080/api/validate', { input }); // Error msg returned from validation
+    if (response.data.isValid) {
+      setError('');
+      setManual(true);
+      const charArray = input.split('').map((char) => ({ char, selected: false }));
+      setDisplay(charArray);
+    }
+    else {
+      setError(response.data.message);
+      setManual(false)
+      setDisplay([]);
+    }
+    setWidth(1);
+    setSteps([]);
   };
 
-  const handleInput = (event) => {
+  const handleInput = (event) => { // For updating the text displayed within the input field
     setInput(event.target.value);
   };
 
-  const toggleSelect = (index) => {
+  const toggleSelect = (index) => { // For updating colour (and eventually a valid selection state) on selected characters
     if (manual) {
       const newDisplay = [... display];
       newDisplay[index].selected = !newDisplay[index].selected;
       setDisplay(newDisplay);
     }
+  };
+
+  const handleDropdown = (event) => {
+    setStrategy(event.target.value);
+  };
+
+  const generateSteps = () => {
+    let resultSteps = [];
+    console.log(strategy);
   };
   
   // // BACKEND TEST CODE
@@ -82,7 +100,6 @@ function App() {
           {display.length != 0 ? (
             <Typography variant="h6" style={{ textAlign: 'center', justifyContent: 'center' }}>
               Width Counter: {width}
-              {console.log(display)}
             </Typography>
           ) : (
             <Typography variant="h6" style={{ textAlign: 'center', justifyContent: 'center' }}>
@@ -108,6 +125,19 @@ function App() {
             <Button variant="contained" onClick={handleSubmit}>
               Submit
             </Button> 
+          </Box>
+          <Box style={{ padding: '2vmin', display: 'flex', alignItems: 'center', gap: '2vmin' }}>
+            <FormControl style={{ flexGrow: 1 }} >
+              <InputLabel>Choose a strategy</InputLabel>
+              <Select value={strategy} label="Choose a strategy" onChange={handleDropdown}>
+                {strategies.map((strategy) => (
+                  <MenuItem key={strategy.value} value={strategy.value}>
+                    {strategy.label}
+                    {console.log(strategies)}
+                  </MenuItem>
+                ))}
+              </Select>
+            </FormControl>
           </Box>
         </Box>
         <Box style={{ flexGrow: 1, padding: '2vmin' }}>
