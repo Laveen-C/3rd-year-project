@@ -48,6 +48,39 @@ def validate_input():
     else:
         return jsonify({'isValid': False, 'message': f'INVALID INPUT: {result}'})
 
+@app.route('/api/simple', methods=['POST'])
+def simple_repairing():
+    data = request.get_json()
+    dyckDict = data.get('display', '')
+    dyckWord = ''
+    for item in dyckDict:
+        dyckWord += item['char']
+    steps = simple(dyckWord)
+    print(steps)
+    return jsonify({"steps" : steps})
+
+def simple(word): #Describes one simple re-pairing algorithm, where we always pair up from the leftmost opening bracket
+    temp = [["x","y"] for i in range(len(word))]
+    steps = []
+    index = -1 #Index of the pair of brackets
+
+    for i in range(len(word)):
+        # if word[i] == "(":
+        #     temp[pos][0] = i
+        #     pos += 1
+        # elif word[i] == ")":
+        #     temp[pos - 1][1] = i
+        #     steps.append(temp.pop(pos - 1))
+        #     pos -= 1
+        if word[i] == "(":
+            index += 1
+            steps.append([i])
+        elif word[i] == ")":
+            steps[index].append[i]
+
+    
+    return steps
+
 if __name__ == '__main__':
     app.run(debug=True, port=8080)
 
@@ -80,13 +113,6 @@ def treeDataFromWord(word):
         elif char == ")":
             stack.pop()
     return trees
-
-@app.route('/api/simple', methods=['POST'])
-def simple_repairing():
-    data = request.get_json()
-    dyckWord = data.get('input', '')
-    steps = simple(dyckWord)
-    return jsonify({"steps" : steps})
 
 def simple(word): #Describes one simple re-pairing algorithm, where we always pair up from the leftmost opening bracket
     temp = [["x","y"] for i in range(len(word))]
