@@ -41,7 +41,6 @@
   color: #888;
 } */
 
-
 /* .boxDisplay {
   text-align: center;
   display: block; 
@@ -49,9 +48,9 @@
   white-space: normal; 
 } */
 
-.displayText {
+.character {
   cursor: pointer;
-  font-family: 'Courier New', Courier, monospace;
+  font-family: "Courier New", Courier, monospace;
   font-size: 8vw;
 }
 
@@ -59,3 +58,6 @@
   color: red;
 }
 
+.removed {
+  opacity: 0.25;
+}

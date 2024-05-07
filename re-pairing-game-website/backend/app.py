@@ -3,7 +3,7 @@ from flask_cors import CORS
 import platform
 
 app = Flask(__name__)
-cors = CORS(app, origins = '*')
+cors = CORS(app, origins="*")
 
 
 # # BACKEND TEST CODE
@@ -15,9 +15,23 @@ cors = CORS(app, origins = '*')
 #         }
 #     )
 
-@app.route('/check') #Verifies flask is running on pypy (for bruteforce efficiency)
+
+@app.route("/check")  # Verifies flask is running on pypy (for bruteforce efficiency)
 def check_pypy():
     return f"Running on {platform.python_implementation()}"
+
+
+@app.route("/api/validate", methods=["POST"])
+def validate_input():
+    data = request.get_json()
+    input_value = data.get("input", "")
+    result = is_dyck_word(input_value)
+
+    if result == True:
+        return jsonify({"isValid": True, "message": input_value})
+    else:
+        return jsonify({"isValid": False, "message": f"INVALID INPUT: {result}"})
+
 
 def is_dyck_word(s):
     count = 0
@@ -25,63 +39,76 @@ def is_dyck_word(s):
     s = str(s)
     for char in s:
         pos += 1
-        if char == '(':
+        if char == "(":
             count += 1
-        elif char == ')':
+        elif char == ")":
             count -= 1
-        else: #Not a bracket
-            return 'Input contains non-bracket character'
+        else:  # Not a bracket
+            return "Input contains non-bracket character"
         if count < 0:
             return f'Unmatched ")" at position {pos}'
     if count > 0:
         return f'Unmatched "("'
     return True
 
-@app.route('/api/validate', methods=['POST'])
-def validate_input():
-    data = request.get_json()
-    input_value = data.get('input', '')
-    result = is_dyck_word(input_value)
 
-    if result == True:
-        return jsonify({'isValid': True, 'message': input_value})
-    else:
-        return jsonify({'isValid': False, 'message': f'INVALID INPUT: {result}'})
-
-@app.route('/api/simple', methods=['POST'])
+@app.route("/api/simple", methods=["POST"])
 def simple_repairing():
     data = request.get_json()
-    dyckDict = data.get('display', '')
-    dyckWord = ''
+    dyckDict = data.get("display", "")
+    dyckWord = ""
     for item in dyckDict:
-        dyckWord += item['char']
-    steps = simple(dyckWord)
-    print(steps)
-    return jsonify({"steps" : steps})
+        dyckWord += item["char"]
+    moves = simple(dyckWord)
+    return jsonify({"moves": moves})
 
-def simple(word): #Describes one simple re-pairing algorithm, where we always pair up from the leftmost opening bracket
-    temp = [["x","y"] for i in range(len(word))]
+
+# Describes one simple re-pairing algorithm, where we always pair up from the leftmost opening bracket
+def simple(word):
+    temp = [["x", "y"] for i in range(len(word))]
     steps = []
-    index = -1 #Index of the pair of brackets
+    pointer = -1  # Points at the current index being viewed
 
     for i in range(len(word)):
-        # if word[i] == "(":
-        #     temp[pos][0] = i
-        #     pos += 1
-        # elif word[i] == ")":
-        #     temp[pos - 1][1] = i
-        #     steps.append(temp.pop(pos - 1))
-        #     pos -= 1
+        # If we see '(', add new pair with this char's index and set pointer to this pair
+        # If we see ')', add char's index to current pair the pointer is at, and set pointer to the closest pair on it's left in the array NOT matched to any ')'
         if word[i] == "(":
-            index += 1
             steps.append([i])
+            pointer = len(steps) - 1
         elif word[i] == ")":
-            steps[index].append[i]
-
-    
+            steps[pointer].append(i)
+            while True:
+                if len(steps[pointer]) == 2:
+                    pointer -= 1
+                break
     return steps
 
-if __name__ == '__main__':
+
+@app.route("/api/bruteForce", methods=["POST"])
+def bruteForce():
+    data = request.get_json()
+    moves = ["test OK"]
+    print("TESTING")
+    return jsonify({"moves": moves})
+
+
+@app.route("/api/greedy", methods=["POST"])
+def greedy():
+    data = request.get_json()
+    moves = ["test OK"]
+    print("TESTING")
+    return jsonify({"moves": moves})
+
+
+@app.route("/api/nonSimple", methods=["POST"])
+def nonSimple():
+    data = request.get_json()
+    moves = ["test OK"]
+    print("TESTING")
+    return jsonify({"moves": moves})
+
+
+if __name__ == "__main__":
     app.run(debug=True, port=8080)
 
 # OLD CODE BELOW
