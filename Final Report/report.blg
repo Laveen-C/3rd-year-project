@@ -5,11 +5,12 @@ A level-1 auxiliary file: ./Preamble/titlepage.aux
 A level-1 auxiliary file: ./Preamble/abstract.aux
 A level-1 auxiliary file: ./Preamble/contents.aux
 A level-1 auxiliary file: ./Introduction/introduction.aux
+A level-1 auxiliary file: ./ImpAndDesign/ImpAndDesign.aux
 The style file: ieeetr.bst
 Database file #1: bibliography.bib
 You've used 2 entries,
             1876 wiz_defined-function locations,
-            493 strings with 3837 characters,
+            494 strings with 3868 characters,
 and the built_in function-call counts, 504 in all, are:
 = -- 48
 > -- 12

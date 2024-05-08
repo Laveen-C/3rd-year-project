@@ -1,10 +1,12 @@
-\documentclass[12pt, a4paper]{article}
+\documentclass[12pt, a4paper]{report}
 \usepackage[margin = 1.5in]{geometry}
 \usepackage{graphicx}
-\graphicspath{ {./images/} }
+\graphicspath{ {./images/}{./figures} }
 \usepackage{setspace} %For title page spacing
 \usepackage{algorithm, algpseudocode}
 \usepackage{amsthm} %For proofs
+\usepackage{tikz} %For diagrams
+\usepackage{standalone} %So that diagrams can be standalone figures
 
 \begin{document}
 
@@ -15,6 +17,7 @@
 \include{./Introduction/introduction}
 \input{./LitReview/litReview}
 \input{./LitReview/Background/background}
+\include{./ImpAndDesign/ImpAndDesign}
 
 \clearpage
 \bibliography{bibliography}

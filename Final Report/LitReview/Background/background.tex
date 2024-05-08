@@ -1,9 +1,9 @@
-\newtheorem*{definition}{Definition}
-\newtheorem*{theorem}{Theorem}
+\newtheorem{definition}{Definition}
+\newtheorem{theorem}{Theorem}
 
-\subsection{Background}
+\section{Background}
 
-\subsubsection{Dyck Words}
+\subsection{Dyck Words}
 \begin{definition}
     A \textbf{Dyck Word} is a string that satisfies the following:
     \begin{enumerate}
@@ -23,7 +23,7 @@
     \end{enumerate} 
 \end{definition}
 
-\subsubsection{North-East Lattice Walks}
+\subsection{North-East Lattice Walks}
 \noindent These words have interesting combinatorial properties, one of which is their unsurprising link to Lattice Walks:
 
 \begin{definition}
@@ -35,7 +35,14 @@
     Every Dyck word of length $2n$ corresponds to a unique North-East lattice walk from $(0, 0)$ to $(n, n)$ that does not cross above the line $y = x$. 
 \end{theorem}
 
-\noindent This is a trivial mapping, as we can take a move east to be ``\texttt{(}'', and a move north to be ``\texttt{)}''. This works out as expected since we have $2n$ brackets to match, and $n$ moves east and north each during such lattice walks. Our restriction on Dyck words that ensures there are never more ``\texttt{)}'' brackets than ``\texttt{(}'' brackets corresponds to the restriction of the walk being below (or on) the line $y = x$. This connection gives us another result:
+\begin{figure}
+    \centering
+    \includestandalone{./figures/latticeWalkEx/latticeWalkEx}
+    \caption{North-East lattice walk for \texttt{(()())(())}}
+    \label{fig:dyck_path}
+\end{figure}
+
+\noindent This is a trivial mapping, as we can take a move east $(1,0)$ to be ``\texttt{(}'', and a move north $(0,1)$ to be ``\texttt{)}''. This works out as expected since we have $2n$ brackets to match, and $n$ moves east and north each during such lattice walks. Our restriction on Dyck words that ensures there are never more ``\texttt{)}'' brackets than ``\texttt{(}'' brackets corresponds to the restriction of the walk being below (or on) the line $y = x$. This connection gives us another result:
 
 \begin{theorem}[{\cite{rukavicka2011dp}}]
     The number of Dyck words of length $2n$ corresponds to the n\textsuperscript{th} Catalan number $C_{n}=\sum_{i=1}^{n-1}C_{i}C_{n-1-i}$.
@@ -44,7 +51,7 @@
     Let $W_{n}$ be the number of North-East lattice walks from $(0,0)$ to $(n,n)$ that do not cross above the line $y = x$. Given any such walk, it may touch this line at any $(i, i)$ where $0 \leq i \leq n-1$. This gives us a natural recursion; every such North-East lattice walk can be broken down into a North-East lattice walk from $(0, 0)$ to $(i, i)$, and from $(i, i)$ to $(n, n)$. Using this idea, we see that $W_{n}=\sum_{i=0}^{n-1}W_{i}W_{n-1-i}$. This is precisely the recursion for the $n\textsuperscript{th}$ Catalan number.
 \end{proof}
 
-\subsubsection{Binary Trees}
+\subsection{Binary Trees}
 \noindent However, we can also relate this result to the concept of binary trees as well. Suppose we had four factors of a number $x = x_{1}x_{2}x_{3}x_{4}$. How many ways can we \textit{completely parenthesize} this expression of factors (i.e. place brackets around this to group factors)?
 \begin{enumerate}
     \item $(x_{1}(x_{2}x_{3}))x_{4}$
@@ -59,8 +66,6 @@ There are 5 ways, but this is the same as $C_3 = \frac{1}{3+1} {2(3) \choose 3} 
 \begin{theorem}
     The number of proper binary trees with $n+1$ leaves is $C_n$.
 \end{theorem}
-
-To prove this, we first require a lemma. 
 \begin{proof}
-    Recall that a proper binary tree is a tree such that every non-leaf node has 2 nodes. Let $P_n$ be the number of proper binary trees with n leaf nodes. We see that 
+    The idea is to show that every proper binary tree of $n+1$ leaves corresponds to a unique completely parenthesized expression of $n$ factors. Recall that a proper binary tree is a tree such that every non-leaf node has 2 nodes. 
 \end{proof}
