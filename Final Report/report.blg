@@ -1,51 +1,15 @@
-This is BibTeX, Version 0.99d (TeX Live 2021)
-Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
-The top-level auxiliary file: report.aux
-A level-1 auxiliary file: ./Preamble/titlepage.aux
-A level-1 auxiliary file: ./Preamble/abstract.aux
-A level-1 auxiliary file: ./Preamble/contents.aux
-A level-1 auxiliary file: ./Introduction/introduction.aux
-A level-1 auxiliary file: ./ImpAndDesign/ImpAndDesign.aux
-The style file: ieeetr.bst
-Database file #1: bibliography.bib
-You've used 2 entries,
-            1876 wiz_defined-function locations,
-            494 strings with 3868 characters,
-and the built_in function-call counts, 504 in all, are:
-= -- 48
-> -- 12
-< -- 0
-+ -- 5
-- -- 3
-* -- 31
-:= -- 75
-add.period$ -- 2
-call.type$ -- 2
-change.case$ -- 2
-chr.to.int$ -- 0
-cite$ -- 2
-duplicate$ -- 30
-empty$ -- 55
-format.name$ -- 3
-if$ -- 121
-int.to.chr$ -- 0
-int.to.str$ -- 2
-missing$ -- 2
-newline$ -- 9
-num.names$ -- 2
-pop$ -- 10
-preamble$ -- 1
-purify$ -- 0
-quote$ -- 0
-skip$ -- 17
-stack$ -- 0
-substring$ -- 32
-swap$ -- 10
-text.length$ -- 0
-text.prefix$ -- 0
-top$ -- 0
-type$ -- 0
-warning$ -- 0
-while$ -- 5
-width$ -- 3
-write$ -- 20
+[0] Config.pm:311> INFO - This is Biber 2.16
+[0] Config.pm:314> INFO - Logfile is 'report.blg'
+[64] biber-darwin:340> INFO - === Wed May  8, 2024, 22:13:12
+[77] Biber.pm:415> INFO - Reading 'report.bcf'
+[163] Biber.pm:952> INFO - Found 4 citekeys in bib section 0
+[177] Biber.pm:4340> INFO - Processing section 0
+[187] Biber.pm:4531> INFO - Looking for bibtex format file 'bibliography.bib' for section 0
+[187] bibtex.pm:1689> INFO - LaTeX decoding ...
+[192] bibtex.pm:1494> INFO - Found BibTeX data source 'bibliography.bib'
+[232] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[232] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[232] Biber.pm:4168> INFO - Sorting list 'none/global//global/global' of type 'entry' with template 'none' and locale 'en-US'
+[232] Biber.pm:4174> INFO - No sort tailoring available for locale 'en-US'
+[238] bbl.pm:654> INFO - Writing 'report.bbl' with encoding 'UTF-8'
+[239] bbl.pm:757> INFO - Output to report.bbl

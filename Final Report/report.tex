@@ -8,20 +8,23 @@
 \usepackage{tikz} %For diagrams
 \usepackage{standalone} %So that diagrams can be standalone figures
 
+\usepackage[
+    backend=biber,
+    style=ieee
+    ]{biblatex}
+\addbibresource{bibliography.bib}
+
+
 \begin{document}
 
 
-\include{./Preamble/titlepage}
-\include{./Preamble/abstract}
-\include{./Preamble/contents}
+\include{./Preamble/preamble}
 \include{./Introduction/introduction}
-\input{./LitReview/litReview}
-\input{./LitReview/Background/background}
-\include{./ImpAndDesign/ImpAndDesign}
+\include{./LitReview/litReview}
+\include{./webApp/webApp}
 
 \clearpage
-\bibliography{bibliography}
-\bibliographystyle{ieeetr}
+\printbibliography
 
 \end{document}
 
