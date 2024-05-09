@@ -1,3 +1,17 @@
+.character {
+  cursor: pointer;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 8vw;
+}
+
+.selected {
+  color: red;
+}
+
+.removed {
+  opacity: 0.25;
+}
+
 /* #root {
   max-width: 1280px;
   margin: 0 auto;
@@ -47,17 +61,3 @@
   overflow-wrap: break-word; 
   white-space: normal; 
 } */
-
-.character {
-  cursor: pointer;
-  font-family: "Courier New", Courier, monospace;
-  font-size: 8vw;
-}
-
-.selected {
-  color: red;
-}
-
-.removed {
-  opacity: 0.25;
-}

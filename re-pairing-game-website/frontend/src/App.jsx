@@ -28,11 +28,28 @@ function App() {
 
   const route = "http://localhost:8080";
 
+  // keys for menu items, labels for text within menu items, routes for calling backend functions
   const strategies = [
-    { key: "bruteForce", label: "Brute Force", route: "/api/bruteForce" },
-    { key: "simple", label: "Simple", route: "/api/simple" },
-    { key: "greedy", label: "Greedy", route: "/api/greedy" },
-    { key: "non-simple", label: "Non-Simple Recursive", route: "/api/nonSimple" },
+    {
+      key: "bruteForce",
+      label: "Brute Force",
+      route: "/api/bruteForce",
+    },
+    {
+      key: "simple",
+      label: "Simple",
+      route: "/api/simple",
+    },
+    {
+      key: "greedy",
+      label: "Greedy",
+      route: "/api/greedy",
+    },
+    {
+      key: "non-simple",
+      label: "Non-Simple Recursive",
+      route: "/api/nonSimple",
+    },
   ];
 
   // // BACKEND TEST CODE
@@ -131,7 +148,6 @@ function App() {
       moves[step][2] = true;
       newDisplay[left].selected = true;
       newDisplay[right].selected = true;
-      console.log("unseen");
       setStep(step);
     } else {
       // We have seen the move
@@ -140,7 +156,6 @@ function App() {
       newDisplay[left].removed = true;
       newDisplay[right].removed = true;
       setStep(step + 1);
-      console.log("seen");
     }
     setDisplay(newDisplay);
   };
@@ -192,7 +207,6 @@ function App() {
                 }}
               >
                 {item.char}
-                {console.log("CHANGING DISPLAY!")}
               </span>
             ))
           )}
