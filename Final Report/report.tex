@@ -1,5 +1,6 @@
 \documentclass[12pt, a4paper]{report}
 \usepackage[margin = 1.5in]{geometry}
+\usepackage{hyperref}
 \usepackage{graphicx}
 \graphicspath{ {./images/}{./figures} }
 \usepackage{setspace} %For title page spacing
@@ -10,7 +11,8 @@
 
 \usepackage[
     backend=biber,
-    style=ieee
+    style=ieee,
+    sorting=nty
     ]{biblatex}
 \addbibresource{bibliography.bib}
 
