@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2022.3.14)  9 MAY 2024 04:23
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2022.3.14)  9 MAY 2024 04:34
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -889,58 +889,58 @@ l.57     \item $
 
  (/Users/laveen/Documents/Uni Work/Year 3/3rd-year-project/Final Report/./webApp/webApp.tex
 Chapter 3.
-(./webApp/designAndImp/designAndImp.tex [8
+(./webApp/softwareRequirements.tex [8
 
 
 
 
-]
+]) (./webApp/technologies.tex
 <./images/tkinter-gui.jpeg, id=198, 404.51125pt x 178.6675pt>
 File: ./images/tkinter-gui.jpeg Graphic file (type jpg)
 <use ./images/tkinter-gui.jpeg>
-Package pdftex.def Info: ./images/tkinter-gui.jpeg  used on input line 23.
+Package pdftex.def Info: ./images/tkinter-gui.jpeg  used on input line 8.
 (pdftex.def)             Requested size: 283.15593pt x 125.06639pt.
  [9pdfTeX warning (ext4): destination with the same identifier (name{figure.3.1}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   
-l.27 
+l.12 
       </Users/laveen/Documents/Uni Work/Year 3/3rd-year-project/Final Report/./images/tkinter-gui.jpeg>]
 <./images/flaskVSdjango.png, id=207, 1181.41376pt x 618.31pt>
 File: ./images/flaskVSdjango.png Graphic file (type png)
 <use ./images/flaskVSdjango.png>
-Package pdftex.def Info: ./images/flaskVSdjango.png  used on input line 36.
+Package pdftex.def Info: ./images/flaskVSdjango.png  used on input line 21.
 (pdftex.def)             Requested size: 354.42686pt x 185.49443pt.
  [10pdfTeX warning (ext4): destination with the same identifier (name{figure.3.2}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   
-l.42 \subsubsection
+l.27 \subsubsection
                    {PyPy} </Users/laveen/Documents/Uni Work/Year 3/3rd-year-project/Final Report/./images/flaskVSdjango.png>]
 <./images/factorialPyPy.png, id=220, 669.50125pt x 276.03125pt>
 File: ./images/factorialPyPy.png Graphic file (type png)
 <use ./images/factorialPyPy.png>
-Package pdftex.def Info: ./images/factorialPyPy.png  used on input line 53.
+Package pdftex.def Info: ./images/factorialPyPy.png  used on input line 38.
 (pdftex.def)             Requested size: 368.22682pt x 151.81764pt.
  [11pdfTeX warning (ext4): destination with the same identifier (name{figure.3.3}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   
-l.67 
+l.52 
       </Users/laveen/Documents/Uni Work/Year 3/3rd-year-project/Final Report/./images/factorialPyPy.png>]
 <./images/materialUIbutton.png, id=232, 1067.99pt x 533.995pt>
 File: ./images/materialUIbutton.png Graphic file (type png)
 <use ./images/materialUIbutton.png>
-Package pdftex.def Info: ./images/materialUIbutton.png  used on input line 78.
+Package pdftex.def Info: ./images/materialUIbutton.png  used on input line 63.
 (pdftex.def)             Requested size: 373.80211pt x 186.90105pt.
  [12pdfTeX warning (ext4): destination with the same identifier (name{figure.3.4}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   
-l.85 \section
+l.70 \section
              {Implementation} </Users/laveen/Documents/Uni Work/Year 3/3rd-year-project/Final Report/./images/materialUIbutton.png>]
 <./figures/webBreakdown.png, id=245, 2326.6925pt x 1393.205pt>
 File: ./figures/webBreakdown.png Graphic file (type png)
 <use ./figures/webBreakdown.png>
-Package pdftex.def Info: ./figures/webBreakdown.png  used on input line 90.
+Package pdftex.def Info: ./figures/webBreakdown.png  used on input line 75.
 (pdftex.def)             Requested size: 232.68288pt x 139.32866pt.
-) (./webApp/projManage/projManage.tex [13pdfTeX warning (ext4): destination with the same identifier (name{figure.3.5}) has been already used, duplicate ignored
+) (./webApp/projManage.tex [13pdfTeX warning (ext4): destination with the same identifier (name{figure.3.5}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   
 l.8 \end{itemize}
@@ -977,10 +977,10 @@ Package logreq Info: Writing requests to 'report.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 28430 strings out of 478994
- 536468 string characters out of 5858184
+ 28432 strings out of 478994
+ 536473 string characters out of 5858184
  1238630 words of memory out of 5000000
- 45296 multiletter control sequences out of 15000+600000
+ 45297 multiletter control sequences out of 15000+600000
  410498 words of font info for 51 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  98i,13n,102p,1132b,1308s stack positions out of 5000i,500n,10000p,200000b,80000s
