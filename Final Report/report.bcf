@@ -2351,9 +2351,12 @@
     <bcf:citekey order="1">chistikov2020re</bcf:citekey>
     <bcf:citekey order="2">chistikov2020re</bcf:citekey>
     <bcf:citekey order="3">rukavicka2011dp</bcf:citekey>
-    <bcf:citekey order="4">whatisReact</bcf:citekey>
-    <bcf:citekey order="5">agilePrinciples</bcf:citekey>
-    <bcf:citekey order="6">chistikov2020re</bcf:citekey>
+    <bcf:citekey order="4">whatisFlask</bcf:citekey>
+    <bcf:citekey order="5">flaskVSdjango</bcf:citekey>
+    <bcf:citekey order="6">whatisReact</bcf:citekey>
+    <bcf:citekey order="7">singlepageapp</bcf:citekey>
+    <bcf:citekey order="8">agilePrinciples</bcf:citekey>
+    <bcf:citekey order="9">chistikov2020re</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="none">

@@ -71,7 +71,59 @@
       \field{volume}{18}
       \field{year}{2013}
     \endentry
-    \entry{whatisReact}{misc}{}
+    \entry{whatisFlask}{online}{}
+      \name{author}{1}{}{%
+        {{hash=ee59ab61865a43daf7d89161230c0a74}{%
+           family={{Python Basics}},
+           familyi={P\bibinitperiod}}}%
+      }
+      \strng{namehash}{ee59ab61865a43daf7d89161230c0a74}
+      \strng{fullhash}{ee59ab61865a43daf7d89161230c0a74}
+      \strng{bibnamehash}{ee59ab61865a43daf7d89161230c0a74}
+      \strng{authorbibnamehash}{ee59ab61865a43daf7d89161230c0a74}
+      \strng{authornamehash}{ee59ab61865a43daf7d89161230c0a74}
+      \strng{authorfullhash}{ee59ab61865a43daf7d89161230c0a74}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{What is Flask?}
+      \field{year}{2021}
+      \verb{urlraw}
+      \verb https://pythonbasics.org/what-is-flask-python/
+      \endverb
+      \verb{url}
+      \verb https://pythonbasics.org/what-is-flask-python/
+      \endverb
+    \endentry
+    \entry{flaskVSdjango}{online}{}
+      \name{author}{1}{}{%
+        {{hash=b353b03cdff074ccac8a4cd674d701a9}{%
+           family={Mashutin},
+           familyi={M\bibinitperiod},
+           given={Denis},
+           giveni={D\bibinitperiod}}}%
+      }
+      \strng{namehash}{b353b03cdff074ccac8a4cd674d701a9}
+      \strng{fullhash}{b353b03cdff074ccac8a4cd674d701a9}
+      \strng{bibnamehash}{b353b03cdff074ccac8a4cd674d701a9}
+      \strng{authorbibnamehash}{b353b03cdff074ccac8a4cd674d701a9}
+      \strng{authornamehash}{b353b03cdff074ccac8a4cd674d701a9}
+      \strng{authorfullhash}{b353b03cdff074ccac8a4cd674d701a9}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Django vs Flask}
+      \field{year}{2023}
+      \verb{urlraw}
+      \verb https://blog.jetbrains.com/pycharm/2023/11/django-vs-flask-which-is-the-best-python-web-framework/
+      \endverb
+      \verb{url}
+      \verb https://blog.jetbrains.com/pycharm/2023/11/django-vs-flask-which-is-the-best-python-web-framework/
+      \endverb
+    \endentry
+    \entry{whatisReact}{online}{}
       \name{author}{1}{}{%
         {{hash=6bbbd9ef7c6e4b5ccdf34119df0a1655}{%
            family={{Meta Platforms}},
@@ -83,8 +135,8 @@
       \strng{authorbibnamehash}{6bbbd9ef7c6e4b5ccdf34119df0a1655}
       \strng{authornamehash}{6bbbd9ef7c6e4b5ccdf34119df0a1655}
       \strng{authorfullhash}{6bbbd9ef7c6e4b5ccdf34119df0a1655}
-      \field{sortinit}{4}
-      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{React}
@@ -96,7 +148,32 @@
       \verb https://react.dev/
       \endverb
     \endentry
-    \entry{agilePrinciples}{misc}{}
+    \entry{singlepageapp}{online}{}
+      \name{author}{1}{}{%
+        {{hash=eace3534eb86e51f9a1db37427425ce9}{%
+           family={{MDN Web Docs}},
+           familyi={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{eace3534eb86e51f9a1db37427425ce9}
+      \strng{fullhash}{eace3534eb86e51f9a1db37427425ce9}
+      \strng{bibnamehash}{eace3534eb86e51f9a1db37427425ce9}
+      \strng{authorbibnamehash}{eace3534eb86e51f9a1db37427425ce9}
+      \strng{authornamehash}{eace3534eb86e51f9a1db37427425ce9}
+      \strng{authorfullhash}{eace3534eb86e51f9a1db37427425ce9}
+      \field{sortinit}{7}
+      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{SPA (Single-page application)}
+      \field{year}{2023}
+      \verb{urlraw}
+      \verb https://developer.mozilla.org/en-US/docs/Glossary/SPA
+      \endverb
+      \verb{url}
+      \verb https://developer.mozilla.org/en-US/docs/Glossary/SPA
+      \endverb
+    \endentry
+    \entry{agilePrinciples}{online}{}
       \true{moreauthor}
       \true{morelabelname}
       \name{author}{1}{}{%
@@ -112,8 +189,8 @@
       \strng{authorbibnamehash}{837034545d8d66736b563cee1b87c9e7}
       \strng{authornamehash}{837034545d8d66736b563cee1b87c9e7}
       \strng{authorfullhash}{837034545d8d66736b563cee1b87c9e7}
-      \field{sortinit}{5}
-      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{sortinit}{8}
+      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{The Agile Manifesto}
