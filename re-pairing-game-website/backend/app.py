@@ -28,8 +28,10 @@ def validate_input():
     result = is_dyck_word(input_value)
 
     if result == True:
+        print("valid string")
         return jsonify({"isValid": True, "message": input_value})
     else:
+        print("invalid string")
         return jsonify({"isValid": False, "message": f"INVALID INPUT: {result}"})
 
 
@@ -66,7 +68,7 @@ def simple_repairing():
     movesDisplay, maxWidth = generatemovesDisplay(dyckWord, moves)
     print(movesDisplay)
     print(maxWidth)
-    return jsonify({"moves": moves})
+    return jsonify({"movesDisplay": movesDisplay})
 
 
 # Describes one simple re-pairing algorithm, where we always pair up from the leftmost opening bracket

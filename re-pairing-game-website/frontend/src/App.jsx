@@ -22,9 +22,10 @@ function App() {
   const [error, setError] = useState("");
   const [valid, setValid] = useState(false);
   const [width, setWidth] = useState(1); // All Dyck words start with width 1
+  const [maxWidth, setmaxWidth] = useState(1);
   const [strategy, setStrategy] = useState(""); // Holds route to the strategy method in the backend
-  const [moves, setMoves] = useState([]); // Moves to re-pair the current word
   const [step, setStep] = useState(0); // Keeps track of the move we're on during a play
+  const [movesDisplay, setmovesDisplay] = useState([]); // Each element contains move, width after move, and string after move
 
   const route = "http://localhost:8080";
 
@@ -75,8 +76,9 @@ function App() {
     setValid(false);
     setWidth(1);
     setStrategy("");
-    setMoves([]);
     setStep(0);
+    setmovesDisplay([]);
+    setmaxWidth(1);
   };
 
   const handleSubmit = async () => {
@@ -85,6 +87,7 @@ function App() {
       input,
     });
     // If input was valid, we have no error, set valid to true, and construct the charArray for manual selection
+    clearState();
     if (response.data.isValid) {
       setError("");
       setValid(true);
@@ -92,10 +95,10 @@ function App() {
         .split("")
         .map((char) => ({ char, selected: false, removed: false }));
       setDisplay(charArray);
-      setMoves([]);
+      setmovesDisplay([]);
     } else {
       setError(response.data.message);
-      clearState;
+      setDisplay(["Error: ", error]);
     }
   };
 
@@ -107,11 +110,10 @@ function App() {
   const toggleSelect = (index) => {
     // For updating colour (and eventually a valid selection state) on selected characters
     // We only want to allow manual re-pairing when the input is valid!
-    if (valid) {
-      console.log(display);
+    if (valid && display[index].char != "_") {
       const newDisplay = [...display];
-      console.log(newDisplay);
       newDisplay[index].selected = !newDisplay[index].selected;
+      console.log(newDisplay);
       setDisplay(newDisplay);
     }
   };
@@ -125,7 +127,7 @@ function App() {
     const response = await axios.post(route + strategy, {
       display,
     });
-    const result = response.data.moves;
+    const result = response.data.movesDisplay;
     for (var item in result) {
       // Each pairing will have a state to show if we've stepped on it yet or not.
       // false -> not seen
@@ -133,32 +135,45 @@ function App() {
       // We remove when we move past the pairing
       result[item].push(false);
     }
-    setMoves(result);
+    setmovesDisplay(result);
     setStep(0);
-    console.log(moves);
+    console.log(movesDisplay);
   };
+
+  // Whenever width changes, check if its the max so far!
+  useEffect(() => {
+    if (width > maxWidth) {
+      console.log("ITS BIGGER");
+      setmaxWidth(width);
+    }
+  }, [width]);
 
   // Pass an index in, check if it's displayed or not, and make the next move
   const displayStep = () => {
     const newDisplay = [...display];
-    let left = moves[step][0]; // Index of left bracket to be paired
-    let right = moves[step][1]; // Index of right bracket to be paired
-    if (moves[step][2] == false) {
-      // We've not seen the move yet
-      moves[step][2] = true;
+    let left = movesDisplay[step][0][0]; // Index of left bracket to be paired
+    let right = movesDisplay[step][0][1]; // Index of right bracket to be paired
+    if (movesDisplay[step][3] == false) {
+      // We've not seen the move yet, so select the pair
+      movesDisplay[step][3] = true;
       newDisplay[left].selected = true;
       newDisplay[right].selected = true;
       setStep(step);
     } else {
-      // We have seen the move
+      // We have seen the move, so remove the pair and unselect the resulting "_"s
       newDisplay[left].char = "_";
       newDisplay[right].char = "_";
+      newDisplay[left].selected = false;
+      newDisplay[right].selected = false;
       newDisplay[left].removed = true;
       newDisplay[right].removed = true;
+      setWidth(movesDisplay[step][1]);
       setStep(step + 1);
     }
     setDisplay(newDisplay);
   };
+
+  const jumptoMove = () => {};
 
   return (
     <Grid container style={{ height: "100vh", width: "100vw" }}>
@@ -177,6 +192,8 @@ function App() {
             flexGrow: 1,
             flexWrap: "wrap",
             overflowY: "auto",
+            borderRight: "2px solid black",
+            borderBottom: "2px solid black",
           }}
         >
           {/* Invalid -> Display error message, otherwise display Dyck word with manual interaction */}
@@ -196,14 +213,16 @@ function App() {
             display.map((item, index) => (
               <span
                 key={index}
-                className={`character ${
-                  item.selected && !item.removed ? "selected" : ""
-                } ${item.removed ? "removed" : ""}`}
+                className={`character 
+                ${item.selected && !item.removed ? "selected" : ""} 
+                ${item.removed ? "removed" : ""}
+                `}
                 onClick={() => {
                   toggleSelect(index);
                 }}
                 style={{
                   cursor: "pointer",
+                  transition: "all .25s ease",
                 }}
               >
                 {item.char}
@@ -217,6 +236,8 @@ function App() {
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
+            borderRight: "2px solid black",
+            borderTop: "2px solid black",
           }}
         >
           {valid ? (
@@ -224,7 +245,7 @@ function App() {
               variant="h6"
               style={{ textAlign: "center", justifyContent: "center" }}
             >
-              Width Counter: {width}
+              Current Width: {width}, Max Width: {maxWidth}
             </Typography>
           ) : (
             <Typography
@@ -238,9 +259,20 @@ function App() {
       </Grid>
 
       {/* I/O, strategies, and moves */}
-      <Grid item xs={4}>
+      <Grid
+        item
+        xs={4}
+        style={{ display: "flex", flexDirection: "column", maxHeight: "100vh" }}
+      >
         {/* All I/O and strategy selection */}
-        <Box style={{ padding: "2vmin", paddingBottom: "1vmin" }}>
+        <Box
+          style={{
+            padding: "2vmin",
+            paddingBottom: "1vmin",
+            borderLeft: "2px solid black",
+            borderBottom: "2px solid black",
+          }}
+        >
           <Typography variant="h6">Input and Algorithms</Typography>
           {/* Input Field and submit button*/}
           <Box style={{ paddingTop: "1vmin" }}>
@@ -308,7 +340,9 @@ function App() {
                 variant="contained"
                 onClick={displayStep}
                 disabled={
-                  valid && moves.length != 0 && step < moves.length
+                  valid &&
+                  movesDisplay.length != 0 &&
+                  step < movesDisplay.length
                     ? false
                     : true
                 }
@@ -319,9 +353,43 @@ function App() {
           </Box>
         </Box>
         {/* Re-pairing move list */}
-        <Box style={{ flexGrow: 1, padding: "2vmin", paddingTop: "1.5vmin" }}>
+        <Box
+          style={{
+            padding: "2vmin",
+            borderLeft: "2px solid black",
+            borderTop: "2px solid black",
+          }}
+        >
           <Typography variant="h6">Re-Pairing moves</Typography>
           {/* This is where the moves of the game so far will be displayed */}
+          <Box
+            style={{
+              padding: "2vmin",
+              display: "flex",
+              flexGrow: 1,
+              flexWrap: "wrap",
+              flexDirection: "column",
+              textAlign: "center",
+              alignItems: "center",
+              justifyContent: "center",
+              overflowY: "auto",
+            }}
+          >
+            {movesDisplay.map((move, index) => (
+              <Box
+                key={index}
+                onClick={() => console.log(move)}
+                style={{
+                  margin: "5px 0",
+                  padding: "10px",
+                  border: "1px solid gray",
+                  cursor: "pointer",
+                }}
+              >
+                {move}
+              </Box>
+            ))}
+          </Box>
         </Box>
       </Grid>
     </Grid>
