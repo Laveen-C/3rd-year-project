@@ -8,7 +8,7 @@ We start with a simple one-player game. Take any Dyck word (a balanced sequence 
 \end{center}
 \null
 
-\noindent A \textbf{move} in this game consists of pairing any opening bracket with any closing bracket to its right, and replacing the two with a blank space (denoted with the \texttt{\string_} symbol). This process is repeated until there are no more brackets to pair up, resulting in the empty string, and the sequence of moves made is called a \textbf{re-pairing}. An example of a re-pairing is as follows:
+A \textbf{move} in this game consists of pairing any opening bracket with any closing bracket to its right, and replacing the two with a blank space/gap (denoted with the \texttt{\string_} symbol). This process is repeated until there are no more brackets to pair up, resulting in the empty string, and the sequence of moves made is called a \textbf{re-pairing}. An example of a re-pairing is as follows:
 
 \null
 \begin{center}
@@ -19,7 +19,7 @@ We start with a simple one-player game. Take any Dyck word (a balanced sequence 
 \end{center}
 \null
 
-\noindent Note that our first move pairs up two brackets that are not matched to each other in the initial word. We allow such moves in a re-pairing. 
+Note that our first move pairs up two brackets that are not matched to each other in the initial word. We allow such moves in a re-pairing. 
 
 Finding any re-pairing following these rules is a trivial task, but we want to measure how good a re-pairing is. For this we introduce a property called the \textbf{width}, defined as the maximum number of non-empty segments of brackets seen during the re-pairing. We can see that the previous re-pairing had width 2. A natural question then arises; can we obtain a re-pairing with a smaller width? The answer for this particular string is yes, and such a re-pairing is shown below:
 
@@ -32,7 +32,7 @@ Finding any re-pairing following these rules is a trivial task, but we want to m
 \end{center}
 \null
 
-\noindent Here we see this re-pairing has width 1. Our goal is to try and minimise this width as much as possible. 
+Here we see this re-pairing has width 1. Our goal is to try and minimise this width as much as possible. 
 
 
 \section{Objectives}

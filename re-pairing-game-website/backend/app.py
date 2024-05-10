@@ -147,27 +147,6 @@ def generatemovesDisplay(word, moves):
     return movesDisplay, maxWidth
 
 
-"""
-To be used in case we run a strategy from the middle of a re-pairing
-If we change from gap to bracket, a new non-empty segment has begun so +1
-If we change from bracket to gap, non-empty segment ended so mark this
-"""
-
-
-def getWidth(word):
-    width = 0
-    nonEmpty = False
-    brackets = ["(", ")"]
-    for char in word:
-        if char in brackets:
-            if nonEmpty != True:
-                width += 1
-            nonEmpty = True
-        else:
-            nonEmpty = False
-    return width
-
-
 @app.route("/api/moveWidth", methods=["POST"])
 def moveWidth(word, current, move):
     new = current
@@ -211,6 +190,27 @@ def moveWidth(word, current, move):
                 pass
 
     return new
+
+
+"""
+To be used in case we run a strategy from the middle of a re-pairing
+If we change from gap to bracket, a new non-empty segment has begun so +1
+If we change from bracket to gap, non-empty segment ended so mark this
+"""
+
+
+def getWidth(word):
+    width = 0
+    nonEmpty = False
+    brackets = ["(", ")"]
+    for char in word:
+        if char in brackets:
+            if nonEmpty != True:
+                width += 1
+            nonEmpty = True
+        else:
+            nonEmpty = False
+    return width
 
 
 if __name__ == "__main__":

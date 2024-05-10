@@ -1,6 +1,7 @@
 \documentclass[12pt, a4paper]{report}
 \usepackage[margin = 1.5in]{geometry}
 \usepackage{hyperref}
+\usepackage{xr-hyper}
 \usepackage{graphicx}
 \graphicspath{ {./images/}{./figures} }
 \usepackage{setspace} %For title page spacing
@@ -9,6 +10,15 @@
 \usepackage{tikz} %For diagrams
 \usepackage{standalone} %So that diagrams can be standalone figures
 
+% Spacing modification between paragraphics
+\usepackage{parskip}
+\parskip=12pt
+% Removes extra parskip added before proofs to make spacing better
+\AtBeginEnvironment{proof}{\vspace*{-\parskip}}
+
+\usepackage{caption}
+\captionsetup{justification=centering}
+
 \usepackage[
     backend=biber,
     style=ieee,
@@ -16,6 +26,16 @@
     ]{biblatex}
 \addbibresource{bibliography.bib}
 
+% Command for big O notation symbol
+\newcommand{\bigO}{\mathcal{O}}
+
+% Definining the types of theorems we can have, and ensuring they can be referenced to correctly later with hyperlinks
+\newtheorem{definition}{Definition}
+\newcommand{\definitionautorefname}{Definition}
+\newtheorem{theorem}{Theorem}
+% \newcommand{\theoremautorefname}{Theorem}
+\newtheorem{observation}{Observation}
+\newcommand{\observationautorefname}{Observation}
 
 \begin{document}
 
@@ -26,7 +46,7 @@
 \include{./webApp/webApp}
 
 \clearpage
+\emergencystretch=1em
 \printbibliography
-
 \end{document}
 
