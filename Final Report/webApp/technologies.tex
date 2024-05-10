@@ -68,7 +68,28 @@ This allows for greater performance gains due to the lower overhead and a more d
 Why do we use JS over TS?
 
 \section{Implementation}
+This section concentrates on the usage of the previously mentioned technologies during the development of this web application. In particular, we discuss what parts have been developed in the backend and the frontend, and how each of these have been implemented.
+
+\subsection{Backend}
+This contained the bulk of the computational work for the re-pairing game. This includes any validations on inputs, calculations on the width property for a re-pairing and the generation of re-pairing moves using strategies.
+
+\par\null\par
+\noindent The majority of functions in the backend were developed to handle \textbf{POST} requests rather than \textbf{GET} requests. This is because the backend is used more so as a way to process any incoming data about Dyck words from the frontend rather than to store data. This decision is a deliberate one, and elaborated on further in the frontend section.
+
+\par\null\par
+\noindent As a result, almost all backend functions with app routes will return data using the \textbf{jsonify} function from the Flask library. This ensures any data is properly formatted in the JSON (JavaScript Object Notation) format. It can take Python data structures, such as lists and dictionaries, and convert them into a string format that can be easily transmitted to and understood by React. It's important to note that not all Python objects can be converted into JSON format. However, for the purposes of this project, all relevant data structures can be converted by jsonify.
+
+\par\null\par
+\noindent We also make use of the \textbf{Flask-CORS} library. CORS stands for Cross-Origin Resource Sharing, and is mechanism used to allow a web application to indicate any domains or ports other than its own from which a browser should permit loading resources\cite{}. The backend runs locally on {`127.0.0.1:8080'}, which is different to the frontend's location at {`localhost:5173'}. This separates the development of the frontend and the backend, allowing each of them to be tested separately before being combined together. However, this means they both run on different origins, and therefore we must use Flask-CORS. 
+
+\subsubsection{Validation}
+Given any input, we want to ensure that it is indeed a valid Dyck word. To do so, we simply iterate through a given string, checking that it meets the definition of a Dyck word. In particular, since Python strings can be treated as lists, we pass the input into Python, which then allows us to treat each character as an element of a list. We then treat the list of elements as a sequence, and apply Definition \ref{seqDyck}. 
+
+\subsection{Frontend}
 This section explores the higher-level design aspects of the web application. We'll discuss the different components that make up the web application in both the UI and the backend.
+
+\par\null\par
+\noindent It's important to note that most of the data and calculations from the backend on Dyck words are stored in state variables. This allows for a simpler development process; by checking for changes in state variables, re-renders can be made more streamlined since React will re-render automatically when a change to its state variables is made. 
 
 \begin{figure}[H]
     \centering

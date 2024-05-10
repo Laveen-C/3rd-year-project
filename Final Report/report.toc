@@ -40,8 +40,14 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {3.3}Implementation}{13}{section.3.3}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.3.1}Control Window}{13}{subsection.3.3.1}%
+\contentsline {subsection}{\numberline {3.3.1}Backend}{13}{subsection.3.3.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.4}Project Management}{13}{section.3.4}%
+\contentsline {subsubsection}{Validation}{14}{section*.9}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.4.1}Methodology}{13}{subsection.3.4.1}%
+\contentsline {subsection}{\numberline {3.3.2}Frontend}{14}{subsection.3.3.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {3.3.3}Control Window}{14}{subsection.3.3.3}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {3.4}Project Management}{15}{section.3.4}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {3.4.1}Methodology}{15}{subsection.3.4.1}%

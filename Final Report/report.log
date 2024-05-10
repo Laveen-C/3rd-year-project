@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2022.3.14)  9 MAY 2024 04:34
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2022.3.14)  10 MAY 2024 05:13
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -824,7 +824,7 @@ Package biblatex Info: Reference segment=0 on input line 20.
 \openout2 = `./Preamble/preamble.aux'.
 
  (/Users/laveen/Documents/Uni Work/Year 3/3rd-year-project/Final Report/./Preamble/preamble.tex (./Preamble/titlepage.tex
-<./images//WarwickCrest.pdf, id=79, 261.97874pt x 368.37625pt>
+<./images//WarwickCrest.pdf, id=87, 261.97874pt x 368.37625pt>
 File: ./images//WarwickCrest.pdf Graphic file (type pdf)
 <use ./images//WarwickCrest.pdf>
 Package pdftex.def Info: ./images//WarwickCrest.pdf  used on input line 6.
@@ -883,7 +883,7 @@ File: ./figures/latticeWalkEx/latticeWalkEx.tex Graphic file (type tex)
  [6pdfTeX warning (ext4): destination with the same identifier (name{figure.2.1}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   
-l.57     \item $
+l.58     \item $
                 (x_{1}(x_{2}x_{3}))x_{4}$])) [7]
 \openout2 = `./webApp/webApp.aux'.
 
@@ -895,7 +895,7 @@ Chapter 3.
 
 
 ]) (./webApp/technologies.tex
-<./images/tkinter-gui.jpeg, id=198, 404.51125pt x 178.6675pt>
+<./images/tkinter-gui.jpeg, id=208, 404.51125pt x 178.6675pt>
 File: ./images/tkinter-gui.jpeg Graphic file (type jpg)
 <use ./images/tkinter-gui.jpeg>
 Package pdftex.def Info: ./images/tkinter-gui.jpeg  used on input line 8.
@@ -905,7 +905,7 @@ Package pdftex.def Info: ./images/tkinter-gui.jpeg  used on input line 8.
                                                   
 l.12 
       </Users/laveen/Documents/Uni Work/Year 3/3rd-year-project/Final Report/./images/tkinter-gui.jpeg>]
-<./images/flaskVSdjango.png, id=207, 1181.41376pt x 618.31pt>
+<./images/flaskVSdjango.png, id=217, 1181.41376pt x 618.31pt>
 File: ./images/flaskVSdjango.png Graphic file (type png)
 <use ./images/flaskVSdjango.png>
 Package pdftex.def Info: ./images/flaskVSdjango.png  used on input line 21.
@@ -915,7 +915,7 @@ Package pdftex.def Info: ./images/flaskVSdjango.png  used on input line 21.
                                                   
 l.27 \subsubsection
                    {PyPy} </Users/laveen/Documents/Uni Work/Year 3/3rd-year-project/Final Report/./images/flaskVSdjango.png>]
-<./images/factorialPyPy.png, id=220, 669.50125pt x 276.03125pt>
+<./images/factorialPyPy.png, id=230, 669.50125pt x 276.03125pt>
 File: ./images/factorialPyPy.png Graphic file (type png)
 <use ./images/factorialPyPy.png>
 Package pdftex.def Info: ./images/factorialPyPy.png  used on input line 38.
@@ -925,7 +925,7 @@ Package pdftex.def Info: ./images/factorialPyPy.png  used on input line 38.
                                                   
 l.52 
       </Users/laveen/Documents/Uni Work/Year 3/3rd-year-project/Final Report/./images/factorialPyPy.png>]
-<./images/materialUIbutton.png, id=232, 1067.99pt x 533.995pt>
+<./images/materialUIbutton.png, id=242, 1067.99pt x 533.995pt>
 File: ./images/materialUIbutton.png Graphic file (type png)
 <use ./images/materialUIbutton.png>
 Package pdftex.def Info: ./images/materialUIbutton.png  used on input line 63.
@@ -934,17 +934,17 @@ Package pdftex.def Info: ./images/materialUIbutton.png  used on input line 63.
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   
 l.70 \section
-             {Implementation} </Users/laveen/Documents/Uni Work/Year 3/3rd-year-project/Final Report/./images/materialUIbutton.png>]
-<./figures/webBreakdown.png, id=245, 2326.6925pt x 1393.205pt>
+             {Implementation} </Users/laveen/Documents/Uni Work/Year 3/3rd-year-project/Final Report/./images/materialUIbutton.png>] [13]
+<./figures/webBreakdown.png, id=261, 2326.6925pt x 1393.205pt>
 File: ./figures/webBreakdown.png Graphic file (type png)
 <use ./figures/webBreakdown.png>
-Package pdftex.def Info: ./figures/webBreakdown.png  used on input line 75.
+Package pdftex.def Info: ./figures/webBreakdown.png  used on input line 96.
 (pdftex.def)             Requested size: 232.68288pt x 139.32866pt.
-) (./webApp/projManage.tex [13pdfTeX warning (ext4): destination with the same identifier (name{figure.3.5}) has been already used, duplicate ignored
+) (./webApp/projManage.tex [14pdfTeX warning (ext4): destination with the same identifier (name{figure.3.5}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   
-l.8 \end{itemize}
-                  </Users/laveen/Documents/Uni Work/Year 3/3rd-year-project/Final Report/./figures/webBreakdown.png>])) [14]
+l.6     \item C
+               reating functional software was of a higher priority than com... </Users/laveen/Documents/Uni Work/Year 3/3rd-year-project/Final Report/./figures/webBreakdown.png>])) [15]
 Overfull \hbox (5.31816pt too wide) in paragraph at lines 30--30
 []\OT1/cmr/m/n/12 Google. ``But-tons - ma-te-rial de-sign.'' (2018), [On-line]. Avail-able: []$\OT1/cmtt/m/n/12 https :
  []
@@ -964,31 +964,31 @@ Overfull \hbox (0.59877pt too wide) in paragraph at lines 30--30
 []\OT1/cmr/m/n/12 The PyPy Team. ``Pypy - fea-tures.'' (2024), [On-line]. Avail-able: []$\OT1/cmtt/m/n/12 https :
  []
 
-[15
+[16
 
 
 
 
 ] (/Users/laveen/Documents/Uni Work/Year 3/3rd-year-project/Final Report/report.aux (/Users/laveen/Documents/Uni Work/Year 3/3rd-year-project/Final Report/./Preamble/preamble.aux) (/Users/laveen/Documents/Uni Work/Year 3/3rd-year-project/Final Report/./Introduction/introduction.aux) (/Users/laveen/Documents/Uni Work/Year 3/3rd-year-project/Final Report/./LitReview/litReview.aux) (/Users/laveen/Documents/Uni Work/Year 3/3rd-year-project/Final Report/./webApp/webApp.aux))
 Package rerunfilecheck Info: File `report.out' has not changed.
-(rerunfilecheck)             Checksum: 6F107C08779B8E0CF4F93CDEF97B572D;2382.
+(rerunfilecheck)             Checksum: 10E369E30AE645659F71D148B1033558;2581.
 Package logreq Info: Writing requests to 'report.run.xml'.
 \openout1 = `report.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 28432 strings out of 478994
- 536473 string characters out of 5858184
- 1238630 words of memory out of 5000000
- 45297 multiletter control sequences out of 15000+600000
+ 28439 strings out of 478994
+ 536568 string characters out of 5858184
+ 1238656 words of memory out of 5000000
+ 45300 multiletter control sequences out of 15000+600000
  410498 words of font info for 51 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  98i,13n,102p,1132b,1308s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmitt10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmti8.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb>
-Output written on "/Users/laveen/Documents/Uni Work/Year 3/3rd-year-project/Final Report/report.pdf" (17 pages, 475256 bytes).
+Output written on "/Users/laveen/Documents/Uni Work/Year 3/3rd-year-project/Final Report/report.pdf" (18 pages, 478745 bytes).
 PDF statistics:
- 352 PDF objects out of 1000 (max. 8388607)
- 302 compressed objects within 4 object streams
- 88 named destinations out of 1000 (max. 500000)
- 187 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 369 PDF objects out of 1000 (max. 8388607)
+ 318 compressed objects within 4 object streams
+ 92 named destinations out of 1000 (max. 500000)
+ 203 words of extra memory for PDF output out of 10000 (max. 10000000)
 
