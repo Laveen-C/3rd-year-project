@@ -45,8 +45,10 @@ def is_dyck_word(s):
             count -= 1
         else:  # Not a bracket
             return "Input contains non-bracket character"
+        # Negative is not allowed at any point, so this has to be checked at each iteration
         if count < 0:
             return f'Unmatched ")" at position {pos}'
+    # We're allowed to be positive, so can only check if something's leftover at the end!
     if count > 0:
         return f'Unmatched "("'
     return True
@@ -60,32 +62,37 @@ def simple_repairing():
     for item in dyckDict:
         dyckWord += item["char"]
     moves = simple(dyckWord)
+    # After generating steps, get the widths to display for each move
+    movesDisplay, maxWidth = generatemovesDisplay(dyckWord, moves)
+    print(movesDisplay)
+    print(maxWidth)
     return jsonify({"moves": moves})
 
 
 # Describes one simple re-pairing algorithm, where we always pair up from the leftmost opening bracket
 def simple(word):
     temp = [["x", "y"] for i in range(len(word))]
-    steps = []
+    moves = []
     pointer = -1  # Points at the current index being viewed
 
     for i in range(len(word)):
         # If we see '(', add new pair with this char's index and set pointer to this pair
         # If we see ')', add char's index to current pair the pointer is at, and set pointer to the closest pair on it's left in the array NOT matched to any ')'
         if word[i] == "(":
-            steps.append([i])
-            pointer = len(steps) - 1
+            moves.append([i])
+            pointer = len(moves) - 1
         elif word[i] == ")":
-            steps[pointer].append(i)
+            moves[pointer].append(i)
             while True:
-                if len(steps[pointer]) == 2:
+                if len(moves[pointer]) == 2 and pointer != -1:
                     pointer -= 1
-                break
-    return steps
+                else:
+                    break
+    return moves
 
 
-@app.route("/api/bruteForce", methods=["POST"])
-def bruteForce():
+@app.route("/api/nonSimple", methods=["POST"])
+def nonSimple():
     data = request.get_json()
     moves = ["test OK"]
     print("TESTING")
@@ -100,19 +107,115 @@ def greedy():
     return jsonify({"moves": moves})
 
 
-@app.route("/api/nonSimple", methods=["POST"])
-def nonSimple():
+@app.route("/api/bruteForce", methods=["POST"])
+def bruteForce():
     data = request.get_json()
     moves = ["test OK"]
     print("TESTING")
     return jsonify({"moves": moves})
 
 
+"""
+Given a dyck word and it's generated steps, it calculates:
+ - The width after each move, 
+ - The
+"""
+
+
+def generatemovesDisplay(word, moves):
+    currentWord = word
+    currentWidth = getWidth(word)
+    movesDisplay = []
+    maxWidth = 1
+    for move in moves:
+        newWidth = moveWidth(currentWord, currentWidth, move)
+        newWord = (
+            currentWord[: move[0]]
+            + "_"
+            + currentWord[move[0] + 1 : move[1]]
+            + "_"
+            + currentWord[move[1] + 1 :]
+        )
+        if newWidth > maxWidth:
+            maxWidth = newWidth
+        currentMove = [move, newWidth, newWord]
+        movesDisplay.append(currentMove)
+        currentWidth = newWidth
+        currentWord = newWord
+    return movesDisplay, maxWidth
+
+
+"""
+To be used in case we run a strategy from the middle of a re-pairing
+If we change from gap to bracket, a new non-empty segment has begun so +1
+If we change from bracket to gap, non-empty segment ended so mark this
+"""
+
+
+def getWidth(word):
+    width = 0
+    nonEmpty = False
+    brackets = ["(", ")"]
+    for char in word:
+        if char in brackets:
+            if nonEmpty != True:
+                width += 1
+            nonEmpty = True
+        else:
+            nonEmpty = False
+    return width
+
+
+@app.route("/api/moveWidth", methods=["POST"])
+def moveWidth(word, current, move):
+    new = current
+    # This handles the case where the move pairs outermost brackets
+    word = "_" + word + "_"
+    left = move[0] + 1
+    right = move[1] + 1
+    brackets = ["(", ")"]
+    # Holds the characters outside of the chosen brackets to be paired
+    A = word[left - 1]
+    C = word[right + 1]
+
+    # Pairing is adjacent
+    if left + 1 == right:
+        if (A in brackets) and (C in brackets):
+            new += 1
+        else:
+            if A == C == "_":
+                new -= 1
+            else:
+                pass
+    else:
+        # Characters are in between the chosen to be paired
+        B1 = word[left + 1]
+        B2 = word[right - 1]
+        # Left bracket analysis:
+        if (A in brackets) and (B1 in brackets):
+            new += 1
+        else:
+            if A == B1 == "_":
+                new -= 1
+            else:
+                pass
+        # Right bracket analysis:
+        if (C in brackets) and (B2 in brackets):
+            new += 1
+        else:
+            if C == B2 == "_":
+                new -= 1
+            else:
+                pass
+
+    return new
+
+
 if __name__ == "__main__":
     app.run(debug=True, port=8080)
 
-# OLD CODE BELOW
 
+# TREE CODE (if needed)
 """
 @app.route('/api/tree', methods=['POST'])
 def dyck_to_tree():
@@ -140,27 +243,4 @@ def treeDataFromWord(word):
         elif char == ")":
             stack.pop()
     return trees
-
-def simple(word): #Describes one simple re-pairing algorithm, where we always pair up from the leftmost opening bracket
-    temp = [["x","y"] for i in range(len(word))]
-    steps = []
-    pos = 0
-
-    for i in range(len(word)):
-        if word[i] == "(":
-            temp[pos][0] = i
-            pos += 1
-        elif word[i] == ")":
-            temp[pos - 1][1] = i
-            steps.append(temp.pop(pos - 1))
-            pos -= 1
-    
-    return steps
-
-# @app.route('/api/simple', methods=['POST'])
-# def simple_repairing(word):
-#     return
-
 """
-
-# END OF OLD CODE
