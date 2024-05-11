@@ -233,6 +233,31 @@
       \verb https://react.dev/
       \endverb
     \endentry
+    \entry{venv}{online}{}
+      \name{author}{1}{}{%
+        {{hash=a7f5f35426b927411fc9231b56382173}{%
+           family={Python},
+           familyi={P\bibinitperiod}}}%
+      }
+      \strng{namehash}{a7f5f35426b927411fc9231b56382173}
+      \strng{fullhash}{a7f5f35426b927411fc9231b56382173}
+      \strng{bibnamehash}{a7f5f35426b927411fc9231b56382173}
+      \strng{authorbibnamehash}{a7f5f35426b927411fc9231b56382173}
+      \strng{authornamehash}{a7f5f35426b927411fc9231b56382173}
+      \strng{authorfullhash}{a7f5f35426b927411fc9231b56382173}
+      \field{sortinit}{P}
+      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{venv - Creation of virtual environments}
+      \field{year}{2024}
+      \verb{urlraw}
+      \verb https://docs.python.org/3/library/venv.html
+      \endverb
+      \verb{url}
+      \verb https://docs.python.org/3/library/venv.html
+      \endverb
+    \endentry
     \entry{whatisFlask}{online}{}
       \name{author}{1}{}{%
         {{hash=ee59ab61865a43daf7d89161230c0a74}{%
@@ -256,6 +281,33 @@
       \endverb
       \verb{url}
       \verb https://pythonbasics.org/what-is-flask-python/
+      \endverb
+    \endentry
+    \entry{bottomupint}{online}{}
+      \name{author}{1}{}{%
+        {{hash=d6ebb0634de22e70618460d3fc936297}{%
+           family={Rouse},
+           familyi={R\bibinitperiod},
+           given={Margaret},
+           giveni={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{d6ebb0634de22e70618460d3fc936297}
+      \strng{fullhash}{d6ebb0634de22e70618460d3fc936297}
+      \strng{bibnamehash}{d6ebb0634de22e70618460d3fc936297}
+      \strng{authorbibnamehash}{d6ebb0634de22e70618460d3fc936297}
+      \strng{authornamehash}{d6ebb0634de22e70618460d3fc936297}
+      \strng{authorfullhash}{d6ebb0634de22e70618460d3fc936297}
+      \field{sortinit}{R}
+      \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Bottom-Up Testing}
+      \field{year}{2014}
+      \verb{urlraw}
+      \verb https://www.techopedia.com/definition/18035/bottom-up-testing
+      \endverb
+      \verb{url}
+      \verb https://www.techopedia.com/definition/18035/bottom-up-testing
       \endverb
     \endentry
     \entry{rukavicka2011dp}{article}{}

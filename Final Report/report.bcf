@@ -2364,6 +2364,8 @@
     <bcf:citekey order="14">flaskCORS</bcf:citekey>
     <bcf:citekey order="15">agilePrinciples</bcf:citekey>
     <bcf:citekey order="16">chistikov2020re</bcf:citekey>
+    <bcf:citekey order="17">bottomupint</bcf:citekey>
+    <bcf:citekey order="18">venv</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="nty">

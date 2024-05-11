@@ -74,10 +74,20 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {4.1.1}Development Methodology}{20}{subsection.4.1.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.1.2}Testing Methodology}{20}{subsection.4.1.2}%
+\contentsline {subsection}{\numberline {4.1.2}Testing Methodology}{21}{subsection.4.1.2}%
 \defcounter {refsection}{0}\relax 
 \contentsline {subsubsection}{Unit Testing}{21}{section*.20}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Incremental Testing}{21}{section*.21}%
+\contentsline {subsubsection}{Incremental Integration Testing}{21}{section*.21}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.2}Setup and Tooling}{21}{section.4.2}%
+\contentsline {section}{\numberline {4.2}Setup}{22}{section.4.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {4.2.1}Git and Github}{22}{subsection.4.2.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {4.2.2}Virtual Environments}{22}{subsection.4.2.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {4.2.3}Goodnotes}{23}{subsection.4.2.3}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {4.3}Unforeseen Issues}{23}{section.4.3}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {4.4}Timeline}{23}{section.4.4}%

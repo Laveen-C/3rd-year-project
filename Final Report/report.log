@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2022.3.14)  11 MAY 2024 05:09
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2022.3.14)  11 MAY 2024 19:55
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -854,7 +854,7 @@ Package biblatex Info: Reference segment=0 on input line 42.
 \openout2 = `./Preamble/preamble.aux'.
 
  (/Users/laveen/Documents/Uni Work/Year 3/3rd-year-project/Final Report/./Preamble/preamble.tex (./Preamble/titlepage.tex
-<./images//WarwickCrest.pdf, id=123, 261.97874pt x 368.37625pt>
+<./images//WarwickCrest.pdf, id=143, 261.97874pt x 368.37625pt>
 File: ./images//WarwickCrest.pdf Graphic file (type pdf)
 <use ./images//WarwickCrest.pdf>
 Package pdftex.def Info: ./images//WarwickCrest.pdf  used on input line 6.
@@ -871,7 +871,9 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <8> on input line 5.
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <6> on input line 5.
-)
+ [3
+
+])
 \tf@toc=\write6
 \openout6 = `report.toc'.
 
@@ -879,9 +881,7 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 <to be read again> 
                    \relax 
 l.45 \include{./Preamble/preamble}
-                                   [1
-
-]
+                                   [1]
 \openout2 = `./Introduction/introduction.aux'.
 
  (/Users/laveen/Documents/Uni Work/Year 3/3rd-year-project/Final Report/./Introduction/introduction.tex
@@ -895,7 +895,11 @@ l.25
 
 
 
-] [3]) [4]
+]pdfTeX warning (ext4): destination with the same identifier (name{page.3}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.53 \end{enumerate}
+                     [3]) [4]
 \openout2 = `./LitReview/litReview.aux'.
 
  (/Users/laveen/Documents/Uni Work/Year 3/3rd-year-project/Final Report/./LitReview/litReview.tex
@@ -918,31 +922,31 @@ Chapter 3.
 
 
 ]) (./webApp/technologies.tex
-<./images/tkinter-gui.jpeg, id=262, 404.51125pt x 178.6675pt>
+<./images/tkinter-gui.jpeg, id=290, 404.51125pt x 178.6675pt>
 File: ./images/tkinter-gui.jpeg Graphic file (type jpg)
 <use ./images/tkinter-gui.jpeg>
 Package pdftex.def Info: ./images/tkinter-gui.jpeg  used on input line 9.
 (pdftex.def)             Requested size: 283.15593pt x 125.06639pt.
  [10 </Users/laveen/Documents/Uni Work/Year 3/3rd-year-project/Final Report/./images/tkinter-gui.jpeg>]
-<./images/flaskVSdjango.png, id=272, 1181.41376pt x 618.31pt>
+<./images/flaskVSdjango.png, id=302, 1181.41376pt x 618.31pt>
 File: ./images/flaskVSdjango.png Graphic file (type png)
 <use ./images/flaskVSdjango.png>
 Package pdftex.def Info: ./images/flaskVSdjango.png  used on input line 23.
 (pdftex.def)             Requested size: 354.42686pt x 185.49443pt.
  [11 </Users/laveen/Documents/Uni Work/Year 3/3rd-year-project/Final Report/./images/flaskVSdjango.png>]
-<./images/factorialPyPy.png, id=287, 669.50125pt x 276.03125pt>
+<./images/factorialPyPy.png, id=316, 669.50125pt x 276.03125pt>
 File: ./images/factorialPyPy.png Graphic file (type png)
 <use ./images/factorialPyPy.png>
 Package pdftex.def Info: ./images/factorialPyPy.png  used on input line 38.
 (pdftex.def)             Requested size: 368.22682pt x 151.81764pt.
  [12 </Users/laveen/Documents/Uni Work/Year 3/3rd-year-project/Final Report/./images/factorialPyPy.png>]
-<./images/materialUIbutton.png, id=299, 1067.99pt x 533.995pt>
+<./images/materialUIbutton.png, id=327, 1067.99pt x 533.995pt>
 File: ./images/materialUIbutton.png Graphic file (type png)
 <use ./images/materialUIbutton.png>
 Package pdftex.def Info: ./images/materialUIbutton.png  used on input line 59.
 (pdftex.def)             Requested size: 373.80211pt x 186.90105pt.
 ) (./webApp/implementation.tex [13 </Users/laveen/Documents/Uni Work/Year 3/3rd-year-project/Final Report/./images/materialUIbutton.png>] [14] [15] [16] [17]
-<./figures/webBreakdown.png, id=355, 2326.6925pt x 1393.205pt>
+<./figures/webBreakdown.png, id=383, 2326.6925pt x 1393.205pt>
 File: ./figures/webBreakdown.png Graphic file (type png)
 <use ./figures/webBreakdown.png>
 Package pdftex.def Info: ./figures/webBreakdown.png  used on input line 92.
@@ -957,31 +961,31 @@ Chapter 4.
 
 
 
-]) (/Users/laveen/Documents/Uni Work/Year 3/3rd-year-project/Final Report/./projManage/setupandtooling.tex)) [21] [22
+]) (./projManage/setup.tex [21] [22]) (./projManage/unforeseen.tex) (./projManage/timeline.tex)) [23] [24
 
 
 
 
-] (/Users/laveen/Documents/Uni Work/Year 3/3rd-year-project/Final Report/report.aux (/Users/laveen/Documents/Uni Work/Year 3/3rd-year-project/Final Report/./Preamble/preamble.aux) (/Users/laveen/Documents/Uni Work/Year 3/3rd-year-project/Final Report/./Introduction/introduction.aux) (/Users/laveen/Documents/Uni Work/Year 3/3rd-year-project/Final Report/./LitReview/litReview.aux) (/Users/laveen/Documents/Uni Work/Year 3/3rd-year-project/Final Report/./webApp/webApp.aux) (/Users/laveen/Documents/Uni Work/Year 3/3rd-year-project/Final Report/./projManage/projManage.aux))
+] [25] (/Users/laveen/Documents/Uni Work/Year 3/3rd-year-project/Final Report/report.aux (/Users/laveen/Documents/Uni Work/Year 3/3rd-year-project/Final Report/./Preamble/preamble.aux) (/Users/laveen/Documents/Uni Work/Year 3/3rd-year-project/Final Report/./Introduction/introduction.aux) (/Users/laveen/Documents/Uni Work/Year 3/3rd-year-project/Final Report/./LitReview/litReview.aux) (/Users/laveen/Documents/Uni Work/Year 3/3rd-year-project/Final Report/./webApp/webApp.aux) (/Users/laveen/Documents/Uni Work/Year 3/3rd-year-project/Final Report/./projManage/projManage.aux))
 Package rerunfilecheck Info: File `report.out' has not changed.
-(rerunfilecheck)             Checksum: 462330B3BC8989ACCCAA7FF607A8121B;3781.
+(rerunfilecheck)             Checksum: 0712D2BC71789214E535D435C3DDE6FB;4363.
 Package logreq Info: Writing requests to 'report.run.xml'.
 \openout1 = `report.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 29806 strings out of 478994
- 563669 string characters out of 5858184
- 1261409 words of memory out of 5000000
- 46590 multiletter control sequences out of 15000+600000
+ 29832 strings out of 478994
+ 564018 string characters out of 5858184
+ 1261501 words of memory out of 5000000
+ 46601 multiletter control sequences out of 15000+600000
  410498 words of font info for 51 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  98i,13n,117p,1132b,1301s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmitt10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmti8.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb>
-Output written on "/Users/laveen/Documents/Uni Work/Year 3/3rd-year-project/Final Report/report.pdf" (24 pages, 514071 bytes).
+Output written on "/Users/laveen/Documents/Uni Work/Year 3/3rd-year-project/Final Report/report.pdf" (28 pages, 520544 bytes).
 PDF statistics:
- 496 PDF objects out of 1000 (max. 8388607)
- 435 compressed objects within 5 object streams
- 138 named destinations out of 1000 (max. 500000)
- 275 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 547 PDF objects out of 1000 (max. 8388607)
+ 482 compressed objects within 5 object streams
+ 148 named destinations out of 1000 (max. 500000)
+ 315 words of extra memory for PDF output out of 10000 (max. 10000000)
 

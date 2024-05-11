@@ -9,12 +9,12 @@ This project used the Agile methodology, as the goals and limitations of the pro
 
 % With the initial approach of a local Python app in mind, we begun with writing the strategies as algorithms in Python. However, when the approach was changed 
 
-Note that the \hyperref[softwareReqs]{software requirements} were written in such a way that each one could mostly be handled sequentially, without needing anything that hadn't been met yet. This is roughly the approach taken during development and testing. 
+Note that the \hyperref[softwareReqs]{software requirements} were written and strucutred in such a way that each one could mostly be handled sequentially, without needing any of the later requirements. Approaching the development in this manner greatly enhanced efficiency and also fit well into the Agile development methodology; functionality could easily be linked to a requirement, and the sequential nature of requirements meant that there was a clear roadmap to follow at all times.
 
 \subsection{Testing Methodology}
-As development was done in an Agile manner, it made sense for all testing to be manual, since the functionality of the software was rapidly changing as it was being developed. This meant writing automated tests each time new functionality was required would have been more time-consuming than manual tests. The theoretical nature of the game for which the web application was designed also made manual testing a suitable option; as long as definitions were translated correctly into code and certain edge cases were verified, the software could be expected to perform as required.
+As development was done in an Agile manner, it made sense for all testing to be manual, since the functionality of the software was rapidly changing as it was being developed. This meant writing automated tests each time new functionality was required would have been more time-consuming than manual tests. The theoretical nature of the game for which the web application was designed also made manual testing a viable option; as long as definitions were translated correctly into code and certain edge cases were verified, the software could be expected to perform as required.
 
-All testing was done using a combination of unit testing, incremental integration testing, and requirement-based testing. We elaborate on this process below:
+All testing was done using a combination of unit testing and incremental integration testing. We elaborate on this process below.
 
 \subsubsection{Unit Testing}
 During the development, each of the \hyperref[softwareReqs]{software requirements} was decomposed into smaller functions and subgoals needed to fulfill their relevant requirements. This naturally leads into unit testing; we treated each function as its own unit, and tested it according to the expected functionality. 
@@ -27,9 +27,9 @@ For example, to ensure a Dyck word is valid and provide error messages if necess
     \item Logic to display the error or the input depending on the result
 \end{enumerate}
 
-We then write a function (or in some cases with the frontend, a portion of code or a new state variable) and test each of them work as expected. 
+We then write a function (or in some cases with the frontend, a new component or a new state variable) and test each of them work as expected. 
 
 As previously mentioned, by using Flask as the framework of choice for the backend, the Python code required minimal modification to allow functions to serve requests. This made unit testing much easier to perform. 
 
-\subsubsection{Incremental Testing}
-After
+\subsubsection{Incremental Integration Testing}
+After all the units for a requirement have been written and tested, we incrementally integrate them, again manually verifying that inputs and edge cases provide expected outputs. In particular, this approach falls under the concept of ``Bottom-Up Integration'' \cite{bottomupint}, since we started at the smallest possible units and progressively added units together to create larger components.
