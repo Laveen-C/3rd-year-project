@@ -3,7 +3,7 @@ The development of the web application went through multiple iterations before s
 
 \subsection{Initial Ideas}
  The software was initially planned to be a local Python only application, using the Tkinter GUI library. This was because the author is most familiar with the Python programming language, and has some limited experience with the Tkinter library. However, early prototypes of this software using Tkinter proved to be cumbersome to work with and have a dated visual style. Alternative Python UI libraries (such as PyQt and Kivy) were also considered, but proved to have learning curves no steeper than using an entirely different language.
- 
+
 \begin{figure}[h]
     \centering
     \includegraphics[scale = 0.7]{./images/tkinter-gui.jpeg}
@@ -49,8 +49,7 @@ All of the re-pairing strategies (Simple, Non-Simple, Simple Greedy) were trivia
 \subsubsection{React}
 Naturally, the components of the UI would need ways of interacting with one another. This led to using React, which is a JavaScript library used to simplify the process of creating user interfaces \cite{whatisReact}. It allows modular user interface components to be built, and later nested and combined to create a dynamic and interactive webpage. 
 
-The web application is designed as a single page application (SPA), meaning it loads only a single web document and updates its contents dynamically. In contrast, typical websites will make the web browser load entire new pages when the contents of the page need to be modified \cite{singlepageapp}. React fits the development of SPAs well, since each component has its own state and properties, and React will only automatically re-render components if there is a change to one of these.
-This allows for greater performance gains due to the lower overhead and a more dynamic experience.
+The web application is designed as a single page application (SPA), meaning it loads only a single web document and updates its contents dynamically. In contrast, typical websites will make the web browser load entire new pages when the contents of the page need to be modified \cite{singlepageapp}. React fits the development of SPAs well, since each component has its own state and properties, and React will only automatically re-render components if there is a change to one of these. This allows for greater performance gains due to the lower overhead and a more dynamic experience.
 
 \subsubsection{Material UI}
  Rather than styling the components of the web application from scratch, the author opted to use Material UI. This is a React component library that implements the design language made by Google, and contains a collection of prebuilt components with customisation options.
@@ -61,5 +60,5 @@ This allows for greater performance gains due to the lower overhead and a more d
     \caption{An example of how a Material UI button varies depending on its state \cite{materialUIbuttons}}
 \end{figure}
 
-\subsubsection{Javascript}
-Why do we use JS over TS?
+Through this library, we have been able to more easily modify the visuals of UI components to better reflect what can and cannot be accessed on the web application with the current states set. 
+\\ For example, if an input is invalid, we do not want to allow generating steps from a selected strategy. Instead of always keeping the button available to be clicked and having to check if the input is valid when we try to generate steps, we simply map the state of the "disabled" property to the inverse of a "valid" boolean state variable we set. React makes the visual change automatically depending on the value of this property, which further streamlines the development process.

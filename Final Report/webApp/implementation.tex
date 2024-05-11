@@ -7,14 +7,14 @@ This contained the bulk of the computational work for the re-pairing game. This 
 
 The majority of functions in the backend were developed to handle \textbf{POST} requests rather than \textbf{GET} requests. This is because the backend is used more so as a way to process any incoming data about Dyck words from the frontend rather than to store data. This decision is a deliberate one, and elaborated on further in the frontend section.
 
-As a result, almost all backend functions with app routes will return data using the \textbf{jsonify} function from the Flask library. This ensures any data is properly formatted in the JSON (JavaScript Object Notation) format. It can take Python data structures, such as lists and dictionaries, and convert them into a string format that can be easily transmitted to and understood by React. It's important to note that not all Python objects can be converted into JSON format. However, for the purposes of this project, all relevant data structures can be converted by jsonify.
+As a result, almost all backend functions with app routes will return data using the \textbf{jsonify} function from the Flask library. This ensures any data is properly formatted in the JSON (JavaScript Object Notation) format \cite{jsonify}. It can take Python data structures, such as lists and dictionaries, and convert them into a string format that can be easily transmitted to and understood by React. It's important to note that not all Python objects can be converted into JSON format. However, for the purposes of this project, all relevant data structures can be converted by jsonify.
 
-We also make use of the \textbf{Flask-CORS} library. CORS stands for Cross-Origin Resource Sharing, and is mechanism used to allow a web application to indicate any domains or ports other than its own from which a browser should permit loading resources\cite{}. The backend runs locally on {`127.0.0.1:8080'}, which is different to the frontend's location at {`localhost:5173'}. This separates the development of the frontend and the backend, allowing each of them to be tested separately before being combined together. However, this means they both run on different origins, and therefore we must use Flask-CORS. 
+We also make use of the \textbf{Flask-CORS} library. CORS stands for Cross-Origin Resource Sharing, and is mechanism used to allow a web application to indicate any domains or ports other than its own from which a browser should permit loading resources \cite{flaskCORS}. The backend runs locally on {`127.0.0.1:8080'}, which is different to the frontend's location at {`localhost:5173'}. This separates the development of the frontend and the backend, allowing each of them to be tested separately before being combined together. However, this means they both run on different origins, and therefore we must use Flask-CORS. 
 
 \subsubsection{Validation}
 Given any input, we want to ensure that it is indeed a valid Dyck word. To do so, we simply iterate through a given string, checking that it meets the definition of a Dyck word. In particular, since Python strings can be treated as lists, we pass the input into Python, which then allows us to treat each character as an element of a list. We then treat the list of elements as a sequence, and use the sequential definition of a Dyck word (see \autoref{def:seqDyck}). 
 
-\subsubsection{Generating Steps}
+\subsubsection{Generating Moves}
 When we want to generate the re-pairing moves using a certain strategy on some given valid input, we use Python. This is done through the following steps:
 \begin{enumerate}
     \item Call the selected strategy's relevant function.
@@ -28,12 +28,16 @@ When we want to generate the re-pairing moves using a certain strategy on some g
     \end{enumerate}
     in that exact order.
 \end{enumerate}
+After generating moves, we want to display each move with the relevant information about width in the UI. Returning a list containing all this information, instead of just the moves itself, allows us to easily convert this into a list of interactive moves with relevant information to display.
+
+\subsubsection{Factors}
+TALK ABOUT CALCULATING FACTORS OF THE WORD. THIS RESTRICTS THE CHOICE FOR MANUAL REPAIRINGS BY ENSURING ONLY BRACKETS FROM THE SAME COMPONENTS ARE CHOSEN.
 
 \subsubsection{Strategies}
 Each of the Simple, Non-Simple, and Greedy strategies are trivially translated into Python from their algorithmic descriptions seen previously.
 
 \subsubsection{Width Calculation}
-As a result of generating steps in the backend, the width calculation is also done here. We iterate over the initially generated list of moves, and calculate the width after applying each move. Given a move $m_{i}$, we have two possible approaches to calculating the width.
+As a result of generating moves in the backend, the width calculation is also done here. We iterate over the initially generated list of moves, and calculate the width after applying each move. Given a move $m_{i}$, we have two possible approaches to calculating the width.
 \begin{enumerate}
     \item \textbf{Approach 1:} A naive approach, where we apply the move to the current word, and run through the word counting the number of non-empty segments encountered. This can be trivially shown to have $\bigO(n^{2})$ (each move requires running through the word of length $n$, and there are $\frac{n}{2}$ moves).
     \item \textbf{Approach 2:} We can speed this up by analysing adjacent characters around the brackets to be re-paired, rather than calculating a new width value each time. This will require storing the previous width, but since we're iterating over the list of moves in order and calculating the width after each move anyway, this requires no extra effort as we can simply take the previous result each time.

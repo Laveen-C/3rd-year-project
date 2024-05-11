@@ -2,7 +2,7 @@
 
 \subsection{Dyck Words}
 \begin{definition}
-    A \textbf{Dyck Word} is a string that satisfies the following:
+    A \textbf{Dyck word} is a string that satisfies the following:
     \begin{enumerate}
         \item The only characters in the string are ``\texttt{(}'' or ``\texttt{)}''.
         \item At any point in the string, there are no more ``\texttt{(}'' brackets than ``\texttt{)}'' brackets.
@@ -14,12 +14,14 @@ We can alternatively define a Dyck word through the convention ``\texttt{(}'' $=
 
 \begin{definition}[{\cite{chistikov2020re}}]
     \label{def:seqDyck}
-    A \textbf{Dyck word} is a sequence $D=(d_{n})_{n\geq 1}$ such that ${d_{n}\in\{1, -1\}}$ and the following is satisfied:
+    A \textbf{Dyck word} is a sequence $\sigma=(\sigma(1), \dots, \sigma(n))_{n\geq 1}$ such that for all $1\leq i\leq n$, we have ${\sigma(i)}\in\{1, -1\}$ and the following is satisfied:
     \begin{enumerate}
-        \item For every \! $1 \leq k \leq n$, we have \! $\sum_{i = 1}^{k} d_{i} \geq 0$ 
-        \item $\sum_{i = 0}^{n} d_{i} = 0$
+        \item For every \! $1 \leq k \leq n$, we have \! $\sum_{i = 1}^{k} \sigma(i) \geq 0$ 
+        \item $\sum_{i = 1}^{n} \sigma(i) = 0$
     \end{enumerate} 
 \end{definition}
+
+These definitions are equivalent, and will be used interchangeably throughout this report depending on which is more useful contextually.
 
 \subsection{North-East Lattice Walks}
 These words have interesting combinatorial properties, one of which is their unsurprising link to Lattice Walks:
