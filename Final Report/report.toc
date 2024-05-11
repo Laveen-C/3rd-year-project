@@ -88,6 +88,6 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {4.2.3}Goodnotes}{23}{subsection.4.2.3}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.3}Unforeseen Issues}{23}{section.4.3}%
+\contentsline {section}{\numberline {4.3}Issues Encountered}{24}{section.4.3}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.4}Timeline}{23}{section.4.4}%
+\contentsline {section}{\numberline {4.4}Timeline}{25}{section.4.4}%

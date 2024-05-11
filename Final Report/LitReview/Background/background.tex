@@ -39,7 +39,7 @@ In other words, every step is exactly one unit vector right or one unit vector u
     \centering
     \includestandalone{./figures/latticeWalkEx/latticeWalkEx}
     \caption{An example North-East lattice walk for \texttt{(()())(())}}
-    \label{fig:dyck_path}
+    \label{fig:dyckPath}
 \end{figure}
 
 This is a trivial mapping, as we can take a move east $(1,0)$ to be ``\texttt{(}'', and a move north $(0,1)$ to be ``\texttt{)}''. This works out as expected since we have $2n$ brackets to match, and $n$ moves east and north each during such lattice walks. Our restriction on Dyck words that ensures there are never more ``\texttt{)}'' brackets than ``\texttt{(}'' brackets corresponds to the restriction of the walk being below (or on) the line $y = x$. This connection gives us another result:

@@ -20,4 +20,12 @@ To solve this, we use a \textbf{virtual environment}. This creates an isolated P
 For certain periods of time the author was also required to relocate, and so developing on different machines and operating systems was also something to consider. It is not enough to simply clone the virtual environment between machines as the scripts within it may refer to system locations. Using virtual environments also helps with this, since the libraries and dependencies required for the software could be automatically listed in a \texttt{requirements.txt} file. This is done by the command \texttt{pip~freeze~>~requirements.txt}. Then, we can use a \texttt{.gitignore} file to tell Git not to push the virtual environments, but to push this requirements file, which can be used to easily install all required libraries and dependencies.
 
 \subsection{Goodnotes}
-For much of the literature review, written notes were taken to help the author absorb its contents. Here the Goodnotes app was used; this is an iPadOS application which allows us to take handwritten notes and annotate pdfs. These can then be backed up to the cloud, to ensure that any observations and ideas written down are not lost in the event of hardware failure.
+For much of the literature review, written notes were taken to help the author absorb its contents. This was chosen over typed notes due to the ease of noting down both diagrams for visually interpreting concepts and mathematical formulas. To do this, we used the Goodnotes app; this is an iPadOS application which allows us to take handwritten notes and annotate pdfs. These can then be backed up to the cloud, to ensure that any observations and ideas written down are not lost in the event of hardware failure. 
+
+Below is an example page to illustrate the usage of note-taking during this project.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.227]{./images/notesExample.jpg}
+    \caption{An example page of the written notes taken}
+\end{figure}
