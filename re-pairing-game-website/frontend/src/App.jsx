@@ -18,7 +18,7 @@ import axios from "axios";
 function App() {
   // Note to self: React will only re-render if a state variable has been changed!
   const [input, setInput] = useState("");
-  const [display, setDisplay] = useState([]); // Dyck words held as an array of dicts, grouping char and selection state
+  const [display, setDisplay] = useState([]); // array of dicts, grouping dyck char and selection state
   const [error, setError] = useState("");
   const [valid, setValid] = useState(false);
   const [width, setWidth] = useState(1); // All Dyck words start with width 1
@@ -26,6 +26,7 @@ function App() {
   const [strategy, setStrategy] = useState(""); // Holds route to the strategy method in the backend
   const [step, setStep] = useState(0); // Keeps track of the move we're on during a play
   const [movesDisplay, setmovesDisplay] = useState([]); // Each element contains move, width after move, and string after move
+  const [clicked, setClicked] = useState(false); // Check if we clicked a char!
 
   const route = "http://localhost:8080";
 
@@ -107,15 +108,43 @@ function App() {
     setInput(event.target.value);
   };
 
-  const toggleSelect = (index) => {
+  const toggleSelect = async (index) => {
     // For updating colour (and eventually a valid selection state) on selected characters
-    // We only want to allow manual re-pairing when the input is valid!
-    if (valid && display[index].char != "_") {
+    // Register click if input valid and what we clicked isn't disabled/removed!
+    if (valid && display[index].removed != true) {
       const newDisplay = [...display];
+      // // Currently, we just flip the selected state of the clicked index
+      // newDisplay[index].selected = !newDisplay[index].selected;
+      // console.log(newDisplay);
+      // setDisplay(newDisplay);
+      // // Delete above
+
+      // Restricting is done by ZERO LEVELS!
+
+      // Cases:
+      // We selected a bracket
+      // - first bracket => restrict
+      // - second bracket => restrict all but those
+      // - anything else => not allowed
+
+      // We unselected a bracket
+      // - Unrestrict brackets
+
+      // Nothing clicked yet. So select it, then send the state of display to backend to restrict next choices
       newDisplay[index].selected = !newDisplay[index].selected;
-      console.log(newDisplay);
-      setDisplay(newDisplay);
+      const response = await axios.post(route + "manualChoices", {
+        newDisplay,
+        index,
+      });
     }
+  };
+
+  useEffect(() => {
+    // Do shit here when char is clicked.
+  }, [clicked]);
+
+  const handlePair = () => {
+    // Pair is ok to remove by restrictions earlier. Just remove the two and move on
   };
 
   const handleDropdown = (event) => {

@@ -17,15 +17,15 @@ cors = CORS(app, origins="*")
 
 
 @app.route("/check")  # Verifies flask is running on pypy (for bruteforce efficiency)
-def check_pypy():
+def checkPyPy():
     return f"Running on {platform.python_implementation()}"
 
 
 @app.route("/api/validate", methods=["POST"])
-def validate_input():
+def validateInput():
     data = request.get_json()
     input_value = data.get("input", "")
-    result = is_dyck_word(input_value)
+    result = isdyck(input_value)
 
     if result == True:
         print("valid string")
@@ -35,7 +35,7 @@ def validate_input():
         return jsonify({"isValid": False, "message": f"INVALID INPUT: {result}"})
 
 
-def is_dyck_word(s):
+def isdyck(s):
     count = 0
     pos = 0
     s = str(s)
@@ -59,11 +59,41 @@ def is_dyck_word(s):
 # Start of manual re-pairing
 
 
+@app.route("/api/manualChoices", methods=["POST"])
+# Every time we select a bracket, we want to restrict the choices so users cannot make bad selections
+def manualChoices():
+    data = request.get_json()
+    dyckDict = data.get("display")
+    index = data.get("index")
+    word = ""
+    for item in dyckDict:
+        word += item["char"]
+    zeros = getZeros(word)
+    print(dyckDict)
+
+
 # End of manual re-pairing
 
 
+# Given a Dyck word, we calculate all indices at which a Dyck prime starts and ends
+def getZeros(word):
+    zeros = []
+    count = 0
+    for index in range(len(word)):
+        # Update counter based on current pos
+        if word[index] == "(":
+            if count == 0:
+                zeros.append([index])
+            count += 1
+        else:
+            count -= 1
+            if count == 0:
+                zeros[-1].append(index)
+    return zeros
+
+
 @app.route("/api/simple", methods=["POST"])
-def simple_repairing():
+def simpleRepairing():
     data = request.get_json()
     dyckDict = data.get("display", "")
     dyckWord = ""
