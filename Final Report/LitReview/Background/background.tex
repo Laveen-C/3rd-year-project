@@ -1,4 +1,24 @@
 \section{Background}
+Before we delve into the re-pairing game itself, it's important to understand the objects that make up the game itself. We provide a brief but rigorous background on ideas relevant to this game below.
+
+\subsection{Dyck Paths}
+We start with the concept of Dyck paths. These are paths of length $2n$ where the path starts at $(0,0)$ and finishes at $(2n,0)$, the only legal moves are $(1,1)$ or $(1,-1)$, and the path does not cross below the x-axis at any point. More formally:
+
+\begin{definition}
+    A \textbf{Dyck Path} is a sequence of vectors $(a,b)$ starting at $(0,0)$ and finishing at $(2n,0)$, such that every step on the walk goes from some $(a,b)$ to either $(a+1,b+1)$ or $(a+1,b-1)$.
+\end{definition}
+
+Here's an example of such a path:
+
+\begin{figure}[H]
+    \centering
+    \includestandalone{./figures/dyckPathEx/dyckPathEx}
+    \caption{An example Dyck path}
+    \label{fig:dyckPath}
+\end{figure}
+The move $(1,1)$ is called a "rise", and the move $(1,-1)$ a fall. Notice that all Dyck paths must have more rises than falls at any point during the path to stay above the x-axis, and to reach $(2n,0)$ we must have had as many rises as falls in the whole sequence. 
+
+We can describe a Dyck path as a string of opening and closing brackets, where \texttt{(} corresponds to a rise, and \texttt{)} corresponds to a fall. We call such strings Dyck words.
 
 \subsection{Dyck Words}
 \begin{definition}
@@ -9,8 +29,9 @@
         \item The string contains the same number of ``\texttt{(}'' and ``\texttt{)}'' brackets
     \end{enumerate}
 \end{definition}
+It should be clear that every Dyck word corresponds to a unique Dyck path.
 
-We can alternatively define a Dyck word through the convention ``\texttt{(}'' $= 1$ and ``\texttt{)}'' $= -1$:
+Alternatively, we can define a Dyck word through the convention ``\texttt{(}'' $= 1$ and ``\texttt{)}'' $= -1$:
 
 \begin{definition}[{\cite{chistikov2020re}}]
     \label{def:seqDyck}
@@ -21,7 +42,7 @@ We can alternatively define a Dyck word through the convention ``\texttt{(}'' $=
     \end{enumerate} 
 \end{definition}
 
-These definitions are equivalent, and will be used interchangeably throughout this report depending on which is more useful contextually.
+These definitions are equivalent, and will be used interchangeably throughout this report.
 
 \subsection{North-East Lattice Walks}
 These words have interesting combinatorial properties, one of which is their unsurprising link to Lattice Walks:
@@ -39,7 +60,7 @@ In other words, every step is exactly one unit vector right or one unit vector u
     \centering
     \includestandalone{./figures/latticeWalkEx/latticeWalkEx}
     \caption{An example North-East lattice walk for \texttt{(()())(())}}
-    \label{fig:dyckPath}
+    \label{fig:latticeWalk}
 \end{figure}
 
 This is a trivial mapping, as we can take a move east $(1,0)$ to be ``\texttt{(}'', and a move north $(0,1)$ to be ``\texttt{)}''. This works out as expected since we have $2n$ brackets to match, and $n$ moves east and north each during such lattice walks. Our restriction on Dyck words that ensures there are never more ``\texttt{)}'' brackets than ``\texttt{(}'' brackets corresponds to the restriction of the walk being below (or on) the line $y = x$. This connection gives us another result:

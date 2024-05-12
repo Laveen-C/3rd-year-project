@@ -1,0 +1,16 @@
+\section{Re-Pairing Strategies}
+
+We can now begin to discuss strategies for playing the re-pairing game. By strategy, we refer to a set of rules that we can follow to generate a sequence of moves which will always yield $\varepsilon_n$. We'll describe all strategies from a high level, and then give algorithms for running the strategies on a given input. All algorithms will use the sequential definition of a Dyck word.
+
+\subsection{Simple}
+We start with the most simple strategy. Given any Dyck word, we already have a naturally existing pairing, namely the pairs of matching brackets. However, given any simple re-pairing, we do not have a clear order on which matching brackets to pair first, and we have seen that the order matters greatly when attempting to minimise the width.
+
+We'll begin with the most natural ordering, namely pairing each leftmost bracket with its matching right bracket. This means for two moves $(l_i, r_i)$ and $(l_j, r_j)$, if $l_i < l_j$ then we perform $(l_i, r_i)$ first.
+
+\begin{algorithm}
+    \caption{Leftmost Simple Re-Pairing}
+    \begin{algorithmic}
+        \State $c \gets 0$
+        \State $p \gets 0$
+    \end{algorithmic}
+\end{algorithm}

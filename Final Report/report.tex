@@ -19,6 +19,7 @@
 \usepackage{caption}
 \captionsetup{justification=centering}
 
+% Bibliography styling
 \usepackage[
     backend=biber,
     style=ieee,
@@ -26,6 +27,22 @@
     ]{biblatex}
 \addbibresource{bibliography.bib}
 \setlength{\bibitemsep}{0.5\baselineskip}
+
+% Command to draw any number of a certain input character (useful for typing Dyck words)
+\makeatletter
+\newcount\char@repeat@count
+\newcommand{\charrepeat}[2]{%
+  \begingroup
+  \char@repeat@count=\z@
+  \@whilenum\char@repeat@count<#1\do{\texttt{#2}\advance\char@repeat@count\@ne}%
+  \endgroup
+}
+\makeatother
+
+% \usepackage{newunicodechar}
+% % Command to define £ as a delimiter for \texttt
+% \newunicodechar{§}{\makeabbreviationtt}
+% \def\makeabbreviationtt#1§{\texttt{#1}}
 
 % Command for big O notation symbol
 \newcommand{\bigO}{\mathcal{O}}
@@ -37,7 +54,8 @@
 % \newcommand{\theoremautorefname}{Theorem}
 \newtheorem{observation}{Observation}
 \newcommand{\observationautorefname}{Observation}
-
+\newtheorem{claim}{Claim}
+\newcommand{\claimautorefname}{Claim}
 
 \begin{document}
 

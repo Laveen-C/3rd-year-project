@@ -23,12 +23,14 @@ When we want to generate the re-pairing moves using a certain strategy on some g
     \item Return a final 2D list $[m_{1}, \dots, m_{\frac{n}{2}}]$, where each $m_{i}$ contains: 
     \begin{enumerate}
         \item the $i^{th}$ move $[l_{i}, r_{i}]$ corresponding to the index for the left bracket and right bracket respectively
-        \item the width of the word after $m_{i}$
-        \item the string for the word after $m_{i}$,
+        \item the width of the proper partial word after $m_{i}$
+        \item the string of the proper partial word
     \end{enumerate}
     in that exact order.
 \end{enumerate}
 After generating moves, we want to display each move with the relevant information about width in the UI. Returning a list containing all this information, instead of just the moves itself, allows us to easily convert this into a list of interactive moves with relevant information to display.
+
+% Explain that by returning current partial word before the move is made, when you click that step in the list we only have to highlight those indices red!
 
 \subsubsection{Factors}
 TALK ABOUT CALCULATING FACTORS OF THE WORD. THIS RESTRICTS THE CHOICE FOR MANUAL REPAIRINGS BY ENSURING ONLY BRACKETS FROM THE SAME COMPONENTS ARE CHOSEN.

@@ -56,6 +56,12 @@ def is_dyck_word(s):
     return True
 
 
+# Start of manual re-pairing
+
+
+# End of manual re-pairing
+
+
 @app.route("/api/simple", methods=["POST"])
 def simple_repairing():
     data = request.get_json()
@@ -117,14 +123,13 @@ def bruteForce():
     return jsonify({"moves": moves})
 
 
-"""
-Given a dyck word and it's generated steps, it calculates:
- - The width after each move, 
- - The
-"""
-
-
 def generatemovesDisplay(word, moves):
+    """
+    For a generated list of moves, we want to return a 2D array.
+    Each element is a triple of the repairing move, the width after the move, and the word before the move
+
+    We return the word before the move is made so that the front-end can simply highlight the indices from the move as red.
+    """
     currentWord = word
     currentWidth = getWidth(word)
     movesDisplay = []
@@ -140,7 +145,7 @@ def generatemovesDisplay(word, moves):
         )
         if newWidth > maxWidth:
             maxWidth = newWidth
-        currentMove = [move, newWidth, newWord]
+        currentMove = [move, newWidth, currentWord]
         movesDisplay.append(currentMove)
         currentWidth = newWidth
         currentWord = newWord

@@ -1,0 +1,90 @@
+\subsection{Re-Pairings}
+\begin{definition}[\cite{chistikov2020re}]
+    Formally, a \textbf{re-pairing} of a Dyck word of length n is a sequence of ordered pairs of indices $m = (m_{1}, \dots, m_{\frac{n}{2}})$, where each $m_{i} = (l_{i}, r_{i})$ for $l_{i}, r_{i} \in \{1,\dots,n\}$, and the following properties are satisfied:
+    \begin{enumerate}
+        \item For all $1\leq i\leq \frac{n}{2}$, we have $l_{i} \leq r_{i}$, $\sigma(l_{i}) = 1$ and $\sigma(r_{i} = -1)$. 
+        \item Indices $l_{i}$ and $r_{i}$ appear in no other ordered pair $m_{j}$ for $j \neq i$.
+    \end{enumerate}
+\end{definition}
+
+This says that a re-pairing consists of ordered pairs of indices of the Dyck word, where each pair consists of an index for a left bracket and an index for a right bracket to its right, and these indices do not appear in any other ordered pair.
+
+Since a Dyck word of length $n$ must be even, we must have $\frac{n}{2}$ ordered pairs, and it is clear this will be a positive integer.
+
+To play the game, we define any valid re-pairing $m$ on a valid Dyck word, and start at the ordered pair $m_{1}$. We take this ordered pair, match the left bracket at position $l_{i}$ with the right bracket at position $r_{i}$ of the Dyck word. We then \textbf{pair} these brackets up by erasing them and placing a gap ``\texttt{\string_}'' in their place. We repeat this process until we've reached the end of the re-pairing.
+
+We've already seen two possible re-pairings on the Dyck word \texttt{(()())}. Both of these resulted in the final string of \charrepeat{6}{\string_}. For the sake of brevity we refer to the string of $n$ gaps as $\varepsilon_{n}$. 
+
+Let us consider the moves given by the sequence $((1,6),(2, 5))$:
+
+\null
+\begin{center}
+    \texttt{(()())} \\
+    \texttt{\string_()()\string_} \\
+    \texttt{\string_\string_)(\string_\string_}
+\end{center}
+\null
+
+With this sequence of moves, we see that there is no more moves we can make which gives us the final string $\varepsilon_{n}$. We formalise this notion.
+
+\begin{definition}
+    A \textbf{partial re-pairing} on a Dyck word of length n is a sequence of moves $p = (p_{1},\dots,p_{k})$, where $k \leq \frac{n}{2}$, such that applying all moves in order does not result in $\varepsilon_{n}$.
+\end{definition}
+
+\begin{definition}
+    A \textbf{partial Dyck word} is a string which has been partially re-paired.
+\end{definition}
+
+Observe that every Dyck word will also be a partial Dyck word, as its partial re-pairing is the empty sequence. From here onwards, a ``complete re-pairing'' will refer to a re-pairing that is not parial, but if not specified, assume ``re-pairing'' to mean a complete one. 
+
+\subsection{Height}
+Recall that a Dyck word corresponds to a unique Dyck path, and each bracket in the word is either a rise or a fall. 
+
+Therefore, each bracket can be associated with a \textbf{height} property, which we'll define as the height of the path after we've taken the rise/fall move corresponding to this bracket. Naturally, we can extend this to talk about the height of a Dyck word, which is be the maximum height of any bracket in the Dyck word. By our \hyperref[def:seqDyck]{sequential definition} of a Dyck word, we can formalise this idea. 
+
+\begin{definition}
+    The \textbf{height of a position i} in a Dyck word $\sigma$ is defined as $h_{\sigma}(i) = \sum_{j=1}^{i}\sigma(j)$.
+
+    Similarly, the \textbf{height of a Dyck word} is $h(\sigma) = \max\limits_{1\leq i\leq n}\sum_{j=1}^{i}\sigma(j)$.
+\end{definition}
+
+\subsection{Width}
+As mentioned previously, we want some notion of how \textit{good} a given re-pairing is. Every complete re-pairing has $\frac{n}{2}$ moves, so there is no use in analysing the asymptotic run-time of a re-pairing. We'll instead define a new property, called the \textbf{width}. This refers to the maximum number of non-empty segments seen during the re-pairing. 
+
+\begin{definition}
+    Let M be a re-pairing of a Dyck word $\sigma$. The \textbf{width of a re-pairing} is the maximum number of non-empty segments observed during the re-pairing. We write this as width(M).
+\end{definition}
+
+However, we also mentioned that given a Dyck word and some re-pairing, there could exist other re-pairings with lower widths. This leads us to ask, what is the smallest width we need to re-pair a given Dyck word? 
+
+\begin{definition}
+    Let $\sigma$ be a Dyck word, and M($\sigma$) be the set of all possible re-pairings of $\sigma$. Then, the \textbf{width of a Dyck word} is the minimum width required to re-pair it. 
+    \\ Formally, this is $width(\sigma)=\min\limits_{\forall M\in M(\sigma)}width(M)$ 
+\end{definition}
+
+To avoid confusion, we'd like to differentiate between the width of a word, which is a property over all re-pairings, and the width of the word during a re-pairing, which is just the current number of non-empty segments. During a re-pairing, the string is guaranteed to be strictly partial. We'll call such strings \textbf{proper} partial Dyck words. 
+
+\begin{definition}
+    The \textbf{width of a proper partial Dyck word} is the number of non-empty segments currently visible in the word.
+\end{definition}
+
+\subsection{Dyck Primes}
+We noticed earlier that not all re-pairings will give us $\varepsilon_n$. In particular, the partial re-pairing we saw could not be extended to a complete re-pairing. We backtrack to the last partial Dyck word seen in the re-pairing where a complete re-pairing was possible. This was at \texttt{\string_()()\string_} . Here, the only sequence of moves that allows us to completely re-pair this is $(2,3)$ then $(4,5)$. 
+
+A natural question arises; what was different about this sequence of moves that allows us to completely re-pair the word? To answer this, we define a special subset of Dyck words, called Dyck primes. 
+
+\begin{definition}
+    A \textbf{Dyck prime} (or prime word) of length n is a Dyck word $\sigma$ such that $\sum_{i = 1}^{k} \sigma(i) > 0$.
+
+    Similarly, a \textbf{composite Dyck word} (or composite word) is a Dyck word that is not prime.
+\end{definition}
+
+This defines a Dyck word which cannot be constructed by only concatenation of other existing Dyck words. In terms of Dyck paths, this means the path will never touch the x-axis. 
+
+We make a claim about words composed of Dyck primes.
+
+\begin{claim}
+    Let $\sigma$ be a composite Dyck word, and M be a re-pairing of $\sigma$. Then applying the re-pairing M will yield $\varepsilon_n$ if and only if M does not contain any moves which pair brackets from different Dyck primes within $\sigma$.
+\end{claim}
+To understand why this must hold, notice that if A and B are two Dyck primes, then by choosing a left bracket from A and a right bracket from B, there are no longer an equal number of left and right brackets within A and B. 
+\\ In particular, A contains fewer left brackets than right brackets now. Since a pairing requires a right bracket to be paired with a left bracket to its left, there will be an extra right bracket which cannot be matched with anything. A similar argument for B shows there will be an extra left bracket. Since these cannot be matched with each other either, we cannot obtain $\varepsilon_n$.
