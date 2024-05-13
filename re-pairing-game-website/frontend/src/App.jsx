@@ -17,23 +17,13 @@ import axios from "axios";
 // import reactLogo from './assets/react.svg'
 // import viteLogo from '/vite.svg'
 
-// const clearState = () => {
-//   setValid(false);
-//   setWidth(1);
-//   setmaxWidth(1);
-//   setStrategy("");
-//   setStep(0);
-//   setmovesDisplay([]);
-//   setRun(false);
-//   setChosen([]);
-// };
-
 function App() {
   // Note to self: React will only re-render if a state variable has been changed!
   const [input, setInput] = useState("");
   const [display, setDisplay] = useState([]); // array of dicts, grouping dyck char and selection state
   const [error, setError] = useState("");
   const [valid, setValid] = useState(false);
+  const [manual, setManual] = useState(false); // For enabling/disabling "Pair Selected" button
   const [width, setWidth] = useState(1); // All Dyck words start with width 1
   const [maxWidth, setmaxWidth] = useState(1);
   const [strategy, setStrategy] = useState(""); // Holds route to the strategy method in the backend
@@ -42,7 +32,8 @@ function App() {
   const [run, setRun] = useState(false); // To swap between play pause functionality
   const [chosen, setChosen] = useState([]); // Holds indices of chosen brackets
   const [updateManual, setUpdate] = useState(false); // To trigger effect required for handlePair
-  const [deselect, setDeselect] = useState(false); // When we call step or generate, we want to deselect anything already chosen
+  const [movesChanged, setmovesChanged] = useState(false); // When movesDisplay changes, we change this value to trigger an effect
+  const [jumped, setJumped] = useState(false); // Boolean set when button clicked
 
   const route = "http://localhost:8080";
 
@@ -87,19 +78,11 @@ function App() {
     }
   }, [error]);
 
-  useEffect(() => {
-    // For deselecting anything currently chosen
-    if (deselect) {
-      for (var item in display) {
-      }
-      setDeselect(false);
-    }
-  }, [deselect]);
-
   // When an error has been encountered e.g. on submission, reset these state vars to default
   // We want to keep any error message being displayed, and keep the text in the input field
   const clearState = () => {
     setValid(false);
+    setManual(false);
     setWidth(1);
     setmaxWidth(1);
     setStrategy("");
@@ -108,6 +91,8 @@ function App() {
     setRun(false);
     setChosen([]);
     setUpdate(false);
+    setmovesChanged(false);
+    setJumped(false);
   };
 
   const handleSubmit = async () => {
@@ -231,6 +216,7 @@ function App() {
           } else {
             newArr = [chosen[0], index];
           }
+          setManual(true);
         } else {
           newArr = [];
         }
@@ -337,6 +323,7 @@ function App() {
     // Generate should take what we're displaying, and generate from there!
     // If we're generating from something selected, revert the selection:
     setChosen([]);
+    setManual(false);
     console.log(route + strategy);
     axios
       .post(route + strategy, {
@@ -368,8 +355,32 @@ function App() {
           }
           setmovesDisplay(newDisplay);
         }
+        setmovesChanged(true);
       });
   };
+
+  const moveLabel = (index) => {
+    // Generate the label given the index of the move
+    let label = "";
+    let pair = movesDisplay[index][0];
+    let left = pair[0] + 1;
+    let right = pair[1] + 1;
+    let widthAfter = movesDisplay[index][1];
+    label =
+      "Move = (" + left + ", " + right + ") | Width after move = " + widthAfter;
+    return label;
+  };
+
+  useEffect(() => {
+    if (movesChanged) {
+      for (var item in movesDisplay) {
+        let label = moveLabel(item);
+        console.log("label: " + label);
+        movesDisplay[item].push(label);
+      }
+    }
+    setmovesChanged(false);
+  }, [movesChanged]);
 
   // Whenever width changes, check if its the max so far!
   useEffect(() => {
@@ -408,17 +419,40 @@ function App() {
       setStep(step + 1);
     }
     setDisplay(newDisplay);
+    if (manual) {
+      setManual(false);
+      setmovesChanged(true);
+    }
   };
 
-  const jumptoMove = () => {};
-
-  // For each re-pairing move, we want to generate appropriate button text
-  const generateMoveButton = (move) => {
-    const stepNo = 1;
-    const step = move[0];
-    const stepWidth = move[1];
-    const text = "";
+  const jumptoMove = (index) => {
+    let newDisplay = [...display];
+    console.log(newDisplay);
+    let newWord = movesDisplay[index][2];
+    // Change current step to false, and step we're jumping to false
+    console.log("step: " + step + ", index: " + index);
+    if (step == movesDisplay.length) {
+      movesDisplay[step - 1][3] = false;
+    } else {
+      movesDisplay[step][3] = false;
+    }
+    movesDisplay[index][3] = false;
+    for (var item in display) {
+      let newChar = newWord.charAt(item);
+      newDisplay[item].char = newChar;
+    }
+    setDisplay(newDisplay);
+    setStep(index);
+    setJumped(true);
   };
+
+  useEffect(() => {
+    // If step changed, change highlighted portion of display
+    if (jumped) {
+      displayStep();
+      setJumped(false);
+    }
+  }, [jumped]);
 
   return (
     <Grid container style={{ height: "100vh", width: "100vw" }}>
@@ -589,7 +623,7 @@ function App() {
                 onClick={handlePair}
                 disabled={
                   // Make sure to add constrant if we have 2 legal pair selected!
-                  valid && chosen.length == 2 ? false : true
+                  manual && chosen.length == 2 ? false : true
                 }
               >
                 Pair Selected
@@ -674,16 +708,24 @@ function App() {
               <Button
                 key={index}
                 value={index}
-                onClick={() => console.log(move)}
-                style={{
+                // className={`${move[3] ? "selected" : "inherit"}`}
+                onClick={() => jumptoMove(index)} // Eventually change to jumpToMove
+                sx={{
                   margin: "5px 0",
                   padding: "10px",
                   border: "1px solid gray",
                   width: "100%",
                   cursor: "pointer",
+                  color: (theme) =>
+                    move[3] == true ? "red" : theme.palette.primary.main,
+                  fontWeight: move[3] == true ? "bold" : "normal",
+                  ":hover": {
+                    bgcolor: (theme) =>
+                      move[3] == true ? "#FFE9E9" : "#E9E9FF", // Optional: Adjust hover background color
+                  },
                 }}
               >
-                {`${index + 1}: ${move}`}
+                {`${index + 1}: ${move[4]}`}
               </Button>
             ))}
           </Box>
