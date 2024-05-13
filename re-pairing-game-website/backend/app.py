@@ -191,7 +191,7 @@ def generatemovesDisplay(word, moves):
     movesDisplay = []
     maxWidth = 1
     for move in moves:
-        newWidth = moveWidth(currentWord, currentWidth, move)
+        new = newWidth(currentWord, currentWidth, move)
         newWord = (
             currentWord[: move[0]]
             + "_"
@@ -199,17 +199,16 @@ def generatemovesDisplay(word, moves):
             + "_"
             + currentWord[move[1] + 1 :]
         )
-        if newWidth > maxWidth:
-            maxWidth = newWidth
-        currentMove = [move, newWidth, currentWord]
+        if new > maxWidth:
+            maxWidth = new
+        currentMove = [move, new, currentWord]
         movesDisplay.append(currentMove)
-        currentWidth = newWidth
+        currentWidth = new
         currentWord = newWord
     return movesDisplay, maxWidth
 
 
-@app.route("/api/moveWidth", methods=["POST"])
-def moveWidth(word, current, move):
+def newWidth(word, current, move):
     new = current
     # This handles the case where the move pairs outermost brackets
     word = "_" + word + "_"
@@ -260,6 +259,19 @@ If we change from bracket to gap, non-empty segment ended so mark this
 """
 
 
+@app.route("/api/moveWidth", methods=["POST"])
+def moveWidth():
+    data = request.get_json()
+    dyckDict = data.get("display")
+    dyckWord = ""
+    for item in dyckDict:
+        dyckWord += item["char"]
+    move = data.get("move")
+    currentWidth = getWidth(dyckWord)
+    new = newWidth(dyckWord, currentWidth, move)
+    return jsonify({"newWidth": new})
+
+
 def getWidth(word):
     width = 0
     nonEmpty = False
@@ -272,6 +284,62 @@ def getWidth(word):
         else:
             nonEmpty = False
     return width
+
+
+@app.route("/api/currentToNewWidth", methods=["POST"])
+def currentToNewWidth():
+    data = request.get_json()
+    dyckDict = data.get("display")
+    word = ""
+    for item in dyckDict:
+        word += item["char"]
+    current = data.get("current")
+    move = data.get("pair")
+
+    new = current
+    # This handles the case where the move pairs outermost brackets
+    word = "_" + word + "_"
+    left = move[0] + 1
+    right = move[1] + 1
+    brackets = ["(", ")"]
+    # Holds the characters outside of the chosen brackets to be paired
+    A = word[left - 1]
+    C = word[right + 1]
+
+    # Pairing is adjacent
+    if left + 1 == right:
+        if (A in brackets) and (C in brackets):
+            new += 1
+        else:
+            if A == C == "_":
+                new -= 1
+            else:
+                pass
+    else:
+        # Characters are in between the chosen to be paired
+        B1 = word[left + 1]
+        B2 = word[right - 1]
+        # Left bracket analysis:
+        if (A in brackets) and (B1 in brackets):
+            new += 1
+        else:
+            if A == B1 == "_":
+                new -= 1
+            else:
+                pass
+        # Right bracket analysis:
+        if (C in brackets) and (B2 in brackets):
+            new += 1
+        else:
+            if C == B2 == "_":
+                new -= 1
+            else:
+                pass
+
+    return jsonify({"new": new})
+
+
+# End of functions
 
 
 if __name__ == "__main__":

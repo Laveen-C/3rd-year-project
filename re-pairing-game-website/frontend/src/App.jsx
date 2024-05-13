@@ -224,10 +224,29 @@ function App() {
     setChosen(newArr);
   };
 
-  const handlePair = () => {
+  const handlePair = async () => {
     // After removing the manually chosen pair, enable all valid choices again!
-    if (chosen.length == 2) {
+    let move = [];
+    let pair = [];
+    pair.push(chosen[0]);
+    pair.push(chosen[1]);
+    move.push(pair);
+    if (step == 0) {
+      const response = await axios.post(route + "/api/moveWidth", {
+        display,
+        pair,
+      });
+    } else {
+      const current = movesDisplay[step - 1][1];
+      const response = await axios.post(route + "/api/currentToNewWidth", {
+        display,
+        current,
+        pair,
+      });
     }
+    newWidth = response.data.new;
+    move.push(newWidth);
+    console.log(move);
   };
 
   const handleDropdown = (event) => {
@@ -460,6 +479,7 @@ function App() {
                 padding: "1vmin",
                 display: "flex",
                 alignItems: "center",
+                justifyContent: "center",
                 gap: "2vmin",
               }}
             >
