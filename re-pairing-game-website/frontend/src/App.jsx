@@ -40,8 +40,8 @@ function App() {
   const [step, setStep] = useState(0); // Keeps track of the move we're on during a play
   const [movesDisplay, setmovesDisplay] = useState([]); // Each element contains move, width after move, and string after move
   const [run, setRun] = useState(false); // To swap between play pause functionality
-  const [pairable, setPairable] = useState(false); // Shows if we have 2 legal manual options chosen
   const [chosen, setChosen] = useState([]); // Holds indices of chosen brackets
+  const [updateManual, setUpdate] = useState(false); // To trigger effect required for handlePair
 
   const route = "http://localhost:8080";
 
@@ -97,6 +97,7 @@ function App() {
     setmovesDisplay([]);
     setRun(false);
     setChosen([]);
+    setUpdate(false);
   };
 
   const handleSubmit = async () => {
@@ -147,6 +148,7 @@ function App() {
   };
 
   useEffect(() => {
+    // When the number of selected brackets changes, we always want to restrict or unrestrict, so we make this an effect
     console.log("Chosen changed: " + chosen);
     let newDisplay = [...display];
     // Flip it's state
@@ -156,6 +158,7 @@ function App() {
           console.log("0 case");
           for (var i = 0; i < newDisplay.length; i++) {
             if (newDisplay[i].char != "_") {
+              newDisplay[i].selected = false;
               newDisplay[i].removed = false;
             }
           }
@@ -187,6 +190,7 @@ function App() {
           console.log("2 case");
           for (var i = 0; i < newDisplay.length; i++) {
             if (!chosen.includes(i)) {
+              newDisplay[i].selected = false;
               newDisplay[i].removed = true;
             }
           }
@@ -231,23 +235,83 @@ function App() {
     pair.push(chosen[0]);
     pair.push(chosen[1]);
     move.push(pair);
+    let word = "";
+    let newDisplay = [];
     if (step == 0) {
+      console.log("Getting width from: " + pair);
       const response = await axios.post(route + "/api/moveWidth", {
         display,
         pair,
       });
+      axios
+        .post(route + "/api/moveWidth", {
+          display,
+          pair,
+        })
+        .then((response) => {
+          const newWidth = response.data.new;
+          move.push(newWidth);
+          console.log("move and width after this selection: " + move);
+          console.log("current display: " + display);
+          for (var i = 0; i < display.length; i++) {
+            word += display[i].char;
+          }
+          move.push(word);
+          move.push(true);
+          console.log("first one: " + move);
+          // movesDisplay.push(move);
+          // Instead of pushing, remove all other displayed options if manually selected in the middle of a run
+          for (var j = 0; j < step; j++) {
+            console.log("j = " + j + ", step = " + step);
+            newDisplay.push(movesDisplay[j]);
+          }
+          newDisplay.push(move);
+          setmovesDisplay(newDisplay);
+          setUpdate(true);
+        });
     } else {
       const current = movesDisplay[step - 1][1];
-      const response = await axios.post(route + "/api/currentToNewWidth", {
-        display,
-        current,
-        pair,
-      });
+      axios
+        .post(route + "/api/currentToNewWidth", {
+          display,
+          current,
+          pair,
+        })
+        .then((response) => {
+          const newWidth = response.data.new;
+          move.push(newWidth);
+          console.log("move and width after this selection: " + move);
+          console.log("current display: " + display);
+          for (var i = 0; i < display.length; i++) {
+            word += display[i].char;
+          }
+          move.push(word);
+          move.push(true);
+          console.log("not the first one: " + move);
+          // movesDisplay.push(move);
+          // Instead of pushing, remove all other displayed options if manually selected in the middle of a run
+          for (var j = 0; j < step; j++) {
+            console.log("j = " + j + ", step = " + step);
+            newDisplay.push(movesDisplay[j]);
+          }
+          newDisplay.push(move);
+          setmovesDisplay(newDisplay);
+          setUpdate(true);
+        });
     }
-    newWidth = response.data.new;
-    move.push(newWidth);
-    console.log(move);
+    // After pairing everything up, re-enable
   };
+
+  useEffect(() => {
+    // When we choose two brackets manually and re-pair them, we need to display the result, and reset chosen.
+    // However, setmovesDisplay(newDisplay); (see handlePair) schedules the update to happen at the next re-render cycle.
+    // Solve this by using a state var that we modify when needed, which calls this effect.
+    if (updateManual) {
+      displayStep();
+      setChosen([]);
+      setUpdate(false);
+    }
+  }, [updateManual]);
 
   const handleDropdown = (event) => {
     // Sets the strategy to use once we click a menu items
@@ -255,22 +319,41 @@ function App() {
   };
 
   const generateMoves = async () => {
-    // Called when we click the "GENERATE" button after selecting a strategy
+    // Generate should take what we're displaying, and generate from there!
+    // If we're generating from something selected, revert the selection:
+    setChosen([]);
     console.log(route + strategy);
-    const response = await axios.post(route + strategy, {
-      display,
-    });
-    const result = response.data.movesDisplay;
-    for (var item in result) {
-      // Each pairing will have a state to show if we've stepped on it yet or not.
-      // false -> not seen
-      // true -> seen but not removed
-      // We remove when we move past the pairing
-      result[item].push(false);
-    }
-    setmovesDisplay(result);
-    setStep(0);
-    console.log(movesDisplay);
+    axios
+      .post(route + strategy, {
+        display,
+      })
+      .then((response) => {
+        const result = response.data.movesDisplay;
+        for (var item in result) {
+          // Each pairing will have a state to show if we've stepped on it yet or not.
+          // false -> not seen
+          // true -> seen but not removed
+          // We remove when we move past the pairing
+          result[item].push(false);
+        }
+        if (movesDisplay.length == 0) {
+          // Means we're starting from the beginning. No steps or moves done yet
+          setmovesDisplay(result);
+        } else {
+          // Means we already have moves generated. Remove everything after the move we're looking at
+          let newDisplay = [];
+          for (var i = 0; i < step; i++) {
+            // Only remove things we're trying to keep!
+            // Remove
+            console.log(movesDisplay[i]);
+            newDisplay.push(movesDisplay[i]);
+          }
+          for (var item in result) {
+            newDisplay.push(result[item]);
+          }
+          setmovesDisplay(newDisplay);
+        }
+      });
   };
 
   // Whenever width changes, check if its the max so far!
@@ -280,17 +363,18 @@ function App() {
     }
   }, [width]);
 
-  // Pass an index in, check if it's displayed or not, and make the next move
+  // check what stage of current step we're on, display appropriate visuals, then update step if needed
   const displayStep = () => {
+    // If something's selected, revert it before displaying from pre-existing steps
     const newDisplay = [...display];
     let left = movesDisplay[step][0][0]; // Index of left bracket to be paired
     let right = movesDisplay[step][0][1]; // Index of right bracket to be paired
+    if (step != 0) {
+      // We want to keep updating the move we're on, but only after we're past the first move
+      movesDisplay[step - 1][3] = false;
+    }
     if (movesDisplay[step][3] == false) {
       // We've not seen the move yet, so select the pair
-      if (step != 0) {
-        // We want to keep updating the move we're on, but only after we're past the first move
-        movesDisplay[step - 1][3] = false;
-      }
       movesDisplay[step][3] = true;
       newDisplay[left].selected = true;
       newDisplay[right].selected = true;
@@ -582,7 +666,7 @@ function App() {
                   cursor: "pointer",
                 }}
               >
-                {`${index + 1}: ${move.join(", ")}`}
+                {`${index + 1}: ${move}`}
               </Button>
             ))}
           </Box>

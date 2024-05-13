@@ -266,10 +266,12 @@ def moveWidth():
     dyckWord = ""
     for item in dyckDict:
         dyckWord += item["char"]
-    move = data.get("move")
+    move = data.get("pair")
+    print(f"current move: {move}")
     currentWidth = getWidth(dyckWord)
+    print(f"current width: {currentWidth}")
     new = newWidth(dyckWord, currentWidth, move)
-    return jsonify({"newWidth": new})
+    return jsonify({"new": new})
 
 
 def getWidth(word):
