@@ -3,6 +3,8 @@ import {
   Grid,
   Box,
   Button,
+  ButtonGroup,
+  Slider,
   TextField,
   Typography,
   FormControl,
@@ -15,6 +17,17 @@ import axios from "axios";
 // import reactLogo from './assets/react.svg'
 // import viteLogo from '/vite.svg'
 
+// const clearState = () => {
+//   setValid(false);
+//   setWidth(1);
+//   setmaxWidth(1);
+//   setStrategy("");
+//   setStep(0);
+//   setmovesDisplay([]);
+//   setRun(false);
+//   setChosen([]);
+// };
+
 function App() {
   // Note to self: React will only re-render if a state variable has been changed!
   const [input, setInput] = useState("");
@@ -26,7 +39,9 @@ function App() {
   const [strategy, setStrategy] = useState(""); // Holds route to the strategy method in the backend
   const [step, setStep] = useState(0); // Keeps track of the move we're on during a play
   const [movesDisplay, setmovesDisplay] = useState([]); // Each element contains move, width after move, and string after move
-  const [clicked, setClicked] = useState(false); // Check if we clicked a char!
+  const [run, setRun] = useState(false); // To swap between play pause functionality
+  const [pairable, setPairable] = useState(false); // Shows if we have 2 legal manual options chosen
+  const [chosen, setChosen] = useState([]); // Holds indices of chosen brackets
 
   const route = "http://localhost:8080";
 
@@ -76,10 +91,12 @@ function App() {
   const clearState = () => {
     setValid(false);
     setWidth(1);
+    setmaxWidth(1);
     setStrategy("");
     setStep(0);
     setmovesDisplay([]);
-    setmaxWidth(1);
+    setRun(false);
+    setChosen([]);
   };
 
   const handleSubmit = async () => {
@@ -108,50 +125,118 @@ function App() {
     setInput(event.target.value);
   };
 
-  const toggleSelect = async (index) => {
-    // For updating colour (and eventually a valid selection state) on selected characters
-    // Register click if input valid and what we clicked isn't disabled/removed!
-    if (valid && display[index].removed != true) {
-      const newDisplay = [...display];
-      // // Currently, we just flip the selected state of the clicked index
-      // newDisplay[index].selected = !newDisplay[index].selected;
-      // console.log(newDisplay);
-      // setDisplay(newDisplay);
-      // // Delete above
+  const toggleSelect = (index) => {
+    // Restricting is done by ZERO LEVELS!
+    // Cases:
+    // We selected a bracket
+    // - first bracket => restrict
+    // - second bracket => restrict all but those
+    // - anything else => not allowed
 
-      // Restricting is done by ZERO LEVELS!
+    // But if we unselect a bracket
+    // - Unrestrict brackets
 
-      // Cases:
-      // We selected a bracket
-      // - first bracket => restrict
-      // - second bracket => restrict all but those
-      // - anything else => not allowed
-
-      // We unselected a bracket
-      // - Unrestrict brackets
-
-      // Nothing clicked yet. So select it, then send the state of display to backend to restrict next choices
-      newDisplay[index].selected = !newDisplay[index].selected;
-      const response = await axios.post(route + "manualChoices", {
-        newDisplay,
-        index,
-      });
-    }
+    // const newDisplay = [...display];
+    // // Flip it's state
+    // newDisplay[index].selected = !newDisplay[index].selected;
+    let newDisplay = [...display];
+    newDisplay[index].selected = !newDisplay[index].selected;
+    const choice = newDisplay[index].selected;
+    setDisplay(newDisplay);
+    modifyChosen(index, choice);
   };
 
   useEffect(() => {
-    // Do shit here when char is clicked.
-  }, [clicked]);
+    console.log("Chosen changed: " + chosen);
+    let newDisplay = [...display];
+    // Flip it's state
+    if (valid) {
+      switch (chosen.length) {
+        case 0:
+          console.log("0 case");
+          for (var i = 0; i < newDisplay.length; i++) {
+            if (newDisplay[i].char != "_") {
+              newDisplay[i].removed = false;
+            }
+          }
+          setDisplay(newDisplay);
+          break;
+        case 1:
+          console.log("1 case");
+          const restrictFrom = chosen[0];
+          console.log(restrictFrom);
+          axios
+            .post(route + "/api/manualChoices", {
+              display,
+              restrictFrom,
+            })
+            .then((response) => {
+              const result = response.data.disable;
+              // Disable all chars for each index of result
+              for (var i = 0; i < newDisplay.length; i++) {
+                if (result.includes(i)) {
+                  newDisplay[i].removed = true;
+                } else {
+                  newDisplay[i].removed = false;
+                }
+              }
+              setDisplay(newDisplay);
+            });
+          break;
+        case 2:
+          console.log("2 case");
+          for (var i = 0; i < newDisplay.length; i++) {
+            if (!chosen.includes(i)) {
+              newDisplay[i].removed = true;
+            }
+          }
+          setDisplay(newDisplay);
+          break;
+      }
+    }
+  }, [chosen]);
+
+  const modifyChosen = (index, choice) => {
+    console.log("chosen length " + chosen.length);
+    let newArr = [];
+    switch (chosen.length) {
+      case 0:
+        // Nothing chosen yet, so we must be selecting
+        newArr = [index];
+        break;
+      case 1:
+        // One element exists. Are we removing or adding?
+        if (choice) {
+          if (display[index].char == "(") {
+            newArr = [index, chosen[0]];
+          } else {
+            newArr = [chosen[0], index];
+          }
+        } else {
+          newArr = [];
+        }
+        break;
+      case 2:
+        // Already chosen 2, so we must be unselecting
+        newArr = chosen.filter((pos) => pos != index);
+        break;
+    }
+    setChosen(newArr);
+  };
 
   const handlePair = () => {
-    // Pair is ok to remove by restrictions earlier. Just remove the two and move on
+    // After removing the manually chosen pair, enable all valid choices again!
+    if (chosen.length == 2) {
+    }
   };
 
   const handleDropdown = (event) => {
+    // Sets the strategy to use once we click a menu items
     setStrategy(event.target.value);
   };
 
   const generateMoves = async () => {
+    // Called when we click the "GENERATE" button after selecting a strategy
     console.log(route + strategy);
     const response = await axios.post(route + strategy, {
       display,
@@ -172,7 +257,6 @@ function App() {
   // Whenever width changes, check if its the max so far!
   useEffect(() => {
     if (width > maxWidth) {
-      console.log("ITS BIGGER");
       setmaxWidth(width);
     }
   }, [width]);
@@ -184,10 +268,14 @@ function App() {
     let right = movesDisplay[step][0][1]; // Index of right bracket to be paired
     if (movesDisplay[step][3] == false) {
       // We've not seen the move yet, so select the pair
+      if (step != 0) {
+        // We want to keep updating the move we're on, but only after we're past the first move
+        movesDisplay[step - 1][3] = false;
+      }
       movesDisplay[step][3] = true;
       newDisplay[left].selected = true;
       newDisplay[right].selected = true;
-      setStep(step);
+      // setStep(step); Potentially needed for re-render, do not remove Y
     } else {
       // We have seen the move, so remove the pair and unselect the resulting "_"s
       newDisplay[left].char = "_";
@@ -203,6 +291,14 @@ function App() {
   };
 
   const jumptoMove = () => {};
+
+  // For each re-pairing move, we want to generate appropriate button text
+  const generateMoveButton = (move) => {
+    const stepNo = 1;
+    const step = move[0];
+    const stepWidth = move[1];
+    const text = "";
+  };
 
   return (
     <Grid container style={{ height: "100vh", width: "100vw" }}>
@@ -247,10 +343,12 @@ function App() {
                 ${item.removed ? "removed" : ""}
                 `}
                 onClick={() => {
-                  toggleSelect(index);
+                  if (!item.removed && valid) {
+                    toggleSelect(index);
+                  }
                 }}
                 style={{
-                  cursor: "pointer",
+                  cursor: item.removed ? "not-allowed" : "pointer",
                   transition: "all .25s ease",
                 }}
               >
@@ -356,7 +454,7 @@ function App() {
                 Generate
               </Button>
             </Box>
-            {/* Step, Run, Pause and Slider */}
+            {/* Pair chosen, step, play/pause */}
             <Box
               style={{
                 padding: "1vmin",
@@ -367,23 +465,73 @@ function App() {
             >
               <Button
                 variant="contained"
+                onClick={handlePair}
+                disabled={
+                  // Make sure to add constrant if we have 2 legal pair selected!
+                  valid && chosen.length == 2 ? false : true
+                }
+              >
+                Pair Selected
+              </Button>
+              <Button
+                variant="contained"
                 onClick={displayStep}
                 disabled={
-                  valid &&
-                  movesDisplay.length != 0 &&
-                  step < movesDisplay.length
+                  movesDisplay.length != 0 && step < movesDisplay.length
                     ? false
                     : true
                 }
               >
                 Step
               </Button>
+              <ButtonGroup
+                variant="contained"
+                disabled={movesDisplay.length == 0}
+              >
+                <Button
+                  disabled={run ? true : false}
+                  onClick={() => {
+                    setRun(true);
+                  }}
+                >
+                  Play
+                </Button>
+                <Button
+                  disabled={!run ? true : false}
+                  onClick={() => {
+                    setRun(false);
+                  }}
+                >
+                  Pause
+                </Button>
+              </ButtonGroup>
+            </Box>
+            <Box
+              style={{
+                padding: "1vmin",
+                display: "flex",
+                alignItems: "center",
+                gap: "2vmin",
+              }}
+            >
+              <Slider
+                defaultValue={30}
+                step={10}
+                marks
+                min={10}
+                max={110}
+                disabled
+              />
             </Box>
           </Box>
         </Box>
         {/* Re-pairing move list */}
         <Box
           style={{
+            display: "flex",
+            flexDirection: "column",
+            flexGrow: 1,
+            overflow: "hidden",
             padding: "2vmin",
             borderLeft: "2px solid black",
             borderTop: "2px solid black",
@@ -393,30 +541,29 @@ function App() {
           {/* This is where the moves of the game so far will be displayed */}
           <Box
             style={{
-              padding: "2vmin",
               display: "flex",
               flexGrow: 1,
-              flexWrap: "wrap",
               flexDirection: "column",
-              textAlign: "center",
-              alignItems: "center",
-              justifyContent: "center",
+              padding: "2vmin",
+              height: "100%",
               overflowY: "auto",
             }}
           >
             {movesDisplay.map((move, index) => (
-              <Box
+              <Button
                 key={index}
+                value={index}
                 onClick={() => console.log(move)}
                 style={{
                   margin: "5px 0",
                   padding: "10px",
                   border: "1px solid gray",
+                  width: "100%",
                   cursor: "pointer",
                 }}
               >
-                {move}
-              </Box>
+                {`${index + 1}: ${move.join(", ")}`}
+              </Button>
             ))}
           </Box>
         </Box>

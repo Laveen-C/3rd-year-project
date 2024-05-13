@@ -56,23 +56,46 @@ def isdyck(s):
     return True
 
 
-# Start of manual re-pairing
-
-
 @app.route("/api/manualChoices", methods=["POST"])
 # Every time we select a bracket, we want to restrict the choices so users cannot make bad selections
+# We return the exact indices to be disabled!
 def manualChoices():
     data = request.get_json()
     dyckDict = data.get("display")
-    index = data.get("index")
+    index = data.get("restrictFrom")  # Index of the bracket we clicked on
+    # selected = dyckDict[index]["selected"]  # State of given index
+    # chosen = data.get("chosen")  # Already selected char
+    # choice = data.get("choice")  # Whether we added or removed
+
     word = ""
     for item in dyckDict:
         word += item["char"]
+
     zeros = getZeros(word)
-    print(dyckDict)
+    zero = []
+    print(index)
+    print(zeros)
+    for prime in zeros:
+        if prime[0] <= index <= prime[1]:
+            zero = prime
 
-
-# End of manual re-pairing
+    # Check within the prime given by zero's indices to see which brackets to disable
+    bracket = word[index]  # Index is guaranteed to point at a bracket
+    result = []
+    for pointer in range(len(word)):
+        if not (zero[0] <= pointer <= zero[1]):
+            result.append(pointer)
+        else:
+            char = word[pointer]
+            if pointer != index:  # We don't compare the chosen bracket to itself
+                if char == bracket or char == "_":
+                    result.append(pointer)
+                elif char == ")" and pointer < index:
+                    result.append(pointer)
+                elif char == "(" and pointer > index:
+                    result.append(pointer)
+    print(result)
+    return jsonify({"disable": result})
 
 
 # Given a Dyck word, we calculate all indices at which a Dyck prime starts and ends
@@ -85,17 +108,20 @@ def getZeros(word):
             if count == 0:
                 zeros.append([index])
             count += 1
-        else:
+        elif word[index] == ")":
             count -= 1
             if count == 0:
                 zeros[-1].append(index)
+        else:
+            # We're at a gap, so we ignore it
+            continue
     return zeros
 
 
 @app.route("/api/simple", methods=["POST"])
 def simpleRepairing():
     data = request.get_json()
-    dyckDict = data.get("display", "")
+    dyckDict = data.get("display")
     dyckWord = ""
     for item in dyckDict:
         dyckWord += item["char"]
