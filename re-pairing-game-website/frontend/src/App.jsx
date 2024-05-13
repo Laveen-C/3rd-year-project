@@ -42,6 +42,7 @@ function App() {
   const [run, setRun] = useState(false); // To swap between play pause functionality
   const [chosen, setChosen] = useState([]); // Holds indices of chosen brackets
   const [updateManual, setUpdate] = useState(false); // To trigger effect required for handlePair
+  const [deselect, setDeselect] = useState(false); // When we call step or generate, we want to deselect anything already chosen
 
   const route = "http://localhost:8080";
 
@@ -85,6 +86,15 @@ function App() {
       setDisplay(["Error: ", error]);
     }
   }, [error]);
+
+  useEffect(() => {
+    // For deselecting anything currently chosen
+    if (deselect) {
+      for (var item in display) {
+      }
+      setDeselect(false);
+    }
+  }, [deselect]);
 
   // When an error has been encountered e.g. on submission, reset these state vars to default
   // We want to keep any error message being displayed, and keep the text in the input field
@@ -157,9 +167,11 @@ function App() {
         case 0:
           console.log("0 case");
           for (var i = 0; i < newDisplay.length; i++) {
+            newDisplay[i].selected = false;
             if (newDisplay[i].char != "_") {
-              newDisplay[i].selected = false;
               newDisplay[i].removed = false;
+            } else {
+              newDisplay[i].removed = true;
             }
           }
           setDisplay(newDisplay);
@@ -192,6 +204,9 @@ function App() {
             if (!chosen.includes(i)) {
               newDisplay[i].selected = false;
               newDisplay[i].removed = true;
+            } else {
+              newDisplay[i].selected = true;
+              newDisplay[i].removed = false;
             }
           }
           setDisplay(newDisplay);
@@ -376,17 +391,19 @@ function App() {
     if (movesDisplay[step][3] == false) {
       // We've not seen the move yet, so select the pair
       movesDisplay[step][3] = true;
-      newDisplay[left].selected = true;
-      newDisplay[right].selected = true;
+      // newDisplay[left].selected = true;
+      // newDisplay[right].selected = true;
+      setChosen([left, right]);
       // setStep(step); Potentially needed for re-render, do not remove Y
     } else {
       // We have seen the move, so remove the pair and unselect the resulting "_"s
       newDisplay[left].char = "_";
       newDisplay[right].char = "_";
-      newDisplay[left].selected = false;
-      newDisplay[right].selected = false;
-      newDisplay[left].removed = true;
-      newDisplay[right].removed = true;
+      // newDisplay[left].selected = false;
+      // newDisplay[right].selected = false;
+      // newDisplay[left].removed = true;
+      // newDisplay[right].removed = true;
+      setChosen([]);
       setWidth(movesDisplay[step][1]);
       setStep(step + 1);
     }
