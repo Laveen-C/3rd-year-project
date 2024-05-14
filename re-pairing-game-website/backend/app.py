@@ -165,6 +165,10 @@ def nonSimple():
 
 @app.route("/api/greedy", methods=["POST"])
 def greedy():
+    """
+    Plan for Greedy:
+    
+    """
     data = request.get_json()
     moves = ["test OK"]
     print("TESTING")

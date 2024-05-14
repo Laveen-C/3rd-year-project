@@ -156,7 +156,7 @@
       \verb https://blog.jetbrains.com/pycharm/2023/11/django-vs-flask-which-is-the-best-python-web-framework/
       \endverb
     \endentry
-    \entry{flaskCORS}{online}{}
+    \entry{spanElem}{online}{}
       \name{author}{1}{}{%
         {{hash=eace3534eb86e51f9a1db37427425ce9}{%
            family={{MDN Web Docs}},
@@ -169,6 +169,32 @@
       \strng{authornamehash}{eace3534eb86e51f9a1db37427425ce9}
       \strng{authorfullhash}{eace3534eb86e51f9a1db37427425ce9}
       \field{extraname}{1}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{<span>: The Content Span element}
+      \field{year}{2024}
+      \verb{urlraw}
+      \verb https://developer.mozilla.org/en-US/docs/Web/HTML/Element/span
+      \endverb
+      \verb{url}
+      \verb https://developer.mozilla.org/en-US/docs/Web/HTML/Element/span
+      \endverb
+    \endentry
+    \entry{flaskCORS}{online}{}
+      \name{author}{1}{}{%
+        {{hash=eace3534eb86e51f9a1db37427425ce9}{%
+           family={{MDN Web Docs}},
+           familyi={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{eace3534eb86e51f9a1db37427425ce9}
+      \strng{fullhash}{eace3534eb86e51f9a1db37427425ce9}
+      \strng{bibnamehash}{eace3534eb86e51f9a1db37427425ce9}
+      \strng{authorbibnamehash}{eace3534eb86e51f9a1db37427425ce9}
+      \strng{authornamehash}{eace3534eb86e51f9a1db37427425ce9}
+      \strng{authorfullhash}{eace3534eb86e51f9a1db37427425ce9}
+      \field{extraname}{2}
       \field{sortinit}{M}
       \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
       \field{labelnamesource}{author}
@@ -194,7 +220,7 @@
       \strng{authorbibnamehash}{eace3534eb86e51f9a1db37427425ce9}
       \strng{authornamehash}{eace3534eb86e51f9a1db37427425ce9}
       \strng{authorfullhash}{eace3534eb86e51f9a1db37427425ce9}
-      \field{extraname}{2}
+      \field{extraname}{3}
       \field{sortinit}{M}
       \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
       \field{labelnamesource}{author}

@@ -88,5 +88,19 @@ We look at the leftmost ``\texttt{(}'', and its matching ``\texttt{)}''. Suppose
     The number of proper binary trees with $n+1$ leaves is $C_n$.
 \end{theorem}
 \begin{proof}
-    The idea is to show that every proper binary tree of $n+1$ leaves corresponds to a unique completely parenthesized expression of $n$ factors. Recall that a proper binary tree is a tree such that every non-leaf node has 2 nodes. 
+    The idea is to show that every proper binary tree of $n+1$ leaves corresponds to a unique completely parenthesized expression of $n$ factors. Recall that a proper binary tree is a tree such that every non-leaf node (internal node) has 2 children.
+    
+    Take any completely parenthesized expression of $x~=~x_{1}\dots~x_{n+1}$. Then, we can derive a proper binary tree from this expression as follows. Take the innermost pair of brackets, and the factors they contain $x_ix_{i+1}$. Let these be leaf nodes, going to some internal $y_1 = x_ix_{i+1}$. Then take the next innermost pair of brackets, which will contain $y_1x_j$ with $j\neq i,i+1$. Then let these be the children of the node $y_2$. This process repeats all the way up until we get to $x_1$. 
+    
+    It should be clear that every factor of $x$ will be a leaf node. If two expressions give the same tree, by our construction it is also clear that they must be the same expression. As we've previously shown that the number of ways to completely parenthesize an expression of $n+1$ variables is $C_n$, by this bijection the number of ways to construct a proper binary tree with $n+1$ leaves is also $C_n$.
 \end{proof}
+
+\begin{figure}[H]
+    \centering
+    \includestandalone{./figures/completeBinTree/completeBinTree}
+    \caption{The complete binary tree corresponding to the parenthesized expression $x_1(x_2(x_3x_4))$}
+    \label{fig:completeBinTree}
+\end{figure}
+
+
+

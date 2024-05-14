@@ -76,15 +76,30 @@ A natural question arises; what was different about this sequence of moves that 
 \begin{definition}
     A \textbf{Dyck prime} (or prime word) of length n is a Dyck word $\sigma$ such that $\sum_{i = 1}^{k} \sigma(i) > 0$.
 
-    Similarly, a \textbf{composite Dyck word} (or composite word) is a Dyck word that is not prime.
+    Conversely, a \textbf{composite Dyck word} (or composite word) is a Dyck word that is not prime. 
 \end{definition}
 
 This defines a Dyck word which cannot be constructed by only concatenation of other existing Dyck words. In terms of Dyck paths, this means the path will never touch the x-axis. 
 
-We make a claim about words composed of Dyck primes.
+\begin{definition}
+    Let $D = d_1\dots d_k$ be such a word composed of $k$ Dyck primes. We define the \textbf{zeroes} of $D$ to be the sequence of ordered pairs of indices $(l_{d_i}, r_{d_i})$ where the prime $d_i$ begins at index $l_{d_i}$ and ends at $r_{d_i}$.
+\end{definition} 
+
+We now make a useful claim about words composed of Dyck primes.
 
 \begin{claim}
+    \label{claim:samePrime}
     Let $\sigma$ be a composite Dyck word, and M be a re-pairing of $\sigma$. Then applying the re-pairing M will yield $\varepsilon_n$ if and only if M does not contain any moves which pair brackets from different Dyck primes within $\sigma$.
 \end{claim}
 To understand why this must hold, notice that if A and B are two Dyck primes, then by choosing a left bracket from A and a right bracket from B, there are no longer an equal number of left and right brackets within A and B. 
-\\ In particular, A contains fewer left brackets than right brackets now. Since a pairing requires a right bracket to be paired with a left bracket to its left, there will be an extra right bracket which cannot be matched with anything. A similar argument for B shows there will be an extra left bracket. Since these cannot be matched with each other either, we cannot obtain $\varepsilon_n$.
+\\ In particular, A contains fewer left brackets than right brackets now. Since a pairing requires a right bracket to be paired with a left bracket to its left, there will be an extra right bracket which cannot be matched with anything. A similar argument for B shows there will be an extra left bracket. Since these cannot be matched with each other either, we cannot obtain $\varepsilon_n$. We formalise this idea.
+\begin{proof}
+    Let A and B be two Dyck primes. Observe that the height between 
+\end{proof}
+
+\subsection{Dyck words for complete binary trees}
+The paper upon which this project is based introduces a special type of Dyck words $Z(n)$ that can be associated with complete binary trees of height $n-1$. The definition uses the convention that $+ = $\texttt{(} and $- = $\texttt{)}.
+\begin{definition}[\cite{chistikov2020re}]
+    Let $Z(1) = +-$. We define $Z(n+1) = +Z(n)Z(n)-$. 
+\end{definition}
+The paper then shows that for any $Z(n), the $

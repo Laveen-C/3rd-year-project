@@ -1,16 +1,33 @@
 \section{Re-Pairing Strategies}
 
-We can now begin to discuss strategies for playing the re-pairing game. By strategy, we refer to a set of rules that we can follow to generate a sequence of moves which will always yield $\varepsilon_n$. We'll describe all strategies from a high level, and then give algorithms for running the strategies on a given input. All algorithms will use the sequential definition of a Dyck word.
+We can now begin to discuss strategies for playing the re-pairing game. By strategy, we'll refer to a set of rules that we can follow to generate a sequence of moves which will always yield $\varepsilon_n$. We'll give algorithmic descriptions for each strategy that we intend to implement in the web application.
 
 \subsection{Simple}
-We start with the most simple strategy. Given any Dyck word, we already have a naturally existing pairing, namely the pairs of matching brackets. However, given any simple re-pairing, we do not have a clear order on which matching brackets to pair first, and we have seen that the order matters greatly when attempting to minimise the width.
+A \textbf{simple} re-pairing is one where every move pairs up matching brackets from the original Dyck word \cite{chistikov2020re}. 
 
-We'll begin with the most natural ordering, namely pairing each leftmost bracket with its matching right bracket. This means for two moves $(l_i, r_i)$ and $(l_j, r_j)$, if $l_i < l_j$ then we perform $(l_i, r_i)$ first.
+Equivalently, for a Dyck word $\sigma$ and left bracket at index $l_i$, the right bracket $r_i$ is paired with $l_i$ in a simple re-pairing if $r_i$ is the smallest index such that $h_\sigma(l_i-1) = h_\sigma(r_i)$.
 
-\begin{algorithm}
-    \caption{Leftmost Simple Re-Pairing}
-    \begin{algorithmic}
-        \State $c \gets 0$
-        \State $p \gets 0$
-    \end{algorithmic}
-\end{algorithm}
+We notice that for any given Dyck word, there are many possible simple strategies; the idea of a "simple" strategy does not tell us about the ordering of the moves, just the property that each move has. We have also previously seen that the order matters greatly when attempting to minimise the width property.
+
+We'll describe a simple strategy as follows. Given any Dyck word, we already have a naturally existing pairing, namely the pairs of matching brackets. We'll pair moves in the order of index of their leftmost matching bracket, taking the leftmost one to be paired first. This means for two moves $(l_i, r_i)$ and $(l_j, r_j)$, if $l_i < l_j$ then we perform $(l_i, r_i)$ first.
+
+For example, suppose we wanted to re-pair the Dyck word \texttt{(()())(())} using this strategy. The re-pairing would be as follows:
+\null
+\begin{center}
+    \texttt{(()())(())}\\
+    \texttt{\string_()()\string_(())}\\
+    \texttt{\string_\string_\string_()\string_(())}\\
+    \texttt{\string_\string_\string_\string_\string_\string_(())}\\
+    \texttt{\string_\string_\string_\string_\string_\string_\string_()\string_}\\
+    \texttt{\string_\string_\string_\string_\string_\string_\string_\string_\string_\string_}
+\end{center}
+\null
+
+\subsection{Greedy}
+In a sense, the previous simple strategy we described was a greedy one, since we always take the leftmost bracket to pair each time. We make a simple observation to begin.
+\begin{observation}
+    Any 
+\end{observation}
+
+\subsection{Non-Simple}
+Conversely, a \textbf{non-simple} re-pairing is one where there is at least one move (note this means there would be at least two such moves) which do not pair up matching brackets. Equivalently, it is a re-pairing strategy that is not simple.

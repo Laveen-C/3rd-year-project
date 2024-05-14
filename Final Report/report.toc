@@ -18,78 +18,90 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {2.1.4}Binary Trees}{8}{subsection.2.1.4}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {2.2}Re-Pairing Game Definitions}{8}{section.2.2}%
+\contentsline {section}{\numberline {2.2}Re-Pairing Game Definitions}{9}{section.2.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.2.1}Re-Pairings}{8}{subsection.2.2.1}%
+\contentsline {subsection}{\numberline {2.2.1}Re-Pairings}{9}{subsection.2.2.1}%
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {2.2.2}Height}{10}{subsection.2.2.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.2.3}Width}{10}{subsection.2.2.3}%
+\contentsline {subsection}{\numberline {2.2.3}Width}{11}{subsection.2.2.3}%
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {2.2.4}Dyck Primes}{11}{subsection.2.2.4}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {2.3}Re-Pairing Strategies}{12}{section.2.3}%
+\contentsline {subsection}{\numberline {2.2.5}Dyck words for complete binary trees}{12}{subsection.2.2.5}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.3.1}Simple}{12}{subsection.2.3.1}%
+\contentsline {section}{\numberline {2.3}Re-Pairing Strategies}{13}{section.2.3}%
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {3}A Web Application For The Re-Pairing Game}{13}{chapter.3}%
+\contentsline {subsection}{\numberline {2.3.1}Simple}{13}{subsection.2.3.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.1}Software Requirements}{13}{section.3.1}%
+\contentsline {subsection}{\numberline {2.3.2}Greedy}{13}{subsection.2.3.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.2}Technologies}{14}{section.3.2}%
+\contentsline {subsection}{\numberline {2.3.3}Non-Simple}{14}{subsection.2.3.3}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.2.1}Initial Ideas}{14}{subsection.3.2.1}%
+\contentsline {chapter}{\numberline {3}A Web Application For The Re-Pairing Game}{15}{chapter.3}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.2.2}Backend}{15}{subsection.3.2.2}%
+\contentsline {section}{\numberline {3.1}Software Requirements}{15}{section.3.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Flask}{15}{section*.7}%
+\contentsline {section}{\numberline {3.2}Technologies}{16}{section.3.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{PyPy}{16}{section*.9}%
+\contentsline {subsection}{\numberline {3.2.1}Initial Ideas}{16}{subsection.3.2.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.2.3}Frontend}{17}{subsection.3.2.3}%
+\contentsline {subsection}{\numberline {3.2.2}Backend}{17}{subsection.3.2.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{React}{17}{section*.11}%
+\contentsline {subsubsection}{Flask}{17}{section*.8}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Material UI}{17}{section*.12}%
+\contentsline {subsubsection}{PyPy}{18}{section*.10}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.3}Implementation}{18}{section.3.3}%
+\contentsline {subsection}{\numberline {3.2.3}Frontend}{19}{subsection.3.2.3}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.3.1}Backend}{18}{subsection.3.3.1}%
+\contentsline {subsubsection}{React}{19}{section*.12}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Validation}{19}{section*.14}%
+\contentsline {subsubsection}{Material UI (MUI)}{19}{section*.13}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Generating Moves}{19}{section*.15}%
+\contentsline {section}{\numberline {3.3}Implementation}{20}{section.3.3}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Factors}{20}{section*.16}%
+\contentsline {subsection}{\numberline {3.3.1}Backend}{20}{subsection.3.3.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Strategies}{20}{section*.17}%
+\contentsline {subsubsection}{Validation}{21}{section*.15}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Width Calculation}{20}{section*.18}%
+\contentsline {subsubsection}{Generating Moves}{21}{section*.17}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.3.2}Frontend}{22}{subsection.3.3.2}%
+\contentsline {subsubsection}{Dyck Prime Calculation}{22}{section*.18}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Control Window}{23}{section*.20}%
+\contentsline {subsubsection}{Strategies}{23}{section*.20}%
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {4}Project Management}{24}{chapter.4}%
+\contentsline {subsubsection}{Width Calculation}{23}{section*.21}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.1}Methodology}{24}{section.4.1}%
+\contentsline {subsection}{\numberline {3.3.2}Frontend}{25}{subsection.3.3.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.1.1}Development Methodology}{24}{subsection.4.1.1}%
+\contentsline {subsubsection}{Display Window}{27}{section*.24}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.1.2}Testing Methodology}{25}{subsection.4.1.2}%
+\contentsline {subsubsection}{Control Window}{28}{section*.26}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Unit Testing}{25}{section*.21}%
+\contentsline {subsubsection}{Re-Pairing moves}{29}{section*.27}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Incremental Integration Testing}{25}{section*.22}%
+\contentsline {subsubsection}{Width Display}{30}{section*.28}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.2}Setup}{26}{section.4.2}%
+\contentsline {chapter}{\numberline {4}Project Management}{31}{chapter.4}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.2.1}Git and Github}{26}{subsection.4.2.1}%
+\contentsline {section}{\numberline {4.1}Methodology}{31}{section.4.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.2.2}Virtual Environments}{26}{subsection.4.2.2}%
+\contentsline {subsection}{\numberline {4.1.1}Development Methodology}{31}{subsection.4.1.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.2.3}Goodnotes}{27}{subsection.4.2.3}%
+\contentsline {subsection}{\numberline {4.1.2}Testing Methodology}{32}{subsection.4.1.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.3}Issues Encountered}{28}{section.4.3}%
+\contentsline {subsubsection}{Unit Testing}{32}{section*.29}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.4}Timeline}{29}{section.4.4}%
+\contentsline {subsubsection}{Incremental Integration Testing}{32}{section*.30}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {4.2}Setup}{33}{section.4.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {4.2.1}Git and Github}{33}{subsection.4.2.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {4.2.2}Virtual Environments}{33}{subsection.4.2.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {4.2.3}Goodnotes}{34}{subsection.4.2.3}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {4.3}Issues Encountered}{35}{section.4.3}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {4.4}Timeline}{36}{section.4.4}%
