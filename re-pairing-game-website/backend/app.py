@@ -2,6 +2,7 @@ from flask import Flask, jsonify, request
 from flask_cors import CORS
 import platform
 
+
 app = Flask(__name__)
 cors = CORS(app, origins="*")
 
@@ -165,10 +166,6 @@ def nonSimple():
 
 @app.route("/api/greedy", methods=["POST"])
 def greedy():
-    """
-    Plan for Greedy:
-    
-    """
     data = request.get_json()
     moves = ["test OK"]
     print("TESTING")

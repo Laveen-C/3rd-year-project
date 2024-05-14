@@ -2353,23 +2353,22 @@
     <bcf:citekey order="3">rukavicka2011dp</bcf:citekey>
     <bcf:citekey order="4">chistikov2020re</bcf:citekey>
     <bcf:citekey order="5">chistikov2020re</bcf:citekey>
-    <bcf:citekey order="6">chistikov2020re</bcf:citekey>
-    <bcf:citekey order="7">whatisFlask</bcf:citekey>
+    <bcf:citekey order="6">whatisFlask</bcf:citekey>
+    <bcf:citekey order="7">flaskVSdjango</bcf:citekey>
     <bcf:citekey order="8">flaskVSdjango</bcf:citekey>
-    <bcf:citekey order="9">flaskVSdjango</bcf:citekey>
-    <bcf:citekey order="10">whatisPyPy</bcf:citekey>
-    <bcf:citekey order="11">whatisReact</bcf:citekey>
-    <bcf:citekey order="12">singlepageapp</bcf:citekey>
+    <bcf:citekey order="9">whatisPyPy</bcf:citekey>
+    <bcf:citekey order="10">whatisReact</bcf:citekey>
+    <bcf:citekey order="11">singlepageapp</bcf:citekey>
+    <bcf:citekey order="12">materialUIbuttons</bcf:citekey>
     <bcf:citekey order="13">materialUIbuttons</bcf:citekey>
-    <bcf:citekey order="14">materialUIbuttons</bcf:citekey>
-    <bcf:citekey order="15">jsonify</bcf:citekey>
-    <bcf:citekey order="16">flaskCORS</bcf:citekey>
-    <bcf:citekey order="17">spanElem</bcf:citekey>
-    <bcf:citekey order="18">agilePrinciples</bcf:citekey>
-    <bcf:citekey order="19">chistikov2020re</bcf:citekey>
-    <bcf:citekey order="20">bottomupint</bcf:citekey>
-    <bcf:citekey order="21">venv</bcf:citekey>
-    <bcf:citekey order="22">chistikov2020re</bcf:citekey>
+    <bcf:citekey order="14">jsonify</bcf:citekey>
+    <bcf:citekey order="15">flaskCORS</bcf:citekey>
+    <bcf:citekey order="16">spanElem</bcf:citekey>
+    <bcf:citekey order="17">agilePrinciples</bcf:citekey>
+    <bcf:citekey order="18">chistikov2020re</bcf:citekey>
+    <bcf:citekey order="19">bottomupint</bcf:citekey>
+    <bcf:citekey order="20">venv</bcf:citekey>
+    <bcf:citekey order="21">chistikov2020re</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="nty">

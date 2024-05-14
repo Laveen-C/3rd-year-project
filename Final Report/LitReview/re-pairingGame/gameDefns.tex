@@ -2,7 +2,7 @@
 \begin{definition}[\cite{chistikov2020re}]
     Formally, a \textbf{re-pairing} of a Dyck word of length n is a sequence of ordered pairs of indices $m = (m_{1}, \dots, m_{\frac{n}{2}})$, where each $m_{i} = (l_{i}, r_{i})$ for $l_{i}, r_{i} \in \{1,\dots,n\}$, and the following properties are satisfied:
     \begin{enumerate}
-        \item For all $1\leq i\leq \frac{n}{2}$, we have $l_{i} \leq r_{i}$, $\sigma(l_{i}) = 1$ and $\sigma(r_{i} = -1)$. 
+        \item For all $1\leq i\leq \frac{n}{2}$, we have $l_{i} \leq r_{i}$, $\sigma(l_{i}) = 1$ and $\sigma(r_{i}) = -1$. 
         \item Indices $l_{i}$ and $r_{i}$ appear in no other ordered pair $m_{j}$ for $j \neq i$.
     \end{enumerate}
 \end{definition}
@@ -92,14 +92,4 @@ We now make a useful claim about words composed of Dyck primes.
     Let $\sigma$ be a composite Dyck word, and M be a re-pairing of $\sigma$. Then applying the re-pairing M will yield $\varepsilon_n$ if and only if M does not contain any moves which pair brackets from different Dyck primes within $\sigma$.
 \end{claim}
 To understand why this must hold, notice that if A and B are two Dyck primes, then by choosing a left bracket from A and a right bracket from B, there are no longer an equal number of left and right brackets within A and B. 
-\\ In particular, A contains fewer left brackets than right brackets now. Since a pairing requires a right bracket to be paired with a left bracket to its left, there will be an extra right bracket which cannot be matched with anything. A similar argument for B shows there will be an extra left bracket. Since these cannot be matched with each other either, we cannot obtain $\varepsilon_n$. We formalise this idea.
-\begin{proof}
-    Let A and B be two Dyck primes. Observe that the height between 
-\end{proof}
-
-\subsection{Dyck words for complete binary trees}
-The paper upon which this project is based introduces a special type of Dyck words $Z(n)$ that can be associated with complete binary trees of height $n-1$. The definition uses the convention that $+ = $\texttt{(} and $- = $\texttt{)}.
-\begin{definition}[\cite{chistikov2020re}]
-    Let $Z(1) = +-$. We define $Z(n+1) = +Z(n)Z(n)-$. 
-\end{definition}
-The paper then shows that for any $Z(n), the $
+\\ In particular, A contains fewer left brackets than right brackets now. Since a pairing requires a right bracket to be paired with a left bracket to its left, there will be an extra right bracket which cannot be matched with anything. A similar argument for B shows there will be an extra left bracket. Since these cannot be matched with each other either, we cannot obtain $\varepsilon_n$. 
