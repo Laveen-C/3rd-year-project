@@ -54,11 +54,6 @@ function App() {
       label: "Greedy",
       route: "/api/greedy",
     },
-    {
-      key: "non-simple",
-      label: "Non-Simple Recursive",
-      route: "/api/nonSimple",
-    },
   ];
 
   // // BACKEND TEST CODE

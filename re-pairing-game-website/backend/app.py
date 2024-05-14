@@ -156,16 +156,9 @@ def simple(word):
     return moves
 
 
-@app.route("/api/nonSimple", methods=["POST"])
-def nonSimple():
-    data = request.get_json()
-    moves = ["test OK"]
-    print("TESTING")
-    return jsonify({"moves": moves})
-
-
 @app.route("/api/greedy", methods=["POST"])
 def greedy():
+    # DUMMY FUNCTION, REPLACE WITH IMPORT
     data = request.get_json()
     moves = ["test OK"]
     print("TESTING")
@@ -174,6 +167,7 @@ def greedy():
 
 @app.route("/api/bruteForce", methods=["POST"])
 def bruteForce():
+    # DUMMY FUNCTION, REPLACE WITH IMPORT
     data = request.get_json()
     moves = ["test OK"]
     print("TESTING")
