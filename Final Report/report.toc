@@ -34,70 +34,72 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {2.3.2}Greedy}{13}{subsection.2.3.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {3}A Web Application For The Re-Pairing Game}{16}{chapter.3}%
+\contentsline {section}{\numberline {2.4}Links to TCS}{15}{section.2.4}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.1}Software Requirements}{16}{section.3.1}%
+\contentsline {chapter}{\numberline {3}A Web Application For The Re-Pairing Game}{17}{chapter.3}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.2}Technologies}{17}{section.3.2}%
+\contentsline {section}{\numberline {3.1}Software Requirements}{17}{section.3.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.2.1}Initial Ideas}{17}{subsection.3.2.1}%
+\contentsline {section}{\numberline {3.2}Technologies}{18}{section.3.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.2.2}Backend}{18}{subsection.3.2.2}%
+\contentsline {subsection}{\numberline {3.2.1}Initial Ideas}{18}{subsection.3.2.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Flask}{18}{section*.8}%
+\contentsline {subsection}{\numberline {3.2.2}Backend}{19}{subsection.3.2.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{PyPy}{19}{section*.10}%
+\contentsline {subsubsection}{Flask}{19}{section*.8}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.2.3}Frontend}{20}{subsection.3.2.3}%
+\contentsline {subsubsection}{PyPy}{20}{section*.10}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{React}{20}{section*.12}%
+\contentsline {subsection}{\numberline {3.2.3}Frontend}{21}{subsection.3.2.3}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Material UI (MUI)}{20}{section*.13}%
+\contentsline {subsubsection}{React}{21}{section*.12}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.3}Implementation}{21}{section.3.3}%
+\contentsline {subsubsection}{Material UI (MUI)}{21}{section*.13}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.3.1}Backend}{21}{subsection.3.3.1}%
+\contentsline {section}{\numberline {3.3}Implementation}{22}{section.3.3}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Validation}{22}{section*.15}%
+\contentsline {subsection}{\numberline {3.3.1}Backend}{22}{subsection.3.3.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Generating Moves}{22}{section*.17}%
+\contentsline {subsubsection}{Validation}{23}{section*.15}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Dyck Prime Calculation}{23}{section*.18}%
+\contentsline {subsubsection}{Generating Moves}{23}{section*.17}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Strategies}{24}{section*.20}%
+\contentsline {subsubsection}{Dyck Prime Calculation}{24}{section*.18}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Width Calculation}{24}{section*.21}%
+\contentsline {subsubsection}{Strategies}{25}{section*.20}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.3.2}Frontend}{26}{subsection.3.3.2}%
+\contentsline {subsubsection}{Width Calculation}{25}{section*.21}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Display Window}{28}{section*.24}%
+\contentsline {subsection}{\numberline {3.3.2}Frontend}{27}{subsection.3.3.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Control Window}{29}{section*.26}%
+\contentsline {subsubsection}{Display Window}{29}{section*.24}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Re-Pairing moves}{30}{section*.27}%
+\contentsline {subsubsection}{Control Window}{30}{section*.26}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Width Display}{31}{section*.28}%
+\contentsline {subsubsection}{Re-Pairing moves}{31}{section*.27}%
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {4}Project Management}{32}{chapter.4}%
+\contentsline {subsubsection}{Width Display}{32}{section*.28}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.1}Methodology}{32}{section.4.1}%
+\contentsline {chapter}{\numberline {4}Project Management}{33}{chapter.4}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.1.1}Development Methodology}{32}{subsection.4.1.1}%
+\contentsline {section}{\numberline {4.1}Methodology}{33}{section.4.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.1.2}Testing Methodology}{33}{subsection.4.1.2}%
+\contentsline {subsection}{\numberline {4.1.1}Development Methodology}{33}{subsection.4.1.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Unit Testing}{33}{section*.29}%
+\contentsline {subsection}{\numberline {4.1.2}Testing Methodology}{34}{subsection.4.1.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Incremental Integration Testing}{33}{section*.30}%
+\contentsline {subsubsection}{Unit Testing}{34}{section*.29}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.2}Setup}{34}{section.4.2}%
+\contentsline {subsubsection}{Incremental Integration Testing}{34}{section*.30}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.2.1}Git and Github}{34}{subsection.4.2.1}%
+\contentsline {section}{\numberline {4.2}Setup}{35}{section.4.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.2.2}Virtual Environments}{34}{subsection.4.2.2}%
+\contentsline {subsection}{\numberline {4.2.1}Git and Github}{35}{subsection.4.2.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.2.3}Goodnotes}{35}{subsection.4.2.3}%
+\contentsline {subsection}{\numberline {4.2.2}Virtual Environments}{35}{subsection.4.2.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.3}Issues Encountered}{36}{section.4.3}%
+\contentsline {subsection}{\numberline {4.2.3}Goodnotes}{36}{subsection.4.2.3}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.4}Timeline}{37}{section.4.4}%
+\contentsline {section}{\numberline {4.3}Issues Encountered}{37}{section.4.3}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {4.4}Timeline}{38}{section.4.4}%

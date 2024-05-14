@@ -1,0 +1,12 @@
+\section{Links to TCS}
+Although the re-pairing game is an interesting combinatorial game by itself, the seminal work introduces this game as a way to develop results on a problem in computational complexity.
+
+Recall the following 3 models of computation; One Counter Automata (OCA) which recognise one-counter languages, Nondeterministic Finite Automata (NFA) which recognise regular languages and Push Down Automata (PDA) which recognise context-free languages. A PDA is more powerful than an NFA, which is more powerful than an OCA. Whilst they all operate over the same alphabet $\Sigma$, they each recognise languages that are strict subsets of each other in the order of "power". 
+
+We know it is not possible to translate from a model of computation that recognises a strict subset of another higher model of computation; that is, if you have an NFA you cannot translate it into an equivalently powerful OCA that recognises everything the NFA can. However, there are ways to capture features of a more powerful model with a less powerful one, given that L is is a context free language \cite{parikhTheorem}. 
+
+The \textbf{Parikh image} of a language $L\subseteq\Sigma^*$ is the set of vectors $(v_1,\dots,v_k)$, where $k = |\Sigma|$. Each vector co-ordinate is for a letter in the alphabet, and for a word $w$, each $v_i$ is the number of occurrences of the letter $a_i$ in $w$. 
+
+By Parikh's theorem \cite{parikhTheorem}, given an OCA A with n states that recognises the language L = L(A) we can construct an NFA which recognises the Parikh image of L. However, what if L is a one-counter language? Does this construction become any simpler? 
+
+A paper by Chistikov \textit{et al.} shows the answer is yes \cite{chistikov2016oca}. In particular, there is a quasi-polynomial upper bound of $n^{\bigO(\log n)}$ shown for such constructions. The seminal work shows that the lower bound on this construction is also quasi-polynomial, specifically bounded below by $n^{\Omega(\sqrt{\log n / \log\log n})}$ \cite{chistikov2020re}. 

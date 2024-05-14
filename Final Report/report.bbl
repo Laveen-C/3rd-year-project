@@ -48,6 +48,32 @@
       \verb https://agilemanifesto.org/principles.html
       \endverb
     \endentry
+    \entry{chistikov2016oca}{inproceedings}{}
+      \true{moreauthor}
+      \true{morelabelname}
+      \name{author}{1}{}{%
+        {{hash=dfb9ed7d7d4e054ba92bffd31726a2b9}{%
+           family={Chistikov},
+           familyi={C\bibinitperiod},
+           given={Dmitry},
+           giveni={D\bibinitperiod}}}%
+      }
+      \strng{namehash}{3567e0c94423ffa90d257cd42b76fb6c}
+      \strng{fullhash}{3567e0c94423ffa90d257cd42b76fb6c}
+      \strng{bibnamehash}{3567e0c94423ffa90d257cd42b76fb6c}
+      \strng{authorbibnamehash}{3567e0c94423ffa90d257cd42b76fb6c}
+      \strng{authornamehash}{3567e0c94423ffa90d257cd42b76fb6c}
+      \strng{authorfullhash}{3567e0c94423ffa90d257cd42b76fb6c}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Proceedings of the 31st Annual ACM/IEEE Symposium on Logic in Computer Science}
+      \field{title}{The complexity of regular abstractions of one-counter languages}
+      \field{year}{2016}
+      \field{pages}{207\bibrangedash 216}
+      \range{pages}{10}
+    \endentry
     \entry{chistikov2020re}{inproceedings}{}
       \name{author}{2}{}{%
         {{hash=dfb9ed7d7d4e054ba92bffd31726a2b9}{%
@@ -258,6 +284,31 @@
       \verb{url}
       \verb https://react.dev/
       \endverb
+    \endentry
+    \entry{parikhTheorem}{inproceedings}{}
+      \name{author}{1}{}{%
+        {{hash=60221f9c1cc091603d4e3d7add9d298f}{%
+           family={Parikh},
+           familyi={P\bibinitperiod},
+           given={Rohit\bibnamedelima J.},
+           giveni={R\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+      }
+      \strng{namehash}{60221f9c1cc091603d4e3d7add9d298f}
+      \strng{fullhash}{60221f9c1cc091603d4e3d7add9d298f}
+      \strng{bibnamehash}{60221f9c1cc091603d4e3d7add9d298f}
+      \strng{authorbibnamehash}{60221f9c1cc091603d4e3d7add9d298f}
+      \strng{authornamehash}{60221f9c1cc091603d4e3d7add9d298f}
+      \strng{authorfullhash}{60221f9c1cc091603d4e3d7add9d298f}
+      \field{sortinit}{P}
+      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of the ACM}
+      \field{title}{On Context-Free Languages}
+      \field{volume}{13}
+      \field{year}{1966}
+      \field{pages}{570\bibrangedash 581}
+      \range{pages}{12}
     \endentry
     \entry{venv}{online}{}
       \name{author}{1}{}{%

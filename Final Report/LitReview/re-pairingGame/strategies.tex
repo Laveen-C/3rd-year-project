@@ -74,7 +74,11 @@ From this we get an idea for an strategy; we will be greedy on the width of the 
 However, from our previous example, we saw that even though \texttt{(())} and \texttt{()} would have the same width to re-pair, picking \texttt{()} to re-pair first is the better choice. We hypothesise this might be due to a shorter length.
 So if A and B have the same width to re-pair, pick from whichever had the smaller length. If these are the same, the choice is arbitrary. 
 
-Applying this strategy on the example we gave earlier yields a re-pairing of width 1.
+Applying this strategy on the example we gave earlier yields a re-pairing of width 1. By the design of this strategy, we get another corollary.
+
+\begin{corollary}
+    Given a Dyck word $\sigma$, applying the Greedy strategy will yield a re-pairing of width 1 if and only if width($\sigma$) $= 1$.
+\end{corollary}
 
 % \subsection{Non-Simple}
 % Conversely, a \textbf{non-simple} re-pairing is one where there is at least one move (note this means there would be at least two such moves) which do not pair up matching brackets. Equivalently, it is a re-pairing strategy that is not simple. 
